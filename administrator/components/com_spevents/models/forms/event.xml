@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden" />
+        <field name="title" type="text" class="inputbox" size="40" required="true" description="JFIELD_TITLE_DESC" lable="JGLOBAL_TITLE" />
+        <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
+        <field name="location"
+               label="COM_SPEVENTS_LOCATION_LABEL"
+               description="COM_SPEVENTS_LOCATION_DESC"
+               type="sql"
+               query="SELECT id, venue_name AS venue from #__spevents_locations where enabled = 1"
+               key_field="id"
+               value_field="venue"
+               required="true">
+            <option value="">Select a location</option>
+            <option value="0">Online</option>
+        </field>
+        <field name="organizers"
+               label="COM_SPEVENTS_ORGANIZERS_LABEL"
+               description="COM_SPEVENTS_ORGANIZERS_DESC"
+               type="sql"
+               query="SELECT id, title from #__spevents_organizers where enabled = 1"
+               key_field="id"
+               value_field="title"
+               required="true"
+               multiple="multiple"
+        />
+        <field name="banner" type="media" label="COM_SPEVENTS_BANNER_LABEL" description="COM_SPEVENTS_BANNER_DESC"/>
+        <field name="url" type="url" label="COM_SPEVENTS_URL_LABEL" description="COM_SPEVENTS_URL_DESC" />
+        <field name="social_tags" type="text" label="COM_SPEVENTS_SOCIAL_TAGS_LABEL" description="COM_SPEVENTS_SOCIAL_TAGS_DESC"/>
+        <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
+    </fieldset>
+    <fieldset name="date-time">
+        <field name="start_time" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" required="true" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_DATE_DESC"/>
+        <field name="end_time" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_START_DATE_DESC" showon="all_day_event:0" />
+        <field name="all_day_event" type="radio" label="COM_SPEVENTS_ALL_DAY_EVENT_LABEL" description="COM_SPEVENTS_ALL_DAY_EVENT_DESC" default="0" class="btn-group">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        <field name="timezone" type="timezone" default="Asia/Dhaka" label="COM_SPEVENTS_TIMEZONE_LABEL" description="COM_SPEVENTS_TIMEZONE_DESC" required="true" />
+        <fields name="slots" showon="split_event:1">
+            <field name="slot" type="subform" formsource="/administrator/components/com_spevents/models/fields/event_slots.xml" multiple="true" label="COM_SPEVENTS_SLOTS_LABEL" description="COM_SPEVENTS_SLOTS_DESC" />
+        </fields>
+
+
+    </fieldset>
+    <fieldset name="repeat">
+        <fields name="recurring">
+            <field name="repeat_amount" type="text" label="COM_SPEVENTS_REPEAT_EVERY_LABEL" description="COM_SPEVENTS_REPEAT_EVERY_DESC" />
+            <field name="repeat_type" type="list" label="">
+                <option value="day">Day</option>
+                <option value="week">Week</option>
+                <option value="month">Month</option>
+                <option value="year">Year</option>
+            </field>
+            <field name="end_repeat" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_END_REPEAT_LABEL" description="COM_SPEVENTS_END_REPEAT_DESC"/>
+            <field name="repeat_on" type="list" multiple="true" label="Repeat on">
+                <option value="1">Saturday</option>
+                <option value="2">Sunday</option>
+                <option value="3">Monday</option>
+                <option value="4">Tuesday</option>
+                <option value="5">Wednesday</option>
+                <option value="6">Thursday</option>
+                <option value="7">Friday</option>
+            </field>
+            <field name="repeat_also" type="cdatepicker" label="COM_SPEVENTS_REPEAT_ALSO_LABEL" description="COM_SPEVENTS_REPEAT_ALSO_DESC" />
+
+            <field name="repeat_not" type="cdatepicker" label="COM_SPEVENTS_REPEAT_NOT_LABEL" description="COM_SPEVENTS_REPEAT_NOT_DESC" />
+            
+        </fields>
+    </fieldset>
+    <fieldset name="registration">
+        <fields name="registration">
+            <field name="reg_start" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_START_LABEL" description="COM_SPEVENTS_REG_START_DESC"/>
+            <field name="reg_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_END_LABEL" description="COM_SPEVENTS_REG_END_DESC"/>
+            <field name="reg_cancel" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_CANCEL_LABEL" description="COM_SPEVENTS_REG_CANCEL_DESC"/>
+            <field name="reg_payment" type="list" label="COM_SPEVENTS_PAYMENT_LABEL" description="COM_SPEVENTS_PAYMENT_DESC" multiple="multiple">
+                <option value="COD">Cash On Delivery</option>
+                <option value="paypal">Paypal</option>
+            </field>
+            <field name="reg_allow_overflow" type="radio" label="COM_SPEVENTS_ALLOW_OVERFLOW_LABEL" description="COM_SPEVENTS_ALLOW_OVERFLOW_DESC" default="0" class="btn-group">
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+
+        </fields>
+    </fieldset>
+    <fieldset name="discount">
+
+    </fieldset>
+    <fieldset name="ticket" class="ticket_wrp">
+        <fields name="tickets">
+            <field name="ticket" type="subform"
+                   formsource="/administrator/components/com_spevents/models/fields/tickets.xml" multiple="true"
+                   label="COM_SPEVENTS_TICKETS_LABEL" description="COM_SPEVENTS_TICKETS_DESC" />
+            <field name="discount" type="sql" query="SELECT id, CONCAT(title, ' (code: ',code,') ') AS title FROM #__spevents_coupons where enabled = 1" key_field="id" value_field="title" label="Discount" multiple="multiple"/>
+        </fields>
+    </fieldset>
+    <fieldset name="options">
+        <field name="featured" type="radio" label="COM_SPEVENTS_FEATURED_LABEL" description="COM_SPEVENTS_FEATURED_DESC" default="0" class="btn-group">
+        	<option value="1">JYES</option>
+        	<option value="0">JNO</option>
+        </field>	
+        <field name="categories"
+               type="sql"
+               label="COM_SPEVENTS_CATEGORY_LABEL"
+               description="COM_SPEVENTS_CATEGORY_DESC"
+               query="SELECT id, title from #__spevents_categories where enabled = 1"
+               key_field="id"
+               value_field="title"
+               multiple="multiple"
+        >JJYJYEJYESJYES</field>
+        <field name="tags" type="sql" query="SELECT id, title FROM #__spevents_tags where enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_TAGS_LABEL" description="COM_SPEVENTS_TAGS_DESC" multiple="multiple" />
+        <field name="currency" type="list" label="COM_SPEVENTS_CURRENCY_LABEL" description="COM_SPEVENTS_CURRENCY_DESC" default="USD:$">
+            <option value="USD:$">United States dollar($)</option>
+            <option value="GBP:£">British pound(£)</option>
+            <option value="RUB:₽">Russian Ruble(₽)</option>
+            <option value="BRL:R$">Brazilian Real(R$)</option>
+            <option value="CAD:$">Canadian Dollar($)</option>
+            <option value="CZK:Kč">Czech Koruna(Kč)</option>
+            <option value="DKK:kr.">Danish Krone(kr.)</option>
+            <option value="EUR:€">Euro(€)</option>
+            <option value="HKD:HK$">Hong Kong Dollar(HK$)</option>
+            <option value="HUF:Ft">Hungarian Forint(Ft)</option>
+            <option value="ILS:₪">Israeli New Sheqel(₪)</option>
+            <option value="JPY:¥">Japanese Yen(¥)</option>
+            <option value="MYR:RM">Malaysian Ringgit(RM)</option>
+            <option value="MXN:Mex$">Mexican Peso(Mex$)</option>
+            <option value="NOK:kr">Norwegian Krone(kr)</option>
+            <option value="NZD:$">New Zealand Dollar($)</option>
+            <option value="PHP:₱">Philippine Peso(₱)</option>
+            <option value="PLN:zł">Polish Zloty(zł)</option>
+            <option value="SGD:$">Singapore Dollar($)</option>
+            <option value="SEK:kr">Swedish Krona(kr)</option>
+            <option value="CHF:CHF">Swiss Franc(CHF)</option>
+            <option value="TWD:角">Taiwan New Dollar(角)</option>
+            <option value="BDT:৳">Bangladeshi Taka(৳)</option>
+            <option value="THB:฿">Thai Baht(฿)</option>
+            <option value="TRY:TRY">Turkish Lira(TRY)</option>
+        </field>
+
+        <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+        <field name="language" type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
+            <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
+        </field>
+        <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+        <field name="created_on" type="calendar" showtime="false" timeformat="24" format="%Y-%m-%d" label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"/>
+        <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
+    </fieldset>
+    <fieldset name="settings">
+        <fields name="settings">
+            <fieldset name="sharing">
+                <field name="rating" label="Enable event rating" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="share_fb" label="Enable share on facebook" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="share_tw" label="Enable share on twitter" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="share_gp" label="Enable share on google+" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="event_list">
+                <field name="start_date" label="Display Start date" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="end_date" label="Display End date" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="description" label="Display Description" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="location" label="Display Location" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="organizers" label="Display Organizers" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="categories" label="Display Categories" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="tags" label="Display Tags" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="map" label="Display Map" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <!-- <field name="hits" label="Display Hits" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field> -->
+                <field name="list_rating" label="Display Rating" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+            <fieldset name="event_details">
+                <field name="detail_start_date" label="Display Start date" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="detail_end_date" label="Display End date" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="detail_categories" label="Display Categories" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="detail_tags" label="Display Tags" description="" default="1" type="radio" class="btn-group">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </fieldset>
+
+</form>

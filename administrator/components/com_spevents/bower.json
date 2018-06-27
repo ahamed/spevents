@@ -1,0 +1,23 @@
+{
+  "name": "spevents",
+  "description": "This is an event management component",
+  "main": "",
+  "authors": [
+    "JoomShaper <joomshaper@gmail.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "suggested-dependencies": {
+    "bourbon":"*"
+  },
+  "dependencies": {
+  }
+}

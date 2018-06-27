@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<fields name="params">
+		<fieldset name="basic" label="COM_SPPROPERTY_MENUSET_AGENTS">
+
+			<field name="order_by" type="list" default="" label="COM_SPPROPERTY_FIELD_AGENT_ORDER" description="COM_SPPROPERTY_FIELD_AGENT_ORDER_DESC">	
+				<option value="desc">COM_SPPROPERTY_FIELD_DESC</option>	
+				<option value="asc">COM_SPPROPERTY_FIELD_ASC</option>
+			</field>
+		
+		</fieldset>
+	</fields>
+</metadata>

@@ -1,0 +1,13 @@
+{
+    "name": "joomshaper/spevents",
+    "description": "This is an event management component",
+    "authors": [
+        {
+            "name": "JoomShaper",
+            "email": "joomshaper@gmail.com"
+        }
+    ],
+    "require": {
+        
+    }
+}

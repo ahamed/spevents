@@ -1,0 +1,170 @@
+a {
+  color: #4bb463;
+}
+a:hover,
+a:active,
+a:focus {
+  color: #3c904f;
+}
+.btn-default,
+.sppb-btn-default {
+  background-color: #4bb463;
+  color: #fff;
+}
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.sppb-btn-default:hover,
+.sppb-btn-default:focus,
+.sppb-btn-default:active {
+  color: #fff;
+  background-color: #3c904f;
+}
+#sp-header {
+  background-color: #29333f;
+}
+.sp-megamenu-parent >li.menu-button >a {
+  background-color: #4bb463;
+}
+.sp-megamenu-parent >li.menu-button >a:hover,
+.sp-megamenu-parent >li.menu-button >a:focus,
+.sp-megamenu-parent >li.menu-button >a:active {
+  background-color: #3c904f;
+}
+.sp-megamenu-parent >li.active>a,
+.sp-megamenu-parent >li:hover>a {
+  color: #4bb463;
+}
+.sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
+  background: #29333f;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover {
+  background: #4bb463;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a:hover.sp-group-title {
+  color: #4bb463;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item >a.sp-group-title {
+  color: #4bb463;
+}
+.sp-megamenu-parent .sp-dropdown li.sp-menu-item.active>a {
+  background: #4bb463;
+}
+#offcanvas-toggler >i:hover {
+  color: #4bb463;
+}
+.offcanvas-menu {
+  background: #4bb463;
+}
+.offcanvas-menu .offcanvas-inner .sp-module ul > li a {
+  color: #fff;
+}
+.offcanvas-menu .offcanvas-inner .sp-module ul > li a:hover {
+  background: rgba(0,0,0,0.2);
+}
+ul.social-icons >li a:hover {
+  color: #4bb463;
+}
+.layout-boxed .body-innerwrapper {
+  background: #ffffff;
+}
+.sp-module ul >li >a {
+  color: #000000;
+}
+.sp-module ul >li >a:hover {
+  color: #4bb463;
+}
+.sp-module .latestnews >div >a,
+.sp-module .mostread >div >a {
+  color: #000000;
+}
+.sp-module .latestnews >div >a:hover,
+.sp-module .mostread >div >a:hover {
+  color: #4bb463;
+}
+.sp-module .tagscloud .tag-name:hover {
+  background: #4bb463;
+}
+.search .btn-toolbar button {
+  background: #4bb463;
+}
+.form-links ul >li >a {
+  color: #999;
+}
+.form-links ul >li >a:hover,
+.form-links ul >li >a:active,
+.form-links ul >li >a:focus {
+  color: #4bb463;
+}
+.post-format {
+  background: #4bb463;
+}
+.voting-symbol span.star.active:before {
+  color: #4bb463;
+}
+.sp-rating span.star:hover:before,
+.sp-rating span.star:hover ~ span.star:before {
+  color: #3c904f;
+}
+.entry-link,
+.entry-quote {
+  background: #4bb463;
+}
+blockquote {
+  border-color: #4bb463;
+}
+.carousel-left:hover,
+.carousel-right:hover {
+  background: #4bb463;
+}
+#sp-bottom,
+#sp-footer {
+  background: #343d47;
+  color: #fff;
+  border-top: 1px solid #303841;
+}
+#sp-bottom a,
+#sp-footer a {
+  color: #fff;
+}
+#sp-footer .sp-copyright a {
+  color: #4bb463;
+}
+.pagination-wrapper .pagination > li > a,
+.pagination-wrapper .pagination > li > span {
+  color: #000000;
+}
+.pagination-wrapper .pagination > .active > a,
+.pagination-wrapper .pagination > .active > a:hover,
+.pagination-wrapper .pagination > .active > a:focus,
+.pagination-wrapper .pagination > .active > span,
+.pagination-wrapper .pagination > .active > span:hover,
+.pagination-wrapper .pagination > .active > span:focus {
+  color: #fff;
+  background-color: #4bb463;
+}
+.sp-speaker .speaker-title {
+  color: #000000;
+}
+.sp-speaker .speaker-title a {
+  color: #000000;
+}
+.sp-speaker .speaker-title a:hover,
+.sp-speaker .speaker-title a:active,
+.sp-speaker .speaker-title a:focus {
+  color: #4bb463;
+}
+.sp-speaker .speaker-designation {
+  color: #000000;
+}
+.sp-eventum-view-speaker .speaker-social-icons ul >li >a {
+  color: #000000;
+}
+.eventum-schedules .table-hover th a.event-speaker:hover,
+.eventum-schedules .table-hover th a.event-speaker:active,
+.eventum-schedules .table-hover th a.event-speaker:focus,
+.eventum-schedules .table-hover td a.event-speaker:hover,
+.eventum-schedules .table-hover td a.event-speaker:active,
+.eventum-schedules .table-hover td a.event-speaker:focus {
+  color: #4bb463;
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field name="slot_title" type="text" size="50" label="COM_SPEVENTS_SLOT_TITLE" description="COM_SPEVENTS_SLOT_TITLE_DESC" />
+    <field name="slot_start" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" label="COM_SPEVENTS_SLOT_START" description="COM_SPEVENTS_SLOT_START_DESC"/>
+    <field name="slot_end" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" label="COM_SPEVENTS_SLOT_END" description="COM_SPEVENTS_SLOT_END_DESC" />
+    <field name="slot_venue" type="text" label="COM_SPEVENTS_SLOT_VENUE" description="COM_SPEVENTS_SLOT_VENUE_DESC" />
+    <field name="slot_description" type="textarea" cols="30" rows="6" label="COM_SPEVENTS_SLOT_DESCRIPTION" description="COM_SPEVENTS_SLOT_DESCRIPTION_DESC"/>
+    <field name="slot_spekers" type="list" label="COM_SPEVENTS_SLOT_SPEAKERS" description="COM_SPEVENTS_SLOT_SPEAKERS_DESC" multiple="true">
+        <option value="1">Speaker 1</option>
+        <option value="2">Speaker 2</option>
+        <option value="3">Speaker 3</option>
+        <option value="4">Speaker 4</option>
+    </field>
+</form>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset name="component" label="COM_SPEVENTS_FIELDSET_BASIC_LABEL">
+		<field name="cmap_api" type="text" label="COM_SPEVENTS_MAP_API_KEY_LABEL" description="COM_SPEVENTS_MAP_API_KEY_DESC"/>
+	</fieldset>
+
+	<fieldset
+		name="permissions"
+		label="JCONFIG_PERMISSIONS_LABEL"
+		description="JCONFIG_PERMISSIONS_DESC"
+		>
+
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			filter="rules"
+			validate="rules"
+			component="com_spevents"
+			section="component" />
+	</fieldset>
+</config>

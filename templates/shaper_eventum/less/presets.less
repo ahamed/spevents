@@ -1,0 +1,321 @@
+/**
+ * @package Helix Framework
+ * @author JoomShaper http://www.joomshaper.com
+ * @copyright Copyright (c) 2010 - 2014 JoomShaper
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+ */
+
+ @import 'variables';
+ @import 'mixins';
+
+
+// Anchor
+a{
+	color: @major_color;
+	&:hover,
+	&:active,
+	&:focus {
+		color: darken(@major_color, 10%);
+	}
+}
+
+//Button
+.btn-default,
+.sppb-btn-default {
+	background-color: @major_color;
+	color: #fff;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: #fff;
+		background-color: darken(@major_color, 10%);
+	}
+}
+
+#sp-header{
+	background-color: @header_bg;
+}
+
+// Megamenu 
+.sp-megamenu-parent {
+	>li {
+
+		&.menu-button >a {
+			background-color: @major_color;
+			&:hover,
+			&:focus,
+			&:active {
+				background-color: darken(@major_color, 10%);
+			}
+		}
+
+		&.active>a,
+		&:hover>a {
+			color: @major_color;
+		}
+	}
+
+	// Dropdown
+	.sp-dropdown {
+
+		.sp-dropdown-inner {
+			background: @header_bg;
+		}
+
+		li.sp-menu-item {
+			>a {
+
+				&:hover {
+					background: @major_color;
+					&.sp-group-title {
+						color: @major_color;
+					}
+				}
+
+				// Group Title
+				&.sp-group-title {
+					color: @major_color;
+				}
+
+			}
+			&.active>a {
+				background: @major_color;
+			}
+
+
+		}
+	}
+
+}
+
+// Off Canvas
+#offcanvas-toggler {
+	>i:hover {
+		color: @major_color;
+	}
+}
+
+.offcanvas-menu {
+	background: @major_color;
+	.offcanvas-inner {
+		.sp-module {
+			ul {
+				> li{
+					a {
+						color: #fff;
+						&:hover {
+							background: rgba(0, 0, 0, 0.2);
+						}
+					}
+				}
+			}
+		}	
+	}
+}
+
+// Topbar Social
+ul.social-icons {
+
+	>li {
+
+		a {
+
+			&:hover {
+				color: @major_color;
+			}
+		}
+	}
+}
+
+// Body Innerwrapper
+
+.layout-boxed .body-innerwrapper {
+	background: @bg_color;
+}
+
+// Module
+.sp-module {
+	ul {
+		>li {
+			>a {
+				color: @text_color;
+				&:hover {
+					color: @major_color;
+				}
+			}
+		}
+	}
+
+	.latestnews,
+	.mostread {
+		>div {
+			>a {
+				color: @text_color;
+				&:hover {
+					color: @major_color;
+				}
+			}
+		}
+	}
+
+	.tagscloud {
+		.tag-name {
+			&:hover {
+				background: @major_color;
+			}	
+		}
+	}
+}
+
+// Search
+.search {
+	.btn-toolbar {
+		button {
+			background: @major_color;
+		}
+	}
+}
+
+// Login
+.form-links{
+	ul {
+		>li {
+			>a {
+				color: #999;
+
+				&:hover,
+				&:active,
+				&:focus {
+					color: @major_color;
+				}
+			}
+		}
+	}
+}
+
+
+// Blog
+.post-format {
+	background: @major_color;
+}
+
+.voting-symbol{
+	span.star.active:before{
+		color: @major_color;
+	}
+}
+
+.sp-rating {
+	span.star:hover:before,
+	span.star:hover ~ span.star:before {
+		color: darken(@major_color, 10%);
+	}
+}
+
+.entry-link,
+.entry-quote {
+	background: @major_color;
+}
+
+blockquote {
+	border-color: @major_color;
+}
+
+.carousel-left,
+.carousel-right {
+	&:hover {
+		background: @major_color;
+	}
+}
+
+// Footer
+#sp-bottom,
+#sp-footer {
+	background: @footer_bg;
+	color: #fff;
+	border-top: 1px solid darken(@footer_bg, 2%);
+	a {
+		color: #fff;
+	}
+}
+
+#sp-footer {
+	.sp-copyright a {
+		color: @major_color;
+	}
+}
+
+// Pagination 
+.pagination-wrapper {
+	.pagination {
+
+		> li {
+			> a,
+			> span {
+				color: @text_color;
+			}
+		}
+
+		> .active > a,
+		> .active > span {
+			&,
+			&:hover,
+			&:focus {
+				color: #fff;
+				background-color: @major_color;
+			}
+		}
+	}
+}
+
+// Speaker
+.sp-speaker {
+	.speaker-title {
+		color: @text_color;
+		a{
+			color: @text_color;
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: @major_color;
+			}
+		}
+	}
+
+	.speaker-designation {
+		color: @text_color;
+	}
+}
+
+// Speaker Details
+ .sp-eventum-view-speaker {
+ 	.speaker-social-icons {
+ 		ul {
+ 			>li {
+ 				>a {
+ 					color: @text_color;
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+
+ // Schedules
+ .eventum-schedules {
+ 	.table-hover {
+ 		th,td {
+ 			a.event-speaker {
+ 				&:hover,
+ 				&:active,
+ 				&:focus {
+ 					color: @major_color;
+ 				}
+ 			}
+ 		}
+ 	}
+ }
+
+
+

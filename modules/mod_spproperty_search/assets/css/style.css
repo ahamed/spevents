@@ -1,0 +1,171 @@
+/**
+ * @package     SP Properties
+
+ * @subpackage  mod_spproperty_search
+ *
+ * @copyright   Copyright (C) 2010 - 2016 JoomShaper. All rights reserved.
+ * @license     GNU General Public License version 2 or later.
+ */
+/* ==========================================================================
+   Property Seach
+   ========================================================================== */
+
+#sp-page-builder .empire-property-search {
+    position: relative;
+    z-index: 10 !important;
+}
+#sp-page-builder .empire-property-search:before {
+    content: '\f002';
+    background-color: #8cc641;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-family: FontAwesome;
+    font-size: 18px;
+    height: 54px;
+    left: 0;
+    margin: 0 auto;
+    padding-top: 7px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: -20px;
+    width: 54px;
+}
+#sp-page-builder .empire-property-search .sppb-section-title {
+    margin-bottom: 12px;
+}
+#sp-page-builder .empire-property-search .sppb-section-title .sppb-title-heading {
+    font-size: 18px;
+    font-weight: 400;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search {
+    line-height: 1;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a {
+    font-size: 14px;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a i {
+    color: #8cc641;
+    transition: .4s;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a span {
+    display: inline-block;
+    color: #8c8c8c;
+    padding-left: 5px;
+    transition: .4s;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:hover i,
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:focus i,
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:active i {
+    color: #8c8c8c;
+}
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:hover span,
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:focus span,
+#sp-page-builder .empire-property-search .sp-property-search .property-advance-search a:active span {
+    color: #8cc641;
+}
+.sp-property-search.property-search .property-search-button button.sppb-btn,
+.sp-property-search.property-search .property-search-button button.btn {
+    padding: 0 30px;
+}
+.empire-property-search .spproperty-adv-search select,.empire-property-search .spproperty-search select{
+    padding: 6px 18px;
+    -webkit-appearance:none;
+}
+/* *************   START Advance Search  *************** */
+/* **************************************************** */
+
+.modal-dialog.modal-lg {
+    width: 1200px;
+    margin: 0 auto;
+}
+.modal-dialog.modal-lg .modal-content {
+    border: 0 none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.sppb-addon-content div.modal.fade.in {
+    top: 0;
+}
+.sp-advaced-search .sp-advance-search-wrap {
+    position: relative;
+    padding: 35px 15px 45px;
+}
+.sp-advaced-search .sp-advance-search-wrap .sp-advance-icon {
+    background-color: #8cc641;
+    border: 7px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    height: 54px;
+    left: 0;
+    margin: 0 auto;
+    padding-top: 9px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: -20px;
+    width: 54px;
+}
+.sp-advaced-search .sp-advance-search-wrap .sp-advance-serach-title h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 36px;
+    margin-bottom: 17px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+.sp-advaced-search .sp-advance-search-wrap span.close {
+    background: #8cc641;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    height: 28px;
+    left: auto;
+    opacity: 1;
+    padding-top: 2px;
+    position: absolute;
+    right: -28px;
+    text-align: center;
+    top: -14px;
+    width: 28px;
+}
+.sp-advaced-search .sp-advance-search-wrap .property-search-button {
+    margin-top: 30px;
+}
+.sp-advaced-search .sp-advance-search-wrap input {
+    width: 100%;
+}
+.modal {
+    text-align: center;
+    padding: 0!important;
+}
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+.sp-advaced-search .sp-property-search-button-wrap .property-search-button {
+    float: right;
+    margin-right: 15px;
+}
+
+.sp-advaced-search .sp-property-search-button-wrap .property-search-button:first-child {
+    margin-right: 0px;
+}
+
+.sp-advaced-search .sp-property-search-button-wrap .property-search-button button{
+    padding: 15px 30px !important;
+}
+/* **************   END:: Advance Search  *************** */
+/* **************************************************** */
