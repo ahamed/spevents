@@ -4,6 +4,14 @@
         <field name="id" type="hidden" />
         <field name="title" type="text" class="inputbox" size="40" required="true" description="JFIELD_TITLE_DESC" lable="JGLOBAL_TITLE" />
         <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
+        <field name="categories"
+               type="sql"
+               label="COM_SPEVENTS_CATEGORY_LABEL"
+               description="COM_SPEVENTS_CATEGORY_DESC"
+               query="SELECT id, title from #__spevents_categories where enabled = 1"
+               key_field="id"
+               value_field="title"
+               multiple="multiple" required="true" />
         <field name="location"
                label="COM_SPEVENTS_LOCATION_LABEL"
                description="COM_SPEVENTS_LOCATION_DESC"
@@ -100,43 +108,7 @@
         	<option value="1">JYES</option>
         	<option value="0">JNO</option>
         </field>	
-        <field name="categories"
-               type="sql"
-               label="COM_SPEVENTS_CATEGORY_LABEL"
-               description="COM_SPEVENTS_CATEGORY_DESC"
-               query="SELECT id, title from #__spevents_categories where enabled = 1"
-               key_field="id"
-               value_field="title"
-               multiple="multiple"
-        >JJYJYEJYESJYES</field>
         <field name="tags" type="sql" query="SELECT id, title FROM #__spevents_tags where enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_TAGS_LABEL" description="COM_SPEVENTS_TAGS_DESC" multiple="multiple" />
-        <field name="currency" type="list" label="COM_SPEVENTS_CURRENCY_LABEL" description="COM_SPEVENTS_CURRENCY_DESC" default="USD:$">
-            <option value="USD:$">United States dollar($)</option>
-            <option value="GBP:£">British pound(£)</option>
-            <option value="RUB:₽">Russian Ruble(₽)</option>
-            <option value="BRL:R$">Brazilian Real(R$)</option>
-            <option value="CAD:$">Canadian Dollar($)</option>
-            <option value="CZK:Kč">Czech Koruna(Kč)</option>
-            <option value="DKK:kr.">Danish Krone(kr.)</option>
-            <option value="EUR:€">Euro(€)</option>
-            <option value="HKD:HK$">Hong Kong Dollar(HK$)</option>
-            <option value="HUF:Ft">Hungarian Forint(Ft)</option>
-            <option value="ILS:₪">Israeli New Sheqel(₪)</option>
-            <option value="JPY:¥">Japanese Yen(¥)</option>
-            <option value="MYR:RM">Malaysian Ringgit(RM)</option>
-            <option value="MXN:Mex$">Mexican Peso(Mex$)</option>
-            <option value="NOK:kr">Norwegian Krone(kr)</option>
-            <option value="NZD:$">New Zealand Dollar($)</option>
-            <option value="PHP:₱">Philippine Peso(₱)</option>
-            <option value="PLN:zł">Polish Zloty(zł)</option>
-            <option value="SGD:$">Singapore Dollar($)</option>
-            <option value="SEK:kr">Swedish Krona(kr)</option>
-            <option value="CHF:CHF">Swiss Franc(CHF)</option>
-            <option value="TWD:角">Taiwan New Dollar(角)</option>
-            <option value="BDT:৳">Bangladeshi Taka(৳)</option>
-            <option value="THB:฿">Thai Baht(฿)</option>
-            <option value="TRY:TRY">Turkish Lira(TRY)</option>
-        </field>
 
         <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
             <option value="1">JPUBLISHED</option>
@@ -149,7 +121,7 @@
         <field name="created_on" type="calendar" showtime="false" timeformat="24" format="%Y-%m-%d" label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"/>
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
-    <fieldset name="settings">
+    <!-- <fieldset name="settings">
         <fields name="settings">
             <fieldset name="sharing">
                 <field name="rating" label="Enable event rating" description="" default="1" type="radio" class="btn-group">
@@ -202,10 +174,10 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <!-- <field name="hits" label="Display Hits" description="" default="1" type="radio" class="btn-group">
+                <field name="hits" label="Display Hits" description="" default="1" type="radio" class="btn-group">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
-                </field> -->
+                </field>
                 <field name="list_rating" label="Display Rating" description="" default="1" type="radio" class="btn-group">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
@@ -230,6 +202,6 @@
                 </field>
             </fieldset>
         </fields>
-    </fieldset>
+    </fieldset> -->
 
 </form>

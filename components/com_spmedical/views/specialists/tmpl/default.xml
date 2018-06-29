@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <!-- <layout title="COM_SPMEDICAL_MENU_SPECIALIST_ADVANCE_TITLE">
+        <message>
+            COM_SPMEDICAL_MENU_SPECIALIST_ADVANCE_TITLE_DESC
+        </message>
+    </layout> -->
+
+    <fields name="params" addfieldpath="/components/com_spmedical/models/fields">
+		<fieldset name="basic" label="COM_SPMEDICAL_FIELDSET_SPECIALISTS_SETTING">
+			<field name="department_id" type="departments" default="" label="COM_SPMEDICAL_FIELD_SELECT_DEPARTMENT" description="COM_SPMEDICAL_FIELD_SELECT_DEPARTMENT_DESC" />
+
+			<field name="ordering" type="list" default="DESC" label="COM_SPMEDICAL_ORDERING" description="COM_SPMEDICAL_ORDERING_DESC">
+				<option value="ASC">COM_SPMEDICAL_ORDER_ASCENDING</option>
+				<option value="DESC">COM_SPMEDICAL_ORDER_DESCENDING</option>
+			</field>
+			<field name="hide_pagination" type="radio" class="btn-group" default="0" label="COM_SPMEDICAL_HIDE_PAGINATION" description="COM_SPMEDICAL_HIDE_PAGINATION_DESC">
+				<option value="1">JYES</option>	
+				<option value="0">JNO</option>
+			</field>
+			<field name="limit" type="number" default="12" label="COM_SPMEDICAL_FIELD_LIMIT" description="COM_SPMEDICAL_FIELD_LIMIT_DESC" />
+		</fieldset>
+	</fields>
+</metadata>

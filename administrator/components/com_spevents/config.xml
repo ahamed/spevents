@@ -2,6 +2,33 @@
 <config>
 	<fieldset name="component" label="COM_SPEVENTS_FIELDSET_BASIC_LABEL">
 		<field name="cmap_api" type="text" label="COM_SPEVENTS_MAP_API_KEY_LABEL" description="COM_SPEVENTS_MAP_API_KEY_DESC"/>
+		<field name="currency" type="list" label="COM_SPEVENTS_CURRENCY_LABEL" description="COM_SPEVENTS_CURRENCY_DESC" default="USD:$">
+            <option value="USD:$">United States dollar($)</option>
+            <option value="GBP:£">British pound(£)</option>
+            <option value="RUB:₽">Russian Ruble(₽)</option>
+            <option value="BRL:R$">Brazilian Real(R$)</option>
+            <option value="CAD:$">Canadian Dollar($)</option>
+            <option value="CZK:Kč">Czech Koruna(Kč)</option>
+            <option value="DKK:kr.">Danish Krone(kr.)</option>
+            <option value="EUR:€">Euro(€)</option>
+            <option value="HKD:HK$">Hong Kong Dollar(HK$)</option>
+            <option value="HUF:Ft">Hungarian Forint(Ft)</option>
+            <option value="ILS:₪">Israeli New Sheqel(₪)</option>
+            <option value="JPY:¥">Japanese Yen(¥)</option>
+            <option value="MYR:RM">Malaysian Ringgit(RM)</option>
+            <option value="MXN:Mex$">Mexican Peso(Mex$)</option>
+            <option value="NOK:kr">Norwegian Krone(kr)</option>
+            <option value="NZD:$">New Zealand Dollar($)</option>
+            <option value="PHP:₱">Philippine Peso(₱)</option>
+            <option value="PLN:zł">Polish Zloty(zł)</option>
+            <option value="SGD:$">Singapore Dollar($)</option>
+            <option value="SEK:kr">Swedish Krona(kr)</option>
+            <option value="CHF:CHF">Swiss Franc(CHF)</option>
+            <option value="TWD:角">Taiwan New Dollar(角)</option>
+            <option value="BDT:৳">Bangladeshi Taka(৳)</option>
+            <option value="THB:฿">Thai Baht(฿)</option>
+            <option value="TRY:TRY">Turkish Lira(TRY)</option>
+        </field>
 	</fieldset>
 
 	<fieldset

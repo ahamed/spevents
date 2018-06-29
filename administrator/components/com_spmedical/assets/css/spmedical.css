@@ -1,0 +1,246 @@
+/**
+* @package com_spmedical
+* @author JoomShaper http://www.joomshaper.com
+* @copyright Copyright (c) 2010 - 2018 JoomShaper
+* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+*/
+
+td .spmedical-times-wrap {
+    font-size: 12px;
+}
+
+td .spmedical-times-wrap span:first-child{
+  font-weight: bold;
+}
+
+/*** Dashboard ***/
+.spmedical-view-dashboard .j-sidebar-container {
+  background-color: #fff;
+}
+
+.com_spmedical.view-,
+.com_spmedical.view-dashboard {
+  background: #eee;
+}
+
+.com_spmedical.view- .container-fluid,
+.com_spmedical.view-dashboard .container-fluid {
+  position: relative;
+  height: 100%;
+  padding: 0 20px 0 0;
+  top: 0 !important;
+}
+
+.spmedical-box {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  padding: 30px 30px 30px 110px;
+  border-radius: 3px;
+  position: relative;
+}
+
+.spmedical-box h3 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px;
+}
+
+.spmedical-box.latest-specialists,
+.spmedical-box.recent-appointments,
+.spmedical-dashboard-footer {
+  padding: 30px;
+}
+.latest-specialists-wrapper{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.latest-specialists.spmedical-box,
+.recent-orders.spmedical-box{
+  height: 100%;
+  margin: 0;
+}
+.latest-specialists.spmedical-box ul>li,
+.recent-orders.spmedical-box ul>li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.latest-specialists.spmedical-box ul>li>div,
+.recent-orders.spmedical-box ul>li>div {
+  flex: 1;
+  font-size: 13px;
+}
+.latest-specialists.spmedical-box .title-wrap>div,
+.recent-orders.spmedical-box .title-wrap>div{
+  font-size: 14px;
+  font-weight: 500;
+}
+.latest-specialists.spmedical-box h3,
+.recent-orders.spmedical-box h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.latest-specialists.spmedical-box .designation{
+  font-size: 13px;
+}
+.spmedical-box .gray-color {
+  color: #999;
+}
+.recent-orders.spmedical-box .date {
+
+}
+.latest-specialists ul,
+.recent-appointments ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.latest-specialists ul li,
+.recent-appointments ul li {
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #f1f1f1;
+}
+
+.latest-specialists ul li .designation-wrap,
+.recent-appointments ul li .date {
+  font-size: 13px;
+  color: #999;
+  display: inline-block;
+}
+.spmedical .latest-specialists ul {
+  margin-bottom: 0;
+}
+.latest-specialists .designation-wrap .designation {
+	display: block;
+}
+.spmedical .latest-specialists a,
+.spmedical .recent-orders a {
+  color: #444;
+}
+.recent-orders.spmedical-box{
+  padding: 30px;
+}
+.recent-orders.spmedical-box ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+.recent-orders.spmedical-box ul>li{
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #f1f1f1;
+}
+.recent-orders.spmedical-box ul li strong{
+  font-weight: 500;
+  font-size: 12px;
+}
+.spmedical-box i {
+  position: absolute;
+  left: 30px;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 28px;
+  background: #2dcb73;
+  color: #fff;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+.total-earnings.spmedical-box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.total-earnings.spmedical-box i.fa{
+
+}
+.total-earnings.spmedical-box .title{
+  font-size: 18px;
+  font-weight: 400;
+  position: relative;
+}
+.total-earnings.spmedical-box .count {
+  font-size: 36px;
+  font-weight: 400;
+}
+.total-earnings.appointments.spmedical-box .specialists-icon {
+  background: #ffc36d;
+}
+.total-earnings.appointments.spmedical-box .title:after {
+  background: #ffc36d;
+}
+.total-earnings.departments.spmedical-box .specialists-icon {
+  background: #40bbea;
+}
+.total-earnings.departments.spmedical-box .title:after {
+  background: #40bbea;
+}
+.spmedical-box .specialists-icon {
+  background: #53e69d;
+}
+
+.spmedical-box .fa-usd {
+  background: #ff604f;
+}
+
+.spmedical-box .fa-bar-chart {
+  background: #40bbea;
+}
+
+.spmedical-box .fa-book {
+  background: #715eff;
+}
+
+.spmedical-box .fa-bars {
+  background: #78CDD7;
+}
+
+.spmedical-box span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.com_spmedical.view- #status,
+.com_spmedical.spmedical-view-dashboard #status {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.spmedical-dashboard-canvas {
+  background: #fff;
+  padding: 50px;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.spmedical-dashboard-footer p{
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .com_spmedical.view-,
+  .com_spmedical.spmedical-view-dashboard {
+    padding: 0;
+  }
+  .spmedical-sidebar {
+    width: 45px;
+  }
+
+  .spmedical-dashboard-content {
+    margin-left: 65px;
+  }
+}

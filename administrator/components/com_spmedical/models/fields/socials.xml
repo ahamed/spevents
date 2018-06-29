@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field name="social_icon"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_SOCIAL_ICON"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  <field name="social_icon_note" type="note" description="COM_SPMEDICAL_FIELD_SOCIAL_ICON_DESC" />
+  <field name="social_name"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_SOCIAL_NAME"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  <field name="social_url"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_SOCIAL_URL"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+</form>

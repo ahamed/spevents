@@ -34,9 +34,6 @@ JHtml::_('formbehavior.chosen','select',null,array('disable_search_threshold' =>
 					<li>
 						<a href="#options" data-toggle="tab">Options</a>
 					</li>
-					<li>
-						<a href="#settings" data-toggle="tab">Frontend Settings</a>
-					</li>
 				</ul>
 				<div class="tab-content">
 					<div id="basic" class="tab-pane active">
@@ -62,24 +59,6 @@ JHtml::_('formbehavior.chosen','select',null,array('disable_search_threshold' =>
 					</div>
 					<div id="ticket" class="tab-pane">
 						<?php echo $this->form->renderFieldset('ticket'); ?>
-					</div>
-					<div id="settings" class="tab-pane">
-                        <div class="span4">
-                            <h4>Sharing options</h4>
-                            <hr>
-                            <?php echo $this->form->renderFieldset('sharing'); ?>
-                        </div>
-                        <div class="span4">
-                            <h4>Event Listing</h4>
-                            <hr>
-                            <?php echo $this->form->renderFieldset('event_list'); ?>
-                        </div>
-                        <div class="span4">
-                            <h4>Event Details</h4>
-                            <hr>
-                            <?php echo $this->form->renderFieldset('event_details'); ?>
-                        </div>
-
 					</div>
 
 				</div>

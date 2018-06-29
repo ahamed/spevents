@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field name="title"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_TITLE"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  <field name="text"
+   type="textarea"
+   label="COM_SPMEDICAL_FIELD_TEXT"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  <field name="time"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_TIME"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+</form>

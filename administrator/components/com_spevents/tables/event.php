@@ -60,14 +60,12 @@ class SpeventsTableEvent extends JTable
 			$registry = new JRegistry();
 			$registry->loadArray($src['tags']);
 			$src['tags'] = (string)$registry;
-
 		}
 		if (isset($src['settings']) && is_array($src['settings']))
 		{
 			$registry = new JRegistry();
 			$registry->loadArray($src['settings']);
 			$src['settings'] = (string)$registry;
-
 		}
 		if (isset($src['social_tags']) && is_array($src['social_tags']))
 		{

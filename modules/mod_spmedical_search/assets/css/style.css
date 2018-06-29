@@ -1,0 +1,30 @@
+/**
+ * @package     SP Medical
+
+ * @subpackage  mod_spmedical_search
+ *
+ * @copyright   Copyright (C) 2010 - 2018 JoomShaper. All rights reserved.
+ * @license     GNU General Public License version 2 or later.
+ */
+
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+.custom-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+}
+.custom-combobox-input {
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 5px;
+  padding-right: 5px;
+}
+.ui-menu.ui-widget{
+  z-index: 10;
+}

@@ -41,6 +41,10 @@ CREATE TABLE IF NOT EXISTS `#__spevents_events` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
+--
+-- table structure for table `#__spevents_tickets`
+--
+
 CREATE TABLE IF NOT EXISTS `#__spevents_tickets` (
     `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(255) NOT NULL,
@@ -63,10 +67,65 @@ CREATE TABLE IF NOT EXISTS `#__spevents_tickets` (
     PRIMARY KEY(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+
+-- 
+-- table structure for table `#__spevents_speakers`
+--
+
+CREATE TABLE IF NOT EXISTS `#__spevents_speakers`(
+    `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(255) NOT NULL,
+    `alias` VARCHAR(255) NOT NULL DEFAULT '',
+    `designation` VARCHAR(255) NOT NULL,
+    `description` TEXT,
+    `image` VARCHAR(255) DEFAULT '0',
+    `social_links` TEXT,
+    `enabled` tinyint(3) NOT NULL DEFAULT '1',
+    `language` varchar(255) NOT NULL DEFAULT '*',
+    `access` int(5) NOT NULL DEFAULT '1',
+    `ordering` int(10) NOT NULL DEFAULT '0',
+    `created_by` bigint(20) NOT NULL DEFAULT '0',
+    `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `modified_by` bigint(20) NOT NULL DEFAULT '0',
+    `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `locked_by` bigint(20) NOT NULL DEFAULT '0',
+    `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+--
+-- table structure for table `#__spevents_sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `#__spevents_sessions`
+(
+    `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(255) NOT NULL,
+    `alias` VARCHAR(255) NOT NULL DEFAULT '',
+    `event_id` BIGINT(20) unsigned NOT NULL,
+    `date` DATE NOT NULL DEFAULT '0000-00-00',
+    `time_from` TIME NOT NULL DEFAULT '00:00:00',
+    `time_to` TIME NOT NULL DEFAULT '00:00:00',
+    `hall` VARCHAR(255),
+    `speakers` TEXT,
+    `description` TEXT,
+    `enabled` tinyint(3) NOT NULL DEFAULT '1',
+    `language` varchar(255) NOT NULL DEFAULT '*',
+    `access` int(5) NOT NULL DEFAULT '1',
+    `ordering` int(10) NOT NULL DEFAULT '0',
+    `created_by` bigint(20) NOT NULL DEFAULT '0',
+    `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `modified_by` bigint(20) NOT NULL DEFAULT '0',
+    `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `locked_by` bigint(20) NOT NULL DEFAULT '0',
+    `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 --
 -- table structure for table `#__spevents_users`
 --
-
 
 CREATE TABLE IF NOT EXISTS `#__spevents_users` (
     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -85,7 +144,6 @@ CREATE TABLE IF NOT EXISTS `#__spevents_users` (
     `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
 
 
 --

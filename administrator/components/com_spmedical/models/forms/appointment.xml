@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="basic" addfieldpath="/administrator/components/com_spmedical/models/fields">
+		<field name="id" type="hidden" />
+
+		<field name="patient_name" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_PATIENT_NAME"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+			size="50"
+		 />
+
+		<field name="patient_phone" type="text"
+		 	class="inputbox"
+		 	required="true"
+		 	label="COM_SPMEDICAL_FIELD_PATIENT_PHONE"
+		 	labelclass="spmedical-label spmedical-label-main"
+		 	size="50"
+		/>
+
+		<field name="patient_email" type="text"
+		 	class="inputbox"
+		 	label="COM_SPMEDICAL_FIELD_PATIENT_EMAIL"
+		 	labelclass="spmedical-label spmedical-label-main"
+		 	size="50"
+		/>
+
+		<field name="appintment_date" type="calendar"
+ 		 	required="true"
+ 		 	default="2015-10-05"
+ 		 	label="COM_SPMEDICAL_FIELD_PATIENT_APPOINTMENT_DATE"
+ 		 	description="COM_SPMEDICAL_FIELD_PATIENT_APPINTMENT_DATE_DESC"
+ 		 	format="%Y-%m-%d"
+ 		/>
+
+ 		<field name="appintment_time" type="inputbox"
+ 			required="true"
+ 			default="00:00"
+ 			label="COM_SPMEDICAL_FIELD_PATIENT_APPOINTMENT_TIME"
+ 			description="COM_SPMEDICAL_FIELD_PATIENT_APPINTMENT_TIME_DESC"
+ 		/>
+
+ 		<field name="specialist_id" type="sql"
+			label="COM_SPMEDICAL_FIELD_PATIENT_DOCTOR_NAME"
+			translate="false"
+			query="SELECT id, title FROM #__spmedical_specialists WHERE published = 1"
+			key_field="id"
+			value_field="title"
+		/>
+
+		<field name="department_id"
+			label="COM_SPMEDICAL_FIELD_DEPARTMENT"
+			type="sql"
+			translate="false"
+			query="SELECT id, title FROM #__spmedical_departments WHERE published = 1"
+			key_field="id"
+			value_field="title"
+		/>
+
+	 	<field name="patient_note" type="editor"
+	 		class="inputbox span6"
+	 		label="COM_SPMEDICAL_FIELD_PATIENT_APPOINTMENT_NOTE"
+	 		labelclass="spmedical-label spmedical-label-main"
+	 		rows="5"
+	 		cols="5"
+	 		filter="JComponentHelper::filterText"
+	 	/>
+
+	</fieldset>
+
+
+	<fieldset name="sidebar">
+		<field name="published" type="list" label="JSTATUS" class="inputbox" filter="intval" default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+
+		<field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL" />
+
+		<field name="created" type="calendar"
+			label="COM_SPMEDICAL_TITLE_CREATED_DATE"
+			labelclass="spmedical-label spmedical-label-main"
+		/>
+
+ </fieldset>
+
+
+</form>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden" />
+        <field name="title" type="text" size="50" label="COM_SPEVENTS_SESSION_TITLE" description="COM_SPEVENTS_SESSION_TITLE_DESC" required="true"/>
+        <field name="alias" type="text" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
+        <field name="event_id" type="sql" query="SELECT id, title FROM #__spevents_events AS a WHERE a.enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_SESSION_EVENT" description="COM_SPEVENTS_SESSION_EVENT_DESC" required="true" />
+        <field name="date" type="calendar" format="%y-%m-%d" label="COM_SPEVENTS_SESSION_DATE" description="COM_SPEVENTS_SESSION_DATE_DESC" required="true" />
+        <field name="time_from" type="jtimepicker" label="COM_SPEVENTS_SESSION_FROM" description="COM_SPEVENTS_SESSION_FROM_DESC" hint="10:00 AM" required="true" />
+        <field name="time_to" type="jtimepicker" label="COM_SPEVENTS_SESSION_TO" description="COM_SPEVENTS_SESSION_TO_DESC" hint="10:00 AM" required="true" />
+        <field name="hall" type="text" label="COM_SPEVENTS_SESSION_HALL" description="COM_SPEVENTS_SESSION_HALL_DESC" hint="Hall-A"/>
+        <field name="speakers" type="sql" query="SELECT id, title FROM #__spevents_speakers AS b where b.enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_SESSION_SPEAKER" description="COM_SPEVENTS_SESSION_SPEAKER_DESC" multiple="true" />
+        <field name="description" type="editor" label="COM_SPEVENTS_SESSION_DESCRIPTION" description="COM_SPEVENTS_SESSION_DESCRIPTION_DESC" />
+    </fieldset>
+    <fieldset name="options">
+        <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+        <field name="language" type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
+            <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
+        </field>
+        <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+        <field name="created_on" type="calendar" showtime="false" timeformat="24" format="%Y-%m-%d" label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"/>
+        <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
+    </fieldset>
+</form>

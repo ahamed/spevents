@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <fieldset name="basic">
+        <field name="id" type="hidden" />
+        <field name="title" type="text" size="50" label="COM_SPEVENTS_TICKET_TITLE_LABEL" description="COM_SPEVENTS_TICKET_TITLE_DESC" required="true"/>
+        <field name="alias" type="text" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
+        <field name="image" type="media" label="COM_SPEVENTS_IMAGE_LABEL" description="COM_SPEVENTS_IMAGE_DESC" required="true"/>
+        <field name="designation" type="text" label="COM_SPEVENTS_DESIGNATION_LABEL" description="COM_SPEVENTS_DESIGNATION_DESC" required="true" />
+        <field name="description" type="editor" label="COM_SPEVENTS_TICKET_DESCRIPTION_LABEL" description="COM_SPEVENTS_TICKET_DESCRIPTION_DESC"/>
+    </fieldset>
+    <fieldset name="social">
+        <fields name="social_links">
+            <field name="facebook" type="url" label="COM_SPEVENTS_SPEAKER_FACEBOOK" description="COM_SPEVENTS_SPEAKER_FACEBOOK_DESC" />
+            <field name="twitter" type="url" label="COM_SPEVENTS_SPEAKER_TWITTER" description="COM_SPEVENTS_SPEAKER_TWITTER_DESC" />
+            <field name="google_plus" type="url" label="COM_SPEVENTS_SPEAKER_GOOGLE_PLUS" description="COM_SPEVENTS_SPEAKER_GOOGLE_PLUS_DESC" />
+            <field name="pinterest" type="url" label="COM_SPEVENTS_SPEAKER_PINTEREST" description="COM_SPEVENTS_SPEAKER_BINTEREST_DESC" />
+            <field name="dribble" type="url" label="COM_SPEVENTS_SPEAKER_DRIBBLE" description="COM_SPEVENTS_SPEAKER_DRIBBLE_DESC" />
+            <field name="behance" type="url" label="COM_SPEVENTS_SPEAKER_BEHANCE" description="COM_SPEVENTS_SPEAKER_BEHANCE_DESC" />
+            <field name="flickr" type="url" label="COM_SPEVENTS_SPEAKER_FLICKR" description="COM_SPEVENTS_SPEAKER_FLICKR_DESC" />
+            <field name="linkedin" type="url" label="COM_SPEVENTS_SPEAKER_LINKEDIN" description="COM_SPEVENTS_SPEAKER_LINKEDIN_DESC" />
+            <field name="youtube" type="url" label="COM_SPEVENTS_SPEAKER_YOUTUBE" description="COM_SPEVENTS_SPEAKER_YOUTUBE_DESC" />
+            <field name="vimeo" type="url" label="COM_SPEVENTS_SPEAKER_VIMEO" description="COM_SPEVENTS_SPEAKER_VIMEO_DESC" />
+            <field name="github" type="url" label="COM_SPEVENTS_SPEAKER_GITHUB" description="COM_SPEVENTS_SPEAKER_GITHUB_DESC" />
+            <field name="skype" type="url" label="COM_SPEVENTS_SPEAKER_SKYPE" description="COM_SPEVENTS_SPEAKER_SKYPE_DESC" />
+        </fields>
+    </fieldset>
+    <fieldset name="options">
+        <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+        </field>
+        <field name="language" type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
+            <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
+        </field>
+        <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+        <field name="created_on" type="calendar" showtime="false" timeformat="24" format="%Y-%m-%d" label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"/>
+        <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
+    </fieldset>
+</form>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="basic" addfieldpath="/administrator/components/com_spmedical/models/fields">
+		<field name="id" type="hidden" />
+		<field name="title" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_TITLE"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+			size="50"
+		 />
+
+		<field name="alias" type="text"
+		 	class="inputbox"
+		 	label="COM_SPMEDICAL_FIELD_ALIAS"
+		 	description="COM_SPMEDICAL_FIELD_ALIAS_DESC"
+		 	labelclass="spmedical-label spmedical-label-main"
+		 	size="50"
+		/>
+
+		<field name="icon" type="text"
+		 	class="inputbox"
+		 	label="COM_SPMEDICAL_FIELD_ICON"
+		 	description="COM_SPMEDICAL_FIELD_ICON_DESC"
+		 	labelclass="splms-label splms-label-main"
+		 	size="50"
+		/>
+		<field name="icon_note" type="note" 
+			description="COM_SPMEDICAL_FIELD_ICON_DESC" 
+		/>
+
+		<field name="image"
+		 	type="media"
+			class="image"
+			label="COM_SPMEDICAL_FIELD_IMAGE"
+			labelclass="splms-label splms-label-main"
+		/>
+
+	 	<field name="description" type="editor"
+	 		class="inputbox span6"
+	 		label="COM_SPMEDICAL_FIELD_DESCRIPTION"
+	 		labelclass="spmedical-label spmedical-label-main"
+	 		required="true"
+	 		rows="5"
+	 		cols="5"
+	 		filter="JComponentHelper::filterText"
+	 	/>
+
+		<field name="treatments" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/services.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_TREATMENTS" description="COM_SPMEDICAL_FIELD_TREATMENTS_DESC" />
+
+		<field name="investigations" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/services.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_INVESTIGATIONS" description="COM_SPMEDICAL_FIELD_INVESTIGATIONS_DESC" />
+
+		<field name="others_services" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/services.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_OTHERS_SERVICES" description="COM_SPMEDICAL_FIELD_OTHERS_SERVICES_DESC" />
+
+	</fieldset>
+
+
+	<fieldset name="sidebar">
+		<field name="published" type="list" label="JSTATUS" class="inputbox" filter="intval" default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+
+		<field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL" />
+
+		<field name="created" type="calendar"
+			label="COM_SPMEDICAL_TITLE_CREATED_DATE"
+			labelclass="spmedical-label spmedical-label-main"
+		/>
+
+		<field name="language" type="language" label="JFIELD_LANGUAGE_LABEL">
+			<option value="*">JALL_LANGUAGE</option>
+		</field>
+		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+ </fieldset>
+
+
+</form>

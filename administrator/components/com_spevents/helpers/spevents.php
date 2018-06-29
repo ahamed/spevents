@@ -99,6 +99,55 @@ class SpeventsHelper extends JHelperContent
 		return $randomString;
 	}
 
+	public static function hasOne($table_a, $table_b, $primary_key, $foreign_key, $id)
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select('r.*');
+		$query->from($db->quoteName($table_a, 'l'));
+		$query->join('LEFT', 
+		$db->quoteName($table_b, 'r') . ' ON(' . $db->quoteName('l.' . $primary_key) . '=' . $db->quoteName('r.' . $foreign_key) . ')');
+		$query->where($db->quoteName('r.'. $foreign_key) . '=' . $db->quote($id));
+
+		$db->setQuery($query);
+		$result = $db->loadObject();
+		return $result;
+	}
+
+	public static function hasMany($table_a, $table_b, $primary_key, $foreign_key, $id)
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select('r.*');
+		$query->from($db->quoteName($table_a, 'l'));
+		$query->join('LEFT', 
+		$db->quoteName($table_b, 'r') . ' ON(' . $db->quoteName('l.' . $primary_key) . '=' . $db->quoteName('r.' . $foreign_key) . ')');
+		$query->where($db->quoteName('r.'. $foreign_key) . '=' . $db->quote($id));
+
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		return $result;
+	}
+
+	public static function belongsTo($table_a, $table_b, $primary_key, $foreign_key, $id)
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select('r.*');
+		$query->from($db->quoteName($table_a, 'l'));
+		$query->join('LEFT', 
+		$db->quoteName($table_b, 'r') . ' ON(' . $db->quoteName('l.' . $foreign_key) . '=' . $db->quoteName('r.' . $primary_key) . ')');
+		$query->where($db->quoteName('r.'. $primary_key) . '=' . $db->quote($id));
+
+		$db->setQuery($query);
+		$result = $db->loadObject();
+		return $result;
+
+	}
+
 	//Debugging function
 	public static function ___($data, $die = true)
 	{

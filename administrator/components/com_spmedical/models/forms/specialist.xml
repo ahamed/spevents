@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset name="basic" addfieldpath="/administrator/components/com_spmedical/models/fields">
+		<field name="id" type="hidden" />
+		<field name="title" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_TITLE"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+			size="50"
+		 />
+
+		<field name="alias" type="text"
+		 	class="inputbox"
+		 	label="COM_SPMEDICAL_FIELD_ALIAS"
+		 	description="COM_SPMEDICAL_FIELD_ALIAS_DESC"
+		 	labelclass="spmedical-label spmedical-label-main"
+		 	size="50"
+		/>
+
+		<field name="designation" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_DESIGNATION"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+			size="50"
+		/>
+
+		<field name="specialitist_on" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_SPECIALITIST_ON"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+			size="50"
+		/>
+
+		<field name="department_id"
+			label="COM_SPMEDICAL_FIELD_DEPARTMENT"
+			type="sql"
+			translate="false"
+			query="SELECT id, title FROM #__spmedical_departments WHERE published = 1"
+			key_field="id"
+			value_field="title"
+			required="true"
+		/>
+
+		<field name="gender" type="list"
+		   default="male"
+		   label="COM_SPMEDICAL_FIELD_GENDER"
+		   labelclass="spmedical-label spmedical-label-main"
+		   required="true"
+		    >
+		    <option value="m">COM_SPMEDICAL_FIELD_GENDER_MALE</option>
+		    <option value="f">COM_SPMEDICAL_FIELD_GENDER_FEMALE</option>
+		 </field>
+
+		<field name="image"
+			type="media"
+			class="inputbox"
+			label="COM_SPMEDICAL_FIELD_IMAGE"
+			labelclass="spmedical-label spmedical-label-main"
+			required="true"
+		/>
+
+	 	<field name="description" type="editor"
+	 		class="inputbox span6"
+	 		label="COM_SPMEDICAL_FIELD_DESCRIPTION"
+	 		labelclass="spmedical-label spmedical-label-main"
+	 		required="true"
+	 		rows="5"
+	 		cols="5"
+	 		filter="JComponentHelper::filterText"
+	 	/>
+
+		<field name="educations" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/timelines.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_EDUCTIONS" description="COM_SPMEDICAL_FIELD_EDUCTIONS_DESC" />
+
+		<field name="experiences" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/timelines.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_EXPERIENCES" description="COM_SPMEDICAL_FIELD_EXPERIENCES_DESC" />
+
+		<field name="awards_honers" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/timelines.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_AWARDS_HONERS" description="COM_SPMEDICAL_FIELD_AWARDS_HONERS_DESC" />
+
+		<field name="visiting_times" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/visiting_times.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_VISITING_TIMES" description="COM_SPMEDICAL_FIELD_VISITING_TIMES_DESC" />
+
+		<field name="phone" type="text"
+			class="inputbox"
+			label="COM_SPMEDICAL_TITLE_PHONE_NUMBER"
+			labelclass="spmedical-label spmedical-label-main"
+			size="50"
+		/>
+
+		<field name="email" type="email"
+			class="inputbox"
+			label="COM_SPMEDICAL_TITLE_EMAIL"
+			labelclass="spmedical-label spmedical-label-main"
+			validate="email"
+			required="true"
+			size="30"
+		/>
+
+		<field name="website" type="url"
+			class="inputbox"
+			label="COM_SPMEDICAL_TITLE_WEBSITE"
+			labelclass="spmedical-label spmedical-label-main"
+			size="50"
+		/>
+
+		<field name="socials" type="subform"
+		formsource="/administrator/components/com_spmedical/models/fields/socials.xml" multiple="true"
+		label="COM_SPMEDICAL_FIELD_SOCIAL" description="COM_SPMEDICAL_FIELD_SOCIAL_DESC" />
+
+	</fieldset>
+
+	<fieldset name="sidebar">
+		<field name="published" type="list" label="JSTATUS" class="inputbox" filter="intval" default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+
+		<field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL" />
+
+		<field name="created" type="calendar"
+			label="COM_SPMEDICAL_TITLE_CREATED_DATE"
+			labelclass="spmedical-label spmedical-label-main"
+		/>
+
+		<field name="language" type="language" label="JFIELD_LANGUAGE_LABEL">
+			<option value="*">JALL_LANGUAGE</option>
+		</field>
+		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+ </fieldset>
+
+
+</form>

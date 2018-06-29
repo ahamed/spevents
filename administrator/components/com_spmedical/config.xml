@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	
+	<fieldset name="basic" label="COM_SPMEDICAL_FIELDSET_BASIC_LABEL">
+		<field name="currency" type="list" label="COM_SPMEDICAL_CURRENCY" description="COM_SPMEDICAL_CURRENCY_DESC" default="USD:$">
+			<option value="USD:$">United States dollar($)</option>
+			<option value="GBP:£">British pound(£)</option>
+			<option value="RUB:₽">Russian Ruble(₽)</option>
+			<option value="BRL:R$">Brazilian Real(R$)</option>
+			<option value="CAD:$">Canadian Dollar($)</option>
+			<option value="CZK:Kč">Czech Koruna(Kč)</option>
+			<option value="DKK:kr.">Danish Krone(kr.)</option>
+			<option value="EUR:€">Euro(€)</option>
+			<option value="HKD:HK$">Hong Kong Dollar(HK$)</option>
+			<option value="HUF:Ft">Hungarian Forint(Ft)</option>
+			<option value="ILS:₪">Israeli New Sheqel(₪)</option>
+			<option value="JPY:¥">Japanese Yen(¥)</option>
+			<option value="MYR:RM">Malaysian Ringgit(RM)</option>
+			<option value="MXN:Mex$">Mexican Peso(Mex$)</option>
+			<option value="NOK:kr">Norwegian Krone(kr)</option>
+			<option value="NZD:$">New Zealand Dollar($)</option>
+			<option value="PHP:₱">Philippine Peso(₱)</option>
+			<option value="PLN:zł">Polish Zloty(zł)</option>
+			<option value="SGD:$">Singapore Dollar($)</option>
+			<option value="SEK:kr">Swedish Krona(kr)</option>
+			<option value="CHF:CHF">Swiss Franc(CHF)</option>
+			<option value="TWD:角">Taiwan New Dollar(角)</option>
+			<option value="THB:฿">Thai Baht(฿)</option>
+			<option value="TRY:TRY">Turkish Lira(TRY)</option>
+		</field>
+
+		<field name="sef_advanced" type="radio" class="btn-group btn-group-yesno btn-group-reversed" default="0" label="JGLOBAL_SEF_ADVANCED_LABEL" description="JGLOBAL_SEF_ADVANCED_DESC" filter="integer" >
+			<option value="0">JGLOBAL_SEF_ADVANCED_LEGACY</option>
+			<option value="1">JGLOBAL_SEF_ADVANCED_MODERN</option>
+		</field>
+
+		<field name="sef_ids" type="radio" class="btn-group btn-group-yesno" default="0" label="JGLOBAL_SEF_NOIDS_LABEL" description="JGLOBAL_SEF_NOIDS_DESC" showon="sef_advanced:1" filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="appointment_captcha" type="radio" class="btn-group btn-group-yesno" default="0" label="COM_SPMEDICAL_APPOINTMENT_CAPTCHA" description="COM_SPMEDICAL_APPOINTMENT_CAPTCHA_DESC" filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="appointment_tac" type="radio" class="btn-group btn-group-yesno" default="1" label="COM_SPMEDICAL_APPOINTMENT_TAC" description="COM_SPMEDICAL_APPOINTMENT_TAC_DESC" filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="appointment_tac_text" type="textarea" label="COM_SPMEDICAL_APPOINTMENT_TAC_TEXT" description="COM_SPMEDICAL_APPOINTMENT_TAC_TEXT_DESC" cols="30" rows="8" showon="appointment_tac:1" filter="raw" default='I agree with the &lt;a href="#"&gt;Terms of Use&lt;/a&gt; and &lt;a href="#"&gt;Privacy Policy&lt;/a&gt; and I declare that I have read the information that is required in accordance with &lt;a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ENG&amp;toc=OJ:L:2016:119:TOC" target="_blank"&gt;Article 13 of GDPR.&lt;/a&gt;'/>
+
+	</fieldset>
+
+	<fieldset name="media" label="COM_SPMEDICAL_FIELDSET_IMAGE_LABEL">
+		<field name="specialist_thumbnail" type="text" label="COM_SPMEDICAL_SPECIALIST_THUMBNAIL" description="COM_SPMEDICAL_SPECIALIST_THUMBNAIL_DESC" default="263X357" />
+	</fieldset>
+
+	<fieldset name="licenseupdate">
+		<field name="joomshaper_email" type="email" label="COM_SPMEDICAL_CONF_JOOMSHAPER_EMAIL" description="COM_SPMEDICAL_CONF_JOOMSHAPER_EMAIL_DESC" />
+		<field name="joomshaper_license_key" type="text" label="COM_SPMEDICAL_CONF_JOOMSHAPER_LICENSE_KEY" description="COM_SPMEDICAL_CONF_JOOMSHAPER_LICENSE_KEY_DESC" />
+	</fieldset>
+
+	<fieldset name="permissions" label="JCONFIG_PERMISSIONS_LABEL" description="JCONFIG_PERMISSIONS_DESC">
+		<field name="rules" type="rules" label="JCONFIG_PERMISSIONS_LABEL" class="inputbox" filter="rules" component="com_spmedical" section="component" />
+	</fieldset>
+
+</config>

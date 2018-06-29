@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<fields name="params">
+		<fieldset name="basic" label="COM_SPMEDICAL_FIELDSET_DEPARTMENTS_SETTING">
+			<field name="ordering" type="list" default="DESC" label="COM_SPMEDICAL_ORDERING" description="COM_SPMEDICAL_ORDERING_DESC">
+				<option value="ASC">COM_SPMEDICAL_ORDER_ASCENDING</option>
+				<option value="DESC">COM_SPMEDICAL_ORDER_DESCENDING</option>
+			</field>
+			<field name="logo_type" type="list" default="icon" label="COM_SPMEDICAL_FIELD_LOGO_TYPE" description="COM_SPMEDICAL_FIELD_LOGO_TYPE_DESC" >
+				<option value="icon">COM_SPMEDICAL_FIELD_ICON</option>
+				<option value="image">COM_SPMEDICAL_FIELD_IMAGE</option>
+			</field>
+			<field name="hide_pagination" type="radio" class="btn-group" default="0" label="COM_SPMEDICAL_HIDE_PAGINATION" description="COM_SPMEDICAL_HIDE_PAGINATION_DESC">
+				<option value="1">JYES</option>	
+				<option value="0">JNO</option>
+			</field>
+			<field name="columns" type="list" default="4" label="COM_SPMEDICAL_FIELD_COLUMN" description="COM_SPMEDICAL_FIELD_COLUMNS_DESC">
+				<option value="2">2</option>
+				<option value="3">3</option>	
+				<option value="4">4</option>	
+				<option value="6">6</option>	
+			</field>
+
+			<field name="limit" type="number" default="12" label="COM_SPMEDICAL_FIELD_LIMIT" description="COM_SPMEDICAL_FIELD_LIMIT_DESC" />
+
+		</fieldset>
+	</fields>
+</metadata>

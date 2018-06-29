@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field name="title"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_TITLE"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  <field name="price"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_PRICE"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+</form>

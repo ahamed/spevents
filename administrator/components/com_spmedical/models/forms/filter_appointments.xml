@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form addfieldpath="administrator/components/com_spmedical/models/fields/filters">
+	<fields name="filter">
+		<field name="search" type="text" label="JSEARCH_TITLE" hint="JSEARCH_FILTER" description="COM_SPMEDICAL_FILTER_SEARCH" class="js-stools-search-string" />
+		<field name="published"	type="status" label="JOPTION_SELECT_PUBLISHED" statuses="0,1" description="JOPTION_SELECT_PUBLISHED_DESC"	onchange="this.form.submit();">
+			<option value="">JOPTION_SELECT_PUBLISHED</option>
+		</field>
+		<field name="department_id" type="departments" label="COM_SPMEDICAL_FILTER_DEPARTMENT" description="" onchange="this.form.submit();" />
+		<field name="specialist_id" type="specialists" label="COM_SPMEDICAL_FILTER_SPECIALIST" description="" onchange="this.form.submit();" />
+
+		<field name="appintment_date" type="calendar"  label="COM_SPMEDICAL_FIELD_PATIENT_APPOINTMENT_DATE" description="COM_SPMEDICAL_FIELD_PATIENT_APPINTMENT_DATE_DESC" format="%Y-%m-%d" onchange="this.form.submit();" onkeyup="this.form.submit();" />
+
+		<field name="access" type="accesslevel" label="JOPTION_FILTER_ACCESS" description="JOPTION_FILTER_ACCESS_DESC" onchange="this.form.submit();" >
+			<option value="">JOPTION_SELECT_ACCESS</option>
+		</field>
+		<field name="language" type="contentlanguage" label="JOPTION_FILTER_LANGUAGE" description="JOPTION_FILTER_LANGUAGE_DESC" onchange="this.form.submit();" >
+			<option value="">JOPTION_SELECT_LANGUAGE</option>
+			<option value="*">JALL</option>
+		</field>
+	</fields>
+	<fields name="list">
+		<field name="limit" type="limitbox"	class="input-mini" default="25"	label="COM_CONTENT_LIST_LIMIT" description="COM_HELLOWORLD_LIST_LIMIT_DESC"	onchange="this.form.submit();"   />
+	</fields>
+</form>

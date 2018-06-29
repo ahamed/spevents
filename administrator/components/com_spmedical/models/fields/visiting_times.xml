@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+  <field name="day" type="list"
+   default="sunday"
+   label="COM_SPMEDICAL_FIELD_VISITING_DAY"
+   labelclass="spmedical-label spmedical-label-main"
+    >
+     <option value="sunday">COM_SPMEDICAL_FIELD_DAY_SUNDAY</option>
+     <option value="monday">COM_SPMEDICAL_FIELD_DAY_MONDAY</option>
+     <option value="tuesday">COM_SPMEDICAL_FIELD_DAY_TUESDAY</option>
+     <option value="wednesday">COM_SPMEDICAL_FIELD_DAY_WEDNESDAY</option>
+     <option value="thursday">COM_SPMEDICAL_FIELD_DAY_THURSDAY</option>
+     <option value="friday">COM_SPMEDICAL_FIELD_DAY_FRIDAY</option>
+     <option value="saturday">COM_SPMEDICAL_FIELD_DAY_SATURDAY</option>
+  </field>
+
+  <field name="visiting_time"
+   type="inputbox"
+   label="COM_SPMEDICAL_FIELD_TIME"
+   labelclass="spmedical-label spmedical-label-main"
+  />
+  
+</form>
