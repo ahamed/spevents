@@ -26,6 +26,8 @@ class SppropertyViewAgent extends FOFViewHtml {
         ');
         // get columns
         $this->properties_columns  = $this->cParams->get('properties_columns', 2);
+        //Show Captcha
+        $this->captcha = $this->cParams->get('contact_captcha', false);
 
         $gmap_api = $this->cParams->get('gmap_api');
         $doc = JFactory::getDocument();
@@ -41,6 +43,21 @@ class SppropertyViewAgent extends FOFViewHtml {
         $this->agent_properties = $model->getAgntProperties($this->item->spproperty_agent_id);
 
         foreach ($this->agent_properties as $this->agent_property) {
+            $this->agent_property->property_status_txt = '';
+			if($this->agent_property->property_status == 'rent') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_RENT');
+			} elseif($this->agent_property->property_status == 'sell') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_SELL');
+			} elseif($this->agent_property->property_status == 'in_hold') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_HOLD');
+			} elseif($this->agent_property->property_status == 'pending') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_PENDING');
+			} elseif($this->agent_property->property_status == 'sold') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_SOLD');
+			} elseif($this->agent_property->property_status == 'under_offer') {
+				$this->agent_property->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_UNDER_OFFER');
+            }
+            
             $this->agent_property->price = SppropertyHelper::generateCurrency($this->agent_property->price);
         }
 

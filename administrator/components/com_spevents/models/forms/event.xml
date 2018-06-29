@@ -25,9 +25,10 @@
                required="true"
                multiple="multiple"
         />
+        <field name="seats" type="number" label="COM_SPEVENTS_SEATS_LABEL" description="COM_SPEVENTS_SEATS_DESC"  required="true" />
+        <field name="tickets" type="sql" query="SELECT id, title FROM #__spevents_tickets AS a WHERE a.enabled = 1" key_field="id" value_field="title" multiple="true"/>
         <field name="banner" type="media" label="COM_SPEVENTS_BANNER_LABEL" description="COM_SPEVENTS_BANNER_DESC"/>
         <field name="url" type="url" label="COM_SPEVENTS_URL_LABEL" description="COM_SPEVENTS_URL_DESC" />
-        <field name="social_tags" type="text" label="COM_SPEVENTS_SOCIAL_TAGS_LABEL" description="COM_SPEVENTS_SOCIAL_TAGS_DESC"/>
         <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
     </fieldset>
     <fieldset name="date-time">
@@ -38,9 +39,6 @@
             <option value="0">JNO</option>
         </field>
         <field name="timezone" type="timezone" default="Asia/Dhaka" label="COM_SPEVENTS_TIMEZONE_LABEL" description="COM_SPEVENTS_TIMEZONE_DESC" required="true" />
-        <fields name="slots" showon="split_event:1">
-            <field name="slot" type="subform" formsource="/administrator/components/com_spevents/models/fields/event_slots.xml" multiple="true" label="COM_SPEVENTS_SLOTS_LABEL" description="COM_SPEVENTS_SLOTS_DESC" />
-        </fields>
 
 
     </fieldset>
@@ -85,15 +83,16 @@
 
         </fields>
     </fieldset>
-    <fieldset name="discount">
-
+    <fieldset name="gallery">
+        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="Gallery" description="" multiple="true" />
     </fieldset>
-    <fieldset name="ticket" class="ticket_wrp">
-        <fields name="tickets">
-            <field name="ticket" type="subform"
-                   formsource="/administrator/components/com_spevents/models/fields/tickets.xml" multiple="true"
-                   label="COM_SPEVENTS_TICKETS_LABEL" description="COM_SPEVENTS_TICKETS_DESC" />
-            <field name="discount" type="sql" query="SELECT id, CONCAT(title, ' (code: ',code,') ') AS title FROM #__spevents_coupons where enabled = 1" key_field="id" value_field="title" label="Discount" multiple="multiple"/>
+    <fieldset name="social">
+        <fields name="social_tags">
+            <field name="social_facebook" type="url" label="COM_SPEVENTS_SOCIAL_FACEBOOK" description="COM_SPEVENTS_SOCIAL_FACEBOOK_DESC" />
+            <field name="social_twitter" type="url" label="COM_SPEVENTS_SOCIAL_TWITTER" description="COM_SPEVENTS_SOCIAL_TWITTER_DESC" />
+            <field name="social_linkedin" type="url" label="COM_SPEVENTS_SOCIAL_LINKEDIN" description="COM_SPEVENTS_SOCIAL_LINKEDIN_DESC" />
+            <field name="social_google_plus" type="url" label="COM_SPEVENTS_SOCIAL_GOOGLE" description="COM_SPEVENTS_SOCIAL_GOOGLE_DESC" />
+            <field name="social_instagram" type="url" label="COM_SPEVENTS_SOCIAL_INSTA" description="COM_SPEVENTS_SOCIAL_INSTA_DESC" />
         </fields>
     </fieldset>
     <fieldset name="options">

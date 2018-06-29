@@ -31,6 +31,7 @@ $doc->addStylesheet( JURI::root(true) . '/components/com_spproperty/assets/css/s
 $doc->addStylesheet( JURI::root(true) . '/modules/'.$module->module .'/assets/css/style.css' );
 $doc->addStylesheet( JURI::root(true) . '/components/com_spproperty/assets/css/style.css' );
 
+jimport('joomla.application.component.helper');
 $cParams 			= JComponentHelper::getParams('com_spproperty');
 // Get Columns
 $columns = $params->get('columns', 2);
@@ -38,6 +39,21 @@ $columns = $params->get('columns', 2);
 $properties 		= SppropertyModelProperties::getAllProperties($params);
 
 foreach ($properties as $property) {
+	$property->property_status_txt = $property->property_status;
+	if($property->property_status == 'rent') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_RENT');
+	} elseif($property->property_status == 'sell') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_SELL');
+	} elseif($property->property_status == 'in_hold') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_IN_HOLD');
+	} elseif($property->property_status == 'pending') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_IN_PENDING');
+	} elseif($property->property_status == 'sold') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_IN_SOLD');
+	} elseif($property->property_status == 'under_offer') {
+		$property->property_status_txt = JText::_('MOD_SPPROPERTY_PROPERTOES_STATUS_IN_UNDER_OFFER');
+	}
+
 	$property->price = SppropertyHelper::generateCurrency($property->price);
 }
 

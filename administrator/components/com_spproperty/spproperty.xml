@@ -7,7 +7,7 @@
 	<authorUrl>http://www.joomshaper.com</authorUrl>
 	<copyright>Copyright (c) 2010- 2016 JoomShaper. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later</license>
-	<version>1.4</version>
+	<version>1.5</version>
 	<description>SP Property - is a complete Real Estate extension (component with modules) for Joomla! 3.8+. It allows you to manage and list Properties, Agents, use search filter and booking option is available as well. Great tool for all real estate agents and real estate agencies</description>
 	<scriptfile>installer.script.php</scriptfile>
 

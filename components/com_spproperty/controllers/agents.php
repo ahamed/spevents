@@ -41,11 +41,32 @@ class SppropertyControllerAgents extends FOFController{
 		$name 		= $input->post->get('name', NULL, 'STRING');
 		$email 		= $input->post->get('email', NULL, 'STRING');
 		$phone 		= $input->post->get('phone', NULL, 'STRING');
+		$showcapt 	= $input->post->get('showcaptcha', FALSE, 'INT');
 		$subject 	= $input->post->get('subject', NULL, 'STRING');
 		$subject 	= $subject . ' | Phone Number: ' . $phone;
 		$message 	= nl2br($input->post->get('message', NULL, 'STRING'));
 		$recipient = base64_decode($input->post->get('agnt_email', NULL, 'STRING'));
 
+		$output['status'] = false;
+		$output = array();
+
+		if($showcapt) {
+			$captcha_plg = JPluginHelper::importPlugin('captcha');
+			$dispatcher = JEventDispatcher::getInstance();
+			$res = $dispatcher->trigger('onCheckAnswer');
+
+			if (!$captcha_plg) {
+				$output['content'] = JText::_('COM_SPMEDICAL_CAPTCHA_NOT_INSTALLED');
+				echo json_encode($output);
+				die();
+			}
+
+			if(!$res[0]) {
+				$output['content'] = JText::_('COM_SPPROPERTY_RECAPTCHA_INVALID_CAPTCHA');
+				echo json_encode($output);
+				die();
+			}
+		}
 
 		//message body
         $visitorip      = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
@@ -68,9 +89,6 @@ class SppropertyControllerAgents extends FOFController{
 		$mail->isHTML(true);
 		$mail->Encoding = 'base64';	
 		$mail->setBody($msg);
-
-		$output['status'] = false;
-		$output = array();
 
 		if ($mail->Send()) {
 			$output['status'] = true;

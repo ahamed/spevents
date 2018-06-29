@@ -9088,8 +9088,6 @@ input:focus,
 	margin-bottom: 15px;
 	width: 100%;
 	list-style: none;
-	-webkit-column-break-inside: avoid;
-	-webkit-backface-visibility: hidden;
 }
 #menu-assignment .menu-links-block {
 	background-color: #fafafa;
@@ -9103,26 +9101,4 @@ input:focus,
 		-moz-column-count: auto;
 		column-count: auto;
 	}
-}
-
-
-body.com_login div.navbar,
-body.com_login hr {
-	display: none !important;
-}
-
-.view-login {
-	background: url("../images/login_banner.jpg") no-repeat fixed center top / cover #eee !important;
-	
-}
-
-.login.well {
-	background: none repeat scroll 0 0 rgba(245, 245, 245, 0.4);
-}
-
-#form-login .btn-group.pull-left {
-	display: block;
-	float: none;
-	margin: 0 auto;
-	width: 117px;
 }

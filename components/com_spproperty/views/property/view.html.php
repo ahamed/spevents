@@ -27,6 +27,8 @@ class SppropertyViewProperty extends FOFViewHtml {
 		$this->contact_tac_text = $this->cParams->get('contact_tac_text', '
 			I agree with the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a> and I declare that I have read the information that is required in accordance with <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2016.119.01.0001.01.ENG&amp;toc=OJ:L:2016:119:TOC" target="_blank">Article 13 of GDPR.</a>
         ');
+        //Show Captcha or not
+        $this->captcha = $this->cParams->get('contact_captcha', false);
 
         // Add Script
         $doc = JFactory::getDocument();

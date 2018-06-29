@@ -713,6 +713,9 @@
     padding: 3px 28px 0!important;
     line-height: 1 !important;
 }
+.spproperty-contact-us-widget .spproperty-widget-form .spproperty-captcha {
+    margin-top: 20px;
+}
 .spproperty-contact-us-widget .spproperty-req-status {
     margin-top: 25px !important;
 }
@@ -870,6 +873,10 @@
 .spproperty.spproperty-view-agent .agent-contact-from .contact-from-title {
     margin-bottom: 70px;
 }
+.spproperty-view-agent .spproperty-agent-form .controls{
+    overflow: hidden;
+    margin-bottom: 30px;
+}
 .spproperty.spproperty-view-agent .agent-contact-from input[name="name"],
 .spproperty.spproperty-view-agent .agent-contact-from input[name="email"],
 .spproperty.spproperty-view-agent .agent-contact-from input[name="phone"] {
@@ -880,13 +887,10 @@
 .spproperty.spproperty-view-agent .agent-contact-from .controls input[name="phone"] {
     margin-right: 0;
 }
-.spproperty.spproperty-view-agent .agent-contact-from .controls input[name="subject"] {
-    margin: 30px 0;
-}
+
 .spproperty.spproperty-view-agent .agent-contact-from .controls textarea {
     height: 196px !important;
     resize: none;
-    margin-bottom: 35px;
 }
 .spproperty.spproperty-view-agent .agent-property-list .agent-properties-from-title {
     margin-bottom: 44px;

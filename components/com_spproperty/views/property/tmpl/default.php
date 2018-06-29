@@ -76,7 +76,7 @@ $doc->addScriptdeclaration('var spproperty_url="' . JURI::base() . 'index.php?op
                                     <i class="fa fa-object-group" aria-hidden="true"></i>
                                 </span>
                                 <p class="pull-left">
-                                    <?php echo $this->item->psize . ' ' . JText::_('COM_SPPROPERTY_PROPERTIES_SQFT'); ?>
+                                    <?php echo $this->item->psize; ?> <?php echo empty(trim($this->cParams['measurement'])) ?  JText::_('COM_SPPROPERTY_PROPERTIES_SQFT') : $this->cParams['measurement']; ?>
                                 </p>
                             </div>
                         <?php } if ($this->item->beds) { ?>
@@ -193,15 +193,14 @@ $doc->addScriptdeclaration('var spproperty_url="' . JURI::base() . 'index.php?op
                     <?php if ($this->item->price) { ?>
                         <h3>
                             <span><?php echo JText::_('COM_SPPROPERTY_PROPERTY_PRICE'); ?></span>
-                            <?php echo $this->item->price; ?>/<?php echo JText::_('COM_SPPROPERTY_PROPERTIES_SQFT'); ?>
+                            <?php echo $this->item->price; ?>/<?php echo empty(trim($this->cParams['measurement'])) ?  JText::_('COM_SPPROPERTY_PROPERTIES_SQFT') : $this->cParams['measurement']; ?>
                         </h3>
                     <?php } ?>
 
                     <?php if ((isset($this->item->agent->phone) && $this->item->agent->phone) || (isset($this->item->agent->mobile) && $this->item->agent->mobile)) { ?>
                         <p><?php echo JText::_('COM_SPPROPERTY_AGENT_CALL_FOR_BOOKING'); ?></p>
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-phone" aria-hidden="true"></i>
                             <?php if ($this->item->agent->phone) { ?>
-                                <span><?php echo $this->item->agent->phone; ?></span>
+                                <a href="tel: <?php echo $this->item->agent->phone ? $this->item->agent->phone : $this->item->agent->mobile; ?>" class="btn btn-primary btn-sm"><i class="fa fa-phone" aria-hidden="true"></i>
                             <?php } else { ?>
                                 <span><?php echo $this->item->agent->mobile; ?></span>
                             <?php } ?>
@@ -251,6 +250,23 @@ $doc->addScriptdeclaration('var spproperty_url="' . JURI::base() . 'index.php?op
                             <input type="hidden" name="pid" value="<?php echo $this->item->spproperty_property_id; ?>">
                             <input type="hidden" name="visitor_ip" value="<?php echo $this->visitorip; ?>">
                             <input type="hidden" name="pname" value="<?php echo $this->item->title; ?>">
+
+                            <div class="spproperty-captcha">
+                                <input type="hidden" id="showcaptcha" name="showcaptcha" value="<?php echo $this->captcha; ?>">
+                                <?php if($this->captcha) { ?>
+                                    <div class="input-field">
+                                        <?php
+                                            JPluginHelper::importPlugin('captcha', 'recaptcha');
+                                            $dispatcher = JDispatcher::getInstance();
+                                            $dispatcher->trigger('onInit', 'dynamic_recaptcha_spmedical');
+                                            $recaptcha = $dispatcher->trigger('onDisplay', array(null, 'dynamic_recaptcha_spmedical', 'class="spproperty-dynamic-recaptcha"'));
+                                            
+                                            echo (isset($recaptcha[0])) ? $recaptcha[0] : '<p class="spproperty-alert-warning">' . JText::_('COM_SPMEDICAL_CAPTCHA_NOT_INSTALLED') . '</p>';
+                                        ?>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                            
                             <?php if($this->contact_tac && $this->contact_tac_text) { ?>
 								<div class="input-field">
 									<label class="form-checkbox">

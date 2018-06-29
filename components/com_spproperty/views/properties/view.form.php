@@ -53,10 +53,25 @@ class SppropertyViewProperties extends FOFViewForm{
 		// get property types
 		$this->property_total 		= $model->countProperties('', $order_by, $pstatus);
 		$this->property_types 		= $model->getCategories(0, $order_by, $pstatus);
-		// al property URL
-		$this->all_properties_url 	= 'index.php?option=com_spproperty&view=properties&Itemid=' . $Itemid;
+		// all properties URL
+		$this->all_properties_url 	= JRoute::_('index.php?option=com_spproperty&view=properties&Itemid=' . $Itemid);
 
 		foreach ($this->items as $this->item) {
+			$this->item->property_status_txt = '';
+			if($this->item->property_status == 'rent') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_RENT');
+			} elseif($this->item->property_status == 'sell') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_SELL');
+			} elseif($this->item->property_status == 'in_hold') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_HOLD');
+			} elseif($this->item->property_status == 'pending') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_PENDING');
+			} elseif($this->item->property_status == 'sold') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_SOLD');
+			} elseif($this->item->property_status == 'under_offer') {
+				$this->item->property_status_txt = JText::_('COM_SPPROPERTY_FIELD_PROPERTY_STATUS_IN_UNDER_OFFER');
+			}
+
 			$this->item->url = JRoute::_('index.php?option=com_spproperty&view=property&id='. $this->item->spproperty_property_id .':'. $this->item->slug . SppropertyHelper::getItemid('properties'));
 			$this->item->price = SppropertyHelper::generateCurrency($this->item->price);
 		}

@@ -13,3 +13,12 @@
 2018-05-31T06:37:45+00:00	INFO ::1	update	Deleting removed files and folders.
 2018-05-31T06:37:47+00:00	INFO ::1	update	Cleaning up after installation.
 2018-05-31T06:37:47+00:00	INFO ::1	update	Update to version 3.8.8 is complete.
+2018-06-28T05:00:40+00:00	INFO ::1	update	Update started by user Super User (354). Old version is 3.8.8.
+2018-06-28T05:00:46+00:00	INFO ::1	update	Downloading update file from https://s3-us-west-2.amazonaws.com/joomla-official-downloads/joomladownloads/joomla3/Joomla_3.8.10-Stable-Update_Package.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIZ6S3Q3YQHG57ZRA%2F20180628%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20180628T050042Z&X-Amz-Expires=60&X-Amz-SignedHeaders=host&X-Amz-Signature=457fbb33a379fee5ba278863935da1670237ad54da698928ddc89b0cf532c287.
+2018-06-28T05:01:06+00:00	INFO ::1	update	File Joomla_3.8.10-Stable-Update_Package.zip downloaded.
+2018-06-28T05:01:06+00:00	INFO ::1	update	Starting installation of new version.
+2018-06-28T05:01:18+00:00	INFO ::1	update	Finalising installation.
+2018-06-28T05:01:18+00:00	INFO ::1	update	Ran query from file 3.8.9-2018-06-19. Query text: UPDATE `#__extensions` SET `enabled` = '1' WHERE `name` = 'mod_sampledata';.
+2018-06-28T05:01:18+00:00	INFO ::1	update	Deleting removed files and folders.
+2018-06-28T05:01:19+00:00	INFO ::1	update	Cleaning up after installation.
+2018-06-28T05:01:19+00:00	INFO ::1	update	Update to version 3.8.10 is complete.

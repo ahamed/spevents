@@ -29,6 +29,10 @@ $doc->addStylesheet( JURI::root(true) . '/components/com_spproperty/assets/css/s
 $doc->addScript( JURI::base(true) . '/modules/' .$module->module . '/assets/js/spproperty-search.js' );
 $doc->addStylesheet( JURI::root(true).'/modules/'.$module->module .'/assets/css/style.css' );
 
+// get component params
+jimport('joomla.application.component.helper');
+$cParams          = JComponentHelper::getParams('com_spproperty');
+
 $getItems 	= SppropertyModelProperties::getAllProperties($params);
 $items = array();
 foreach($getItems as $element){
@@ -36,6 +40,6 @@ foreach($getItems as $element){
     $items[$hash] = $element;
 }
 
-$cats 	= SppropertyModelProperties::getCategories();
+$cats 	= SppropertyModelProperties::getCategories(0);
 
 require JModuleHelper::getLayoutPath('mod_spproperty_search', $params->get('layout'));

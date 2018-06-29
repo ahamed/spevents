@@ -69,12 +69,25 @@ class SpeventsTableEvent extends JTable
 			$src['settings'] = (string)$registry;
 
 		}
+		if (isset($src['social_tags']) && is_array($src['social_tags']))
+		{
+			$registry = new JRegistry();
+			$registry->loadArray($src['social_tags']);
+			$src['social_tags'] = (string)$registry;
+		}
 		if (isset($src['slots']) && is_array($src['slots']))
 		{
 			$registry = new JRegistry();
 			$registry->loadArray($src['slots']);
 			$src['slots'] = (string)$registry;
 		}
+		if (isset($src['gallery']) && is_array($src['gallery']))
+		{
+			$registry = new JRegistry();
+			$registry->loadArray($src['gallery']);
+			$src['gallery'] = (string)$registry;
+		}
+
 		if (isset($src['all_day_event']))
 		{
 			if ($src['all_day_event'])

@@ -95,7 +95,7 @@ if (!empty($keyword) || !empty($pstatus) || !empty($city_name)
 
             <div class="col-sm-4 col-lg-2">
                 <div class="area">
-                    <input type="number" name="min-size" id="min-size" class="form-control" placeholder="<?php echo JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE_SQFT'); ?>" value="<?php echo $minsize; ?>">
+                    <input type="number" name="min-size" id="min-size" class="form-control" placeholder="<?php echo empty(trim($cParams['measurement'])) ? JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE_SQFT') : JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE') . '/' . $cParams['measurement']; ?>" value="<?php echo $minsize; ?>">
                 </div>
             </div>
 
@@ -179,12 +179,12 @@ if (!empty($keyword) || !empty($pstatus) || !empty($city_name)
                                     </div>
                                     <div class="col-lg-2 col-sm-4">
                                         <div class="area">
-                                            <input type="min-size" id="min-size" class="form-control" placeholder="<?php echo JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE_SQFT'); ?>" value="<?php echo $minsize; ?>">
+                                            <input type="number" id="min-size" class="form-control" placeholder="<?php echo empty(trim($cParams['measurement'])) ? JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE_SQFT') : JText::_('MOD_SPPROPERTY_SEARCH_MIN_SIZE') . '/' . $cParams['measurement']; ?>" value="<?php echo $minsize; ?>">
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-sm-4">
                                         <div class="area">
-                                            <input type="max-size" id="max-size" class="form-control" placeholder="<?php echo JText::_('MOD_SPPROPERTY_SEARCH_MAX_SIZE_SQFT'); ?>" value="<?php echo $maxsize; ?>">
+                                            <input type="number" id="max-size" class="form-control" placeholder="<?php echo empty(trim($cParams['measurement'])) ? JText::_('MOD_SPPROPERTY_SEARCH_MAX_SIZE_SQFT') : JText::_('MOD_SPPROPERTY_SEARCH_MAX_SIZE') . '/'. $cParams['measurement']; ?>" value="<?php echo $maxsize; ?>">
                                         </div>
                                     </div>
                                 </div>

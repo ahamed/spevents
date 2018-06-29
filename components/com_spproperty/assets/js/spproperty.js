@@ -44,11 +44,8 @@ jQuery(function($){ 'use strict';
     
     //Ajax property visit request form
     $('.spproperty-widget-form').on('submit', function(event) {
-
         event.preventDefault();
-
         var $this   = $(this);
-        //var that    = $(this);
 
         var $self   = $(this);
         var value   = $(this).serializeArray();
@@ -74,6 +71,7 @@ jQuery(function($){ 'use strict';
                     $self.children('.spproperty-req-submit').children('.fa-spinner').remove();
                     $self.children('.spproperty-req-submit').prop('disabled', true);
                     $self.next('.spproperty-req-status').html('<p class="pbooking-success">' + data.content + '</p>').fadeIn().delay(7000).fadeOut(500);
+                    $self.trigger('reset');
                  } else {
                     $self.next('.spproperty-req-status').html('<p class="pbooking-error">' + data.content + '</p>').fadeIn().delay(7000).fadeOut(500);
                 }
@@ -84,11 +82,8 @@ jQuery(function($){ 'use strict';
 
     //Ajax Agent contact form
     $('.spproperty-agent-form').on('submit', function(event) {
-
         event.preventDefault();
-
         var $this   = $(this);
-        //var that    = $(this);
 
         var $self   = $(this);
         var value   = $(this).serializeArray();
@@ -115,6 +110,7 @@ jQuery(function($){ 'use strict';
                     $self.find('#contact-submit').children('.fa-spinner').remove();
                     $self.find('#contact-submit').prop('disabled', true);
                     $self.next('.spproperty-cont-status').html('<p class="contact-sent">' + data.content + '</p>').fadeIn().delay(7000).fadeOut(500);
+                    $self.trigger('reset');
                  } else {
                     $self.next('.spproperty-cont-status').html('<p class="contact-error">' + data.content + '</p>').fadeIn().delay(7000).fadeOut(500);
                 }

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
-    <field name="ticket_title" type="text" size="50" label="COM_SPEVENTS_TICKET_TITLE_LABEL" description="COM_SPEVENTS_TICKET_TITLE_DESC" required="true"/>
-    <field name="ticket_price" type="text" label="COM_SPEVENTS_TICKET_PRICE_LABEL" description="COM_SPEVENTS_TICKET_PRICE_DESC" required="true"/>
-    <field name="ticket_seat" type="text" label="COM_SPEVENTS_SEAT_LABEL" description="COM_SPEVENTS_SEAT_DESC" required="true"/>
-    <field name="ticket_max_purchase" type="text" label="COM_SPEVENTS_MAX_PURCHASE_LABEL" description="COM_SPEVENTS_MAX_PURCHASE_DESC"/>
-    <field name="ticket_description" type="textarea" cols="30" rows="6" label="COM_SPEVENTS_TICKET_DESCRIPTION_LABEL" description="COM_SPEVENTS_TICKET_DESCRIPTION_DESC"/>
-</form>

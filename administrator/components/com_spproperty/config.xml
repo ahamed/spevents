@@ -41,6 +41,7 @@
 			<option value="6">6</option>
 			<option value="12">12</option>
 		</field>
+		<field name="measurement" type="text" label="COM_SPPROPERTY_MEASUREMENT" description="COM_SPPROPERTY_MEASUREMENT_DESC" />
 
 		<field name="spacer2" type="spacer" hr="true" />
 		<field name="agents_limit" type="number" default="12" label="COM_SPPROPERTY_CONF_AGENTS_LIMIT" description="COM_SPPROPERTY_CONF_AGENTS_LIMIT_DESC"/>
@@ -53,6 +54,10 @@
 		</field>
 
 		<field name="spacer3" type="spacer" hr="true" />
+		<field name="contact_captcha" type="radio" class="btn-group btn-group-yesno" default="0" label="COM_SPPROPERTY_AGENT_CONTACT_CAPTCHA" description="COM_SPPROPERTY_AGENT_CONTACT_CAPTCHA_DESC" filter="integer">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
 
 		<field name="contact_tac" type="radio" class="btn-group btn-group-yesno" default="1" label="COM_SPPROPERTY_AGENT_CONTACT_TAC" description="COM_SPPROPERTY_AGENT_CONTACT_TAC_DESC" filter="integer">
 			<option value="1">JYES</option>

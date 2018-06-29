@@ -26,7 +26,7 @@ if ($property) { ?>
         <div class="property-details">
             <span class="property-category">
                 <?php
-                  $category_name = ($property->property_status) ? $property->category_name . ', ' . $property->property_status : $property->category_name;
+                  $category_name = ($property->property_status) ? $property->category_name . ', ' . $property->property_status_txt : $property->category_name;
                   echo $category_name;
                 ?>
             </span>
@@ -35,25 +35,24 @@ if ($property) { ?>
                     <?php echo $property->title; ?>
                 </a>
             </h3>
-
             <span class="property-price">
-                <?php echo $property->price; ?>/<?php echo JText::_('COM_SPPROPERTY_PROPERTIES_SQFT'); ?>
+                <?php echo $property->price; ?>/<?php echo empty(trim($this->cParams['measurement'])) ?  JText::_('COM_SPPROPERTY_PROPERTIES_SQFT') : $this->cParams['measurement']; ?>
             </span>
-
-            <span class="property-summery">
-                <ul>
-                    <?php if($property->psize){ ?>
-                    <li class="area-size"><?php echo $property->psize; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_SQFT'); ?></li>
-                    <?php } if($property->beds){ ?>
-                    <li class="bedroom"><?php echo $property->beds; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_BEDROOMS'); ?></li>
-                    <?php } if($property->baths){ ?>
-                    <li class="bathroom"><?php echo $property->baths; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_BATHS'); ?></li>
-                    <?php } if($property->garages){ ?>
-                    <li class="parking"><?php echo $property->garages; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_PARKING'); ?></li>
-                    <?php } ?>
-                </ul>
-            </span>
-
+            <?php if($property->psize || $property->beds || $property->baths || $property->garages){ ?>
+                <span class="property-summery">
+                    <ul>
+                        <?php if($property->psize){ ?>
+                            <li class="area-size"><?php echo $property->psize; ?> <?php echo empty(trim($this->cParams['measurement'])) ?  JText::_('COM_SPPROPERTY_PROPERTIES_SQFT') : $this->cParams['measurement']; ?></li>
+                        <?php } if($property->beds){ ?>
+                            <li class="bedroom"><?php echo $property->beds; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_BEDROOMS'); ?></li>
+                        <?php } if($property->baths){ ?>
+                            <li class="bathroom"><?php echo $property->baths; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_BATHS'); ?></li>
+                        <?php } if($property->garages){ ?>
+                            <li class="parking"><?php echo $property->garages; ?> <?php echo JText::_('COM_SPPROPERTY_PROPERTIES_PARKING'); ?></li>
+                        <?php } ?>
+                    </ul>
+                </span>
+            <?php } ?>
             <span class="properties-search-button">
                 <a href="<?php echo $property->url; ?>" class="sppb-btn sppb-btn-primary sppb-btn-sm" role="button"><?php echo $property_rm_btn; ?></a>
             </span>

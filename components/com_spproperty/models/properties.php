@@ -215,12 +215,16 @@ class SppropertyModelProperties extends FOFModel{
 
 		//Language
 	 	$query->where('a.language in (' . $db->quote(JFactory::getLanguage()->getTag()) . ',' . $db->quote('*') . ')');
-		$query->setLimit($limit);
 		$query->where($db->quoteName('a.enabled')." = 1");
+
 		if ($ordering != 'featured') {
 			$query->order('a.ordering '. $ordering);
-		} else{
+		} else {
 			$query->order('a.ordering DESC');
+		}
+
+		if ($limit) {
+			$query->setLimit($limit);
 		}
 
 		$db->setQuery($query);
@@ -342,6 +346,5 @@ class SppropertyModelProperties extends FOFModel{
 
 		return $db->insertid();
 	}
-
-
+	
 }

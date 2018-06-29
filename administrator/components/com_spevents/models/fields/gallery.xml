@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <field name="image_link" type="media" label="COM_SPEVENTS_IMAGE_LINK" description="COM_SPEVENTS_IMAGE_LINK_DESC" />
+    <field name="image_alt" type="text" label="COM_SPEVENTS_IMAGE_ALT" description="COM_SPEVENTS_IMAGE_ALT_DESC"/>
+</form>

@@ -20,13 +20,16 @@ JHtml::_('formbehavior.chosen','select',null,array('disable_search_threshold' =>
 						<a href="#dateTime" data-toggle="tab">Date Time*</a>
 					</li>
                     <li>
-                        <a href="#ticket" data-toggle="tab">Create Ticket</a>
-                    </li>
-                    <li>
                         <a href="#recurring" data-toggle="tab">Repeat Event</a>
                     </li>
                     <li>
                         <a href="#registration" data-toggle="tab">Event Registration</a>
+					</li>
+					<li>
+                        <a href="#gallery" data-toggle="tab">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#social" data-toggle="tab">Social</a>
                     </li>
 					<li>
 						<a href="#options" data-toggle="tab">Options</a>
@@ -47,6 +50,12 @@ JHtml::_('formbehavior.chosen','select',null,array('disable_search_threshold' =>
 					</div>
 					<div id="registration" class="tab-pane">
 						<?php echo $this->form->renderFieldset('registration'); ?>
+					</div>
+					<div id="gallery" class="tab-pane">
+						<?php echo $this->form->renderFieldset('gallery'); ?>
+					</div>
+					<div id="social" class="tab-pane">
+						<?php echo $this->form->renderFieldset('social'); ?>
 					</div>
 					<div id="options" class="tab-pane">
 						<?php echo $this->form->renderFieldset('options'); ?>

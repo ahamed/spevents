@@ -33,7 +33,7 @@ defined('_JEXEC') or die; ?>
                             <?php if($property->category_name) { ?>
                                 <span class="property-category">
                                   <?php
-                                    $category_name = ($property->property_status) ? $property->category_name . ', ' . $property->property_status : $property->category_name;
+                                    $category_name = ($property->property_status) ? $property->category_name . ', ' . $property->property_status_txt : $property->category_name;
                                     echo $category_name;
                                   ?>
                                 </span>
@@ -47,7 +47,7 @@ defined('_JEXEC') or die; ?>
                             </h3>
 
                             <?php if($property->price){ ?>
-                                <span class="property-price"><?php echo $property->price; ?>/<?php echo JText::_('MOD_SPPROPERTY_PROPERTIES_SQFT'); ?></span>
+                                <span class="property-price"><?php echo $property->price; ?>/<?php echo empty(trim($cParams['measurement'])) ?  JText::_('MOD_SPPROPERTY_PROPERTIES_SQFT') : $cParams['measurement']; ?></span>
                             <?php } ?>
 
                             <?php if( $property->psize || $property->beds || $property->baths || $property->garages ){ ?>
@@ -55,7 +55,7 @@ defined('_JEXEC') or die; ?>
                                     <ul>
                                         <?php if($property->psize) { ?>
                                         <li class="area-size">
-                                            <?php echo $property->psize; ?> <?php echo JText::_('MOD_SPPROPERTY_PROPERTIES_SQFT'); ?>
+                                            <?php echo $property->psize; ?> <?php echo empty(trim($cParams['measurement'])) ?  JText::_('MOD_SPPROPERTY_PROPERTIES_SQFT') : $cParams['measurement']; ?>
                                         </li>
                                         <?php } if($property->beds) { ?>
                                         <li class="bedroom">

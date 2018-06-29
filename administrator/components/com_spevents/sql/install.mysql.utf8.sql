@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS `#__spevents_events` (
     `timezone` VARCHAR(20) NOT NULL DEFAULT '',
     `banner` TEXT,
     `organizers` VARCHAR(255) NOT NULL,
+    `seats` INT(11) NOT NULL DEFAULT '0',
     `location` INT(11) NOT NULL,
     `categories` VARCHAR(255) NOT NULL,
     `social_tags` TEXT,
@@ -22,8 +23,9 @@ CREATE TABLE IF NOT EXISTS `#__spevents_events` (
     `settings` TEXT,
     `all_day_event` TINYINT(3) NOT NULL DEFAULT '0',
     `tickets` TEXT,
+    `gallery` TEXT,
     `hits` INT(11) NOT NULL DEFAULT '0',
-    `currency` CHAR(20) NOT NULL DEFAULT '$',
+    `currency` CHAR(20) NOT NULL DEFAULT '',
     `featured` TINYINT(3) NOT NULL DEFAULT '0',
     `enabled` tinyint(3) NOT NULL DEFAULT '1',
     `language` varchar(255) NOT NULL DEFAULT '*',
@@ -38,6 +40,28 @@ CREATE TABLE IF NOT EXISTS `#__spevents_events` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE IF NOT EXISTS `#__spevents_tickets` (
+    `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+    `title` VARCHAR(255) NOT NULL,
+    `alias` VARCHAR(255) NOT NULL DEFAULT '',
+    `description` TEXT,
+    `price` INT(11) NOT NULL DEFAULT '0',
+    `seat` INT(11) DEFAULT '0',
+    `max_purchase` INT(11) DEFAULT '0',
+    `discount` VARCHAR(255),
+    `enabled` tinyint(3) NOT NULL DEFAULT '1',
+    `language` varchar(255) NOT NULL DEFAULT '*',
+    `access` int(5) NOT NULL DEFAULT '1',
+    `ordering` int(10) NOT NULL DEFAULT '0',
+    `created_by` bigint(20) NOT NULL DEFAULT '0',
+    `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `modified_by` bigint(20) NOT NULL DEFAULT '0',
+    `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `locked_by` bigint(20) NOT NULL DEFAULT '0',
+    `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
 -- table structure for table `#__spevents_users`

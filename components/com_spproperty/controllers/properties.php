@@ -72,13 +72,31 @@ class SppropertyControllerProperties extends FOFController{
 		$sender 	= base64_decode($input->post->get('sender', NULL, 'STRING'));
 		$pid 		= $input->post->get('pid', NULL, 'INT');
 		$pname 		= $input->post->get('pname', NULL, 'STRING');
+		$showcapt 	= $input->post->get('showcaptcha', FALSE, 'INT');
 		$visitor_ip	= $input->post->get('visitor_ip', NULL, 'STRING');
 
 		$subject 	= JText::_('COM_SPPROPERTY_EMAIL_SUBJECT_TEXT') . $pname;
 
 		$output = array();
-
 		$output['status'] = false;
+		
+		if($showcapt) {
+			$captcha_plg = JPluginHelper::importPlugin('captcha');
+			$dispatcher = JEventDispatcher::getInstance();
+			$res = $dispatcher->trigger('onCheckAnswer');
+
+			if (!$captcha_plg) {
+				$output['content'] = JText::_('COM_SPMEDICAL_CAPTCHA_NOT_INSTALLED');
+				echo json_encode($output);
+				die();
+			}
+
+			if(!$res[0]) {
+				$output['content'] = JText::_('COM_SPPROPERTY_RECAPTCHA_INVALID_CAPTCHA');
+				echo json_encode($output);
+				die();
+			}
+		}
 
 		if ($model->insertBooking($pid, $name, $phone, $recipient, $message, $user_id, $visitor_ip)) {
 			$output['status'] = true;
@@ -114,6 +132,5 @@ class SppropertyControllerProperties extends FOFController{
 		echo json_encode($output);
 		die();
 	}
-
 
 }

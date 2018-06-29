@@ -48,6 +48,21 @@ $doc->addScriptdeclaration('var spproperty_url="' . JURI::base() . 'index.php?op
 					<textarea id="message" name="message" class="col-sm-12" placeholder="<?php echo JText::_('COMPROPERTY_PLACEHOLDER_MESSAGE'); ?>" rows="5"></textarea>
 					<input type="hidden" name="agnt_email" value="<?php echo base64_encode($this->item->email); ?>">
 				</div>
+				<div class="controls">
+					<input type="hidden" id="showcaptcha" name="showcaptcha" value="<?php echo $this->captcha; ?>">
+					<?php if($this->captcha) { ?>
+						<div class="input-field">
+							<?php
+								JPluginHelper::importPlugin('captcha', 'recaptcha');
+								$dispatcher = JDispatcher::getInstance();
+								$dispatcher->trigger('onInit', 'dynamic_recaptcha_spmedical');
+								$recaptcha = $dispatcher->trigger('onDisplay', array(null, 'dynamic_recaptcha_spmedical', 'class="spproperty-dynamic-recaptcha"'));
+								
+								echo (isset($recaptcha[0])) ? $recaptcha[0] : '<p class="spproperty-alert-warning">' . JText::_('COM_SPMEDICAL_CAPTCHA_NOT_INSTALLED') . '</p>';
+							?>
+						</div>
+					<?php } ?>
+				</div>
 				<div class="controls spproperty-row">
 					<?php if($this->contact_tac && $this->contact_tac_text) { ?>
 						<div class="input-field spproperty-col-sm-10">
