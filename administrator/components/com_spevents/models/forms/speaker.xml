@@ -9,20 +9,7 @@
         <field name="description" type="editor" label="COM_SPEVENTS_TICKET_DESCRIPTION_LABEL" description="COM_SPEVENTS_TICKET_DESCRIPTION_DESC"/>
     </fieldset>
     <fieldset name="social">
-        <fields name="social_links">
-            <field name="facebook" type="url" label="COM_SPEVENTS_SPEAKER_FACEBOOK" description="COM_SPEVENTS_SPEAKER_FACEBOOK_DESC" />
-            <field name="twitter" type="url" label="COM_SPEVENTS_SPEAKER_TWITTER" description="COM_SPEVENTS_SPEAKER_TWITTER_DESC" />
-            <field name="google_plus" type="url" label="COM_SPEVENTS_SPEAKER_GOOGLE_PLUS" description="COM_SPEVENTS_SPEAKER_GOOGLE_PLUS_DESC" />
-            <field name="pinterest" type="url" label="COM_SPEVENTS_SPEAKER_PINTEREST" description="COM_SPEVENTS_SPEAKER_BINTEREST_DESC" />
-            <field name="dribble" type="url" label="COM_SPEVENTS_SPEAKER_DRIBBLE" description="COM_SPEVENTS_SPEAKER_DRIBBLE_DESC" />
-            <field name="behance" type="url" label="COM_SPEVENTS_SPEAKER_BEHANCE" description="COM_SPEVENTS_SPEAKER_BEHANCE_DESC" />
-            <field name="flickr" type="url" label="COM_SPEVENTS_SPEAKER_FLICKR" description="COM_SPEVENTS_SPEAKER_FLICKR_DESC" />
-            <field name="linkedin" type="url" label="COM_SPEVENTS_SPEAKER_LINKEDIN" description="COM_SPEVENTS_SPEAKER_LINKEDIN_DESC" />
-            <field name="youtube" type="url" label="COM_SPEVENTS_SPEAKER_YOUTUBE" description="COM_SPEVENTS_SPEAKER_YOUTUBE_DESC" />
-            <field name="vimeo" type="url" label="COM_SPEVENTS_SPEAKER_VIMEO" description="COM_SPEVENTS_SPEAKER_VIMEO_DESC" />
-            <field name="github" type="url" label="COM_SPEVENTS_SPEAKER_GITHUB" description="COM_SPEVENTS_SPEAKER_GITHUB_DESC" />
-            <field name="skype" type="url" label="COM_SPEVENTS_SPEAKER_SKYPE" description="COM_SPEVENTS_SPEAKER_SKYPE_DESC" />
-        </fields>
+        <field name="social_links" type="subform" formsource="/administrator/components/com_spevents/models/fields/social.xml" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC" multiple="true" />
     </fieldset>
     <fieldset name="options">
         <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">

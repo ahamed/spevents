@@ -11,6 +11,12 @@ class SpeventsTableOrganizer extends JTable
 
 	public function bind($src, $ignore = array())
 	{
+		if (isset($src['team_members']) && is_array($src['team_members']))
+		{
+			$registry = new JRegistry();
+			$registry->loadArray($src['team_members']);
+			$src['team_members'] = (string)$registry;
+		}
 		return parent::bind($src, $ignore);
 	}
 

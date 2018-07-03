@@ -20,6 +20,11 @@ class SpeventsHelper extends JHelperContent
 
 	public static function addSubmenu($vName){
 		JHtmlSidebar::addEntry(
+			JText::_('COM_SPEVENTS_SUBMENU_DASHBOARD'),
+			'index.php?option=com_spevents&view=dashboards',
+			$vName == 'dashboards'
+		);
+		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_CATEGORY'),
 			'index.php?option=com_spevents&view=categories',
 			$vName == 'categories'

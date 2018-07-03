@@ -59,4 +59,17 @@ class SpeventsModelOrganizer extends JModelAdmin
 	}
 
 
+	public function getItem($pk = null)
+	{
+		if ($item = parent::getItem($pk))
+		{
+			$registry = new JRegistry();
+			$registry->loadString($item->team_members);
+			$item->team_members = $registry->toArray();
+			return $item;
+		}
+
+		return parent::getItem($pk);
+	}
+
 }

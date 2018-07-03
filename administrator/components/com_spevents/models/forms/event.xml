@@ -35,6 +35,7 @@
         />
         <field name="seats" type="number" label="COM_SPEVENTS_SEATS_LABEL" description="COM_SPEVENTS_SEATS_DESC"  required="true" />
         <field name="tickets" type="sql" query="SELECT id, title FROM #__spevents_tickets AS a WHERE a.enabled = 1" key_field="id" value_field="title" multiple="true"/>
+        <field name="logo" type="media" label="COM_SPEVENTS_LOGO" description="COM_SPEVENTS_LOGO_DESC" />
         <field name="banner" type="media" label="COM_SPEVENTS_BANNER_LABEL" description="COM_SPEVENTS_BANNER_DESC"/>
         <field name="url" type="url" label="COM_SPEVENTS_URL_LABEL" description="COM_SPEVENTS_URL_DESC" />
         <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
@@ -92,16 +93,10 @@
         </fields>
     </fieldset>
     <fieldset name="gallery">
-        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="Gallery" description="" multiple="true" />
+        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC" multiple="true" />
     </fieldset>
     <fieldset name="social">
-        <fields name="social_tags">
-            <field name="social_facebook" type="url" label="COM_SPEVENTS_SOCIAL_FACEBOOK" description="COM_SPEVENTS_SOCIAL_FACEBOOK_DESC" />
-            <field name="social_twitter" type="url" label="COM_SPEVENTS_SOCIAL_TWITTER" description="COM_SPEVENTS_SOCIAL_TWITTER_DESC" />
-            <field name="social_linkedin" type="url" label="COM_SPEVENTS_SOCIAL_LINKEDIN" description="COM_SPEVENTS_SOCIAL_LINKEDIN_DESC" />
-            <field name="social_google_plus" type="url" label="COM_SPEVENTS_SOCIAL_GOOGLE" description="COM_SPEVENTS_SOCIAL_GOOGLE_DESC" />
-            <field name="social_instagram" type="url" label="COM_SPEVENTS_SOCIAL_INSTA" description="COM_SPEVENTS_SOCIAL_INSTA_DESC" />
-        </fields>
+        <field name="social_tags" type="subform" formsource="/administrator/components/com_spevents/models/fields/social.xml" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC" multiple="true" />
     </fieldset>
     <fieldset name="options">
         <field name="featured" type="radio" label="COM_SPEVENTS_FEATURED_LABEL" description="COM_SPEVENTS_FEATURED_DESC" default="0" class="btn-group">

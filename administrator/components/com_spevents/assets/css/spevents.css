@@ -1,0 +1,271 @@
+/**
+* @package com_spevents
+* @author JoomShaper http://www.joomshaper.com
+* @copyright Copyright (c) 2010 - 2018 JoomShaper
+* @license http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 or later
+*/
+
+td .spevents-times-wrap {
+    font-size: 12px;
+}
+
+td .spevents-times-wrap span:first-child {
+    font-weight: bold;
+}
+
+/*** Dashboard ***/
+
+.spevents-view-dashboard .j-sidebar-container {
+    background-color: #fff;
+}
+
+.com_spevents.view-,
+.com_spevents.view-dashboards {
+    background: #eee;
+}
+
+.com_spevents.view- .container-fluid,
+.com_spevents.view-dashboard .container-fluid {
+    position: relative;
+    height: 100%;
+    padding: 0 20px 0 0;
+    top: 0 !important;
+}
+
+.spevents-box {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #fff;
+    padding: 30px 30px 30px 110px;
+    border-radius: 3px;
+    position: relative;
+}
+
+.spevents-box h3 {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px;
+}
+
+.spevents-box.latest-specialists,
+.spevents-box.recent-appointments,
+.spevents-dashboard-footer {
+    padding: 30px;
+}
+
+.latest-specialists-wrapper {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.latest-specialists.spevents-box,
+.recent-orders.spevents-box {
+    height: 100%;
+    margin: 0;
+}
+
+.latest-specialists.spevents-box ul>li,
+.recent-orders.spevents-box ul>li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latest-specialists.spevents-box ul>li>div,
+.recent-orders.spevents-box ul>li>div {
+    flex: 1;
+    font-size: 13px;
+}
+
+.latest-specialists.spevents-box .title-wrap>div,
+.recent-orders.spevents-box .title-wrap>div {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.latest-specialists.spevents-box h3,
+.recent-orders.spevents-box h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.latest-specialists.spevents-box .designation {
+    font-size: 13px;
+}
+
+.spevents-box .gray-color {
+    color: #999;
+}
+
+.recent-orders.spevents-box .date {}
+
+.latest-specialists ul,
+.recent-appointments ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.latest-specialists ul li,
+.recent-appointments ul li {
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid #f1f1f1;
+}
+
+.latest-specialists ul li .designation-wrap,
+.recent-appointments ul li .date {
+    font-size: 13px;
+    color: #999;
+    display: inline-block;
+}
+
+.spevents .latest-specialists ul {
+    margin-bottom: 0;
+}
+
+.latest-specialists .designation-wrap .designation {
+    display: block;
+}
+
+.spevents .latest-specialists a,
+.spevents .recent-orders a {
+    color: #444;
+}
+
+.recent-orders.spevents-box {
+    padding: 30px;
+}
+
+.recent-orders.spevents-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.recent-orders.spevents-box ul>li {
+    padding-top: 8px;
+    margin-top: 8px;
+    border-top: 1px solid #f1f1f1;
+}
+
+.recent-orders.spevents-box ul li strong {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.spevents-box i {
+    position: absolute;
+    left: 30px;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 28px;
+    background: #2dcb73;
+    color: #fff;
+    border-radius: 100px;
+    margin-bottom: 20px;
+}
+
+.total-categories.spevents-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-categories.spevents-box i.fa {}
+
+.total-categories.spevents-box .title {
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+}
+
+.total-categories.spevents-box .count {
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.total-categories.appointments.spevents-box .specialists-icon {
+    background: #ffc36d;
+}
+
+.total-categories.appointments.spevents-box .title:after {
+    background: #ffc36d;
+}
+
+.total-categories.departments.spevents-box .specialists-icon {
+    background: #40bbea;
+}
+
+.total-categories.departments.spevents-box .title:after {
+    background: #40bbea;
+}
+
+.spevents-box .specialists-icon {
+    background: #53e69d;
+}
+
+.spevents-box .fa-usd {
+    background: #ff604f;
+}
+
+.spevents-box .fa-bar-chart {
+    background: #40bbea;
+}
+
+.spevents-box .fa-book {
+    background: #715eff;
+}
+
+.spevents-box .fa-bars {
+    background: #78CDD7;
+}
+
+.spevents-box span {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.com_spevents.view- #status,
+.com_spevents.spevents-view-dashboard #status {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.spevents-dashboard-canvas {
+    background: #fff;
+    padding: 50px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.spevents-dashboard-footer p {
+    margin: 0;
+}
+
+
+
+@media (max-width: 767px) {
+    .com_spevents.view-,
+    .com_spevents.spevents-view-dashboard {
+        padding: 0;
+    }
+    .spevents-sidebar {
+        width: 45px;
+    }
+    .spevents-dashboard-content {
+        margin-left: 65px;
+    }
+}
