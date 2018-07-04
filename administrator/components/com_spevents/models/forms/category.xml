@@ -17,7 +17,6 @@
             <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
         </field>
         <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
-        <field name="created_on" type="calendar" showtime="false" timeformat="24" format="%Y-%m-%d" label="JGLOBAL_FIELD_CREATED_LABEL" description="JGLOBAL_FIELD_CREATED_DESC"/>
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
 

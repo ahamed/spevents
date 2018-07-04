@@ -66,21 +66,21 @@ JHtml::_('jquery.framework', false);
                         <div class="total-categories departments spevents-box">
                             <i class="icon icon-grid"></i>
                             <span class="count"><?php echo $this->categories->total_categories; ?></span>
-                            <span class="title">Categories</span>
+                            <span class="title"><?php echo JText::_('COM_SPEVENTS_DASHBOARD_CATEGORIES'); ?></span>
                         </div>
                     </div>
                 <div class="spevents-col-lg-4">
                     <div class="total-categories departments spevents-box">
                         <i class="fa fa-calendar-alt"></i>
                         <span class="count"><?php echo $this->events->total_events; ?></span>
-                        <span class="title">Events</span>
+                        <span class="title"><?php echo JText::_('COM_SPEVENTS_DASHBOARD_EVENTS'); ?></span>
                     </div>
                 </div>
                 <div class="spevents-col-lg-4">
                     <div class="total-categories departments spevents-box">
                         <i class="fa fa-microphone"></i>
                         <span class="count"><?php echo $this->speakers->total_speakers; ?></span>
-                        <span class="title">Speakers</span>
+                        <span class="title"><?php echo JText::_('COM_SPEVENTS_DASHBOARD_SPEAKERS'); ?></span>
                     </div>
                 </div>
             </div>
@@ -88,21 +88,23 @@ JHtml::_('jquery.framework', false);
             <div class="spevents-row">
                 <div class="spevents-col-lg-6">
                     <div class="spevents-box">
-                        <h6>Lastest Events</h6>
+                        <h6>Lastest Events <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Title</th>
-                                    <th>ID</th>
+                                    <th><?php echo JText::_('JGLOBAL_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LOCATION'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_START_TIME'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($this->items as $key => $item){ ?>
+                                <?php foreach($this->eventList as $key => $item){ ?>
                                 <tr>
                                     <td><?php echo ($key+1); ?></td>
                                     <td><?php echo $item->title; ?></td>
-                                    <td><?php echo $item->id; ?></td>
+                                    <td><?php echo !empty($item->venue) ? $item->venue : '----'; ?></td>
+                                    <td><?php echo date('d F, Y h:i A', strtotime($item->start_time)); ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -112,13 +114,41 @@ JHtml::_('jquery.framework', false);
 
                 <div class="spevents-col-lg-6">
                     <div class="spevents-box">
-                        <h6>Latest Speakers</h6>
+                        <h6>Upcoming Events <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Title</th>
-                                    <th>ID</th>
+                                    <th><?php echo JText::_('JGLOBAL_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LOCATION'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_START_TIME'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($this->upcomingEvents as $key => $item){ ?>
+                                <tr>
+                                    <td><?php echo ($key+1); ?></td>
+                                    <td><?php echo $item->title; ?></td>
+                                    <td><?php echo !empty($item->venue) ? $item->venue : '----'; ?></td>
+                                    <td><?php echo date('d F, Y h:i A', strtotime($item->start_time)); ?></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spevents-row">
+                <div class="spevents-col-lg-6">
+                    <div class="spevents-box">
+                        <h6>Latest Speakers <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=speakers'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <table class="spevents-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_NAME'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_DESIGNATION'); ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -126,7 +156,7 @@ JHtml::_('jquery.framework', false);
                                 <tr>
                                     <td><?php echo ($key+1); ?></td>
                                     <td><?php echo $item->title; ?></td>
-                                    <td><?php echo $item->id; ?></td>
+                                    <td><?php echo $item->designation; ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

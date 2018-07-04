@@ -13,7 +13,7 @@ class SpeventsViewDashboards extends JViewLegacy
 
     protected $model;
     
-    protected $categories, $events, $speakers, $speakerList;
+    protected $categories, $events, $speakers, $speakerList, $eventList, $upcomingEvents;
 
 	public function display($tpl = null)
 	{
@@ -41,9 +41,11 @@ class SpeventsViewDashboards extends JViewLegacy
         $this->categories = $this->model->calculateCategories();
         $this->events = $this->model->calculateEvents();
         $this->speakers = $this->model->calculateSpeakers();
-        $this->speakerList = $this->model->getSpeakers();
+		$this->speakerList = $this->model->getSpeakers();
+		$this->eventList = $this->model->getEvents();
+		$this->upcomingEvents = $this->model->upcomingEvents();
 
-        //EH::___($this->items, false);
+        //EH::___($this->eventList, false);
 
 		return parent::display($tpl);
 	}

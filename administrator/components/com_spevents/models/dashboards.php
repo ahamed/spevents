@@ -66,9 +66,45 @@ class SpeventsModelDashboards extends JModelList
 		$query->select('*');
 		$query->from($db->quoteName('#__spevents_events'));
 		$query->order('UNIX_TIMESTAMP(created_on) DESC');
-		$query->setLimit(3);
+		$query->setLimit(5);
 		
 		return $query;
+	}
+
+	public function getEvents()
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select("a.*, b.venue_name as venue")->from($db->quoteName('#__spevents_events', 'a'));
+		$query->join('LEFT', $db->quoteName('#__spevents_locations', 'b') . ' ON(' . $db->quoteName('a.location') . '=' . $db->quoteName('b.id') . ')');
+		$query->order("UNIX_TIMESTAMP(a.start_time) DESC");
+		$query->setLimit(5);
+		$db->setQuery($query);
+		
+		
+		$result = $db->loadObjectList();
+		//SpeventsHelper::___($result);
+		return $result;
+	}
+
+	public function upcomingEvents()
+	{
+		$app = JFactory::getApplication();
+		$now = new JDate('now', $app->getCfg('offset'));
+		$now = (string)$now;
+
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('a.*, b.venue_name as venue')
+			->from($db->quoteName('#__spevents_events', 'a'))
+			->where('DATE(a.start_time) >= ' . $db->quote($now));
+		$query->join('LEFT', $db->quoteName('#__spevents_locations', 'b') . ' ON(' . $db->quoteName('a.location') . '=' . $db->quoteName('b.id') . ')');
+		$query->order('UNIX_TIMESTAMP(a.start_time) DESC');
+		$query->setLimit(5);
+		$db->setQuery($query);
+
+		$result = $db->loadObjectList();
+		return $result;
 	}
 
 	public function getSpeakers()

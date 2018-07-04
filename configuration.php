@@ -28,7 +28,7 @@ class JConfig {
 	public $ftp_pass = '';
 	public $ftp_root = '';
 	public $ftp_enable = '0';
-	public $offset = 'UTC';
+	public $offset = 'Asia/Dhaka';
 	public $mailonline = '1';
 	public $mailer = 'mail';
 	public $mailfrom = 'events@js.com';

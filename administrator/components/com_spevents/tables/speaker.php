@@ -24,18 +24,19 @@ class SpeventsTableSpeaker extends JTable
 	{
 		//SpeventsHelper::___($this);
 
-		$date = JFactory::getDate();
 		$user = JFactory::getUser();
+		$app  = JFactory::getApplication();
+		$date = new JDate('now', $app->getCfg('offset'));
 
 		if ($this->id)
 		{
-			$this->modified_on = $date->toSql();
+			$this->modified_on = (string)$date;
 			$this->modified_by = $user->get('id');
 		}
 
 		if (empty($this->created_on))
 		{
-			$this->created_on = $date->toSql();
+			$this->created_on = (string)$date;
 		}
 
 		if (empty($this->created_by))

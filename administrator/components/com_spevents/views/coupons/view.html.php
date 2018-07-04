@@ -20,7 +20,7 @@ class SpeventsViewCoupons extends JViewLegacy
 		$this->pagination = $this->get('Pagination');
 		$this->model = $this->getModel('coupons');
 
-//		/SpeventsHelper::___($this->items);
+		SpeventsHelper::___($this->items);
 
 		SpeventsHelper::addSubmenu('coupons');
 
