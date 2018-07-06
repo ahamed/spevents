@@ -77,22 +77,8 @@ class SpeventsHelper extends JHelperContent
 	{
 		return parent::getActions($component, $section, $id);
 	}
-
-	public static function _get($param,$table_name,$id)
-	{
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
-		$query->select($db->quoteName($param));
-		$query->from($db->quoteName($table_name));
-		$query->where($db->quoteName('id') . ' = '. $db->quote($id));
-		$db->setQuery($query);
-		$result = $db->loadObject();
-		return $result;
-		$result = $result->$param;
-		return json_decode($result);
-
-	}
-
+	
+	//generate a random string of specific range
 	public static function generateRandom($length = 8)
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -104,6 +90,15 @@ class SpeventsHelper extends JHelperContent
 		return $randomString;
 	}
 
+
+
+	/**
+	 * relationship mapping
+	 * table_a contains primary key
+	 * table_b contains foreign key
+	 * mapping OneToOne relationship
+	 * @return Object
+	 */
 	public static function hasOne($table_a, $table_b, $primary_key, $foreign_key, $id)
 	{
 		$db = JFactory::getDbo();
@@ -120,6 +115,15 @@ class SpeventsHelper extends JHelperContent
 		return $result;
 	}
 
+
+
+	/**
+	 * relationship mapping
+	 * table_a contains primary key
+	 * table_b contains foreign key
+	 * mapping OneToMany relationship
+	 * @return ObjectList
+	 */
 	public static function hasMany($table_a, $table_b, $primary_key, $foreign_key, $id)
 	{
 		$db = JFactory::getDbo();
@@ -136,6 +140,16 @@ class SpeventsHelper extends JHelperContent
 		return $result;
 	}
 
+
+
+	/**
+	 * relationship mappping
+	 * table_a's data belogs to table_b
+	 * table_a contains the foreign key and
+	 * table_b contains the primary key
+	 * mapping OneToOne or ManyToOne relationship
+	 * @return Object
+	 */
 	public static function belongsTo($table_a, $table_b, $primary_key, $foreign_key, $id)
 	{
 		$db = JFactory::getDbo();
@@ -151,6 +165,36 @@ class SpeventsHelper extends JHelperContent
 		$result = $db->loadObject();
 		return $result;
 
+	}
+
+	//get object data of a specific parameter
+	public static function _get($param,$table_name,$id)
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select($db->quoteName($param));
+		$query->from($db->quoteName($table_name));
+		$query->where($db->quoteName('id') . ' = '. $db->quote($id));
+		$db->setQuery($query);
+		$result = json_decode($db->loadResult());
+		return $result;
+
+	}
+
+	//get component version
+	public static function getVersion() {
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true)
+		->select('e.manifest_cache')
+		->select($db->quoteName('e.manifest_cache'))
+		->from($db->quoteName('#__extensions', 'e'))
+		->where($db->quoteName('e.element') . ' = ' . $db->quote('com_spevents'));
+		$db->setQuery($query);
+		$manifest_cache = json_decode($db->loadResult());
+		if(isset($manifest_cache->version) && $manifest_cache->version) {
+			return $manifest_cache->version;
+		}	
+		return '1.0';
 	}
 
 	//Debugging function

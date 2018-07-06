@@ -41,6 +41,15 @@ td .spevents-times-wrap span:first-child {
     position: relative;
 }
 
+.infobox.spevents-box{
+    min-height: 500px;
+    padding: 30px 30px 30px 30px;
+}
+
+.spevents-link{
+    color: #000!important;
+}
+
 .spevents-box h3 {
     font-size: 14px;
     font-weight: bold;

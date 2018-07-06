@@ -19,7 +19,7 @@ class SpeventsViewEvent extends JViewLegacy
 			JError::raiseError(500, implode('<br>',$errors));
 			return false;
 		}
-		
+
 		$this->addToolbar();
 
 		return parent::display($tpl);

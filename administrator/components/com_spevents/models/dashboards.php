@@ -127,7 +127,7 @@ class SpeventsModelDashboards extends JModelList
 		$query = $db->getQuery(true);
 		$query->select("COUNT(id) as total_categories")->from($db->quoteName("#__spevents_categories"));
 		$db->setQuery($query);
-		$result = $db->loadObject();
+		$result = $db->loadResult();
 		return $result;
 	}
 
@@ -137,8 +137,26 @@ class SpeventsModelDashboards extends JModelList
 		$query = $db->getQuery(true);
 		$query->select("COUNT(id) AS total_events")->from($db->quoteName('#__spevents_events'));
 		$db->setQuery($query);
-		$result = $db->loadObject();
+		$result = $db->loadResult();
 		return $result;
+	}
+
+	public function calculateUpcomingEvents()
+	{
+		$app = JFactory::getApplication();
+		$now = new JDate('now', $app->getCfg('offset'));
+		$now = (string)$now;
+
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select("COUNT(id) as total_upcoming")
+			->from($db->quoteName('#__spevents_events', 'a'));
+		$query->where('DATE(a.start_time) >= ' . $db->quote($now));
+
+		$db->setQuery($query);
+		$result = $db->loadResult();
+		return $result;
+		
 	}
 
 	public function calculateSpeakers()
@@ -147,7 +165,7 @@ class SpeventsModelDashboards extends JModelList
 		$query = $db->getQuery(true);
 		$query->select("COUNT(id) AS total_speakers")->from($db->quoteName('#__spevents_speakers'));
 		$db->setQuery($query);
-		$result = $db->loadObject();
+		$result = $db->loadResult();
 		return $result;
 	}
 

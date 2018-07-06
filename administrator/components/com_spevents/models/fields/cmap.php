@@ -14,10 +14,9 @@ class JFormFieldCmap extends JFormField{
 		$required  = $this->required ? ' required aria-required="true"' : '';
 
 		$params = JComponentHelper::getParams('com_spevents');
-		$cmap_api = $params->get('cmap_api','AIzaSyABRKVxBEhnAwsnz8AjzMcqoJocISsBIEk');
+		$cmap_api = $params->get('cmap_api');
 
 		JHtml::_('jquery.framework');
-		$doc = JFactory::getDocument();
 		// Load Map js
 		$doc = JFactory::getDocument();
 
