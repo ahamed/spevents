@@ -90,7 +90,7 @@
         </fields>
     </fieldset>
     <fieldset name="gallery">
-        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC" multiple="true" />
+        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC" multiple="true"/>
     </fieldset>
     <fieldset name="social">
         <field name="social_tags" type="subform" formsource="/administrator/components/com_spevents/models/fields/social.xml" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC" multiple="true" />
@@ -112,87 +112,8 @@
         <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
-    <!-- <fieldset name="settings">
-        <fields name="settings">
-            <fieldset name="sharing">
-                <field name="rating" label="Enable event rating" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="share_fb" label="Enable share on facebook" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="share_tw" label="Enable share on twitter" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="share_gp" label="Enable share on google+" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-            </fieldset>
-            <fieldset name="event_list">
-                <field name="start_date" label="Display Start date" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="end_date" label="Display End date" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="description" label="Display Description" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="location" label="Display Location" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="organizers" label="Display Organizers" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="categories" label="Display Categories" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="tags" label="Display Tags" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="map" label="Display Map" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="hits" label="Display Hits" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="list_rating" label="Display Rating" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-            </fieldset>
-            <fieldset name="event_details">
-                <field name="detail_start_date" label="Display Start date" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="detail_end_date" label="Display End date" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="detail_categories" label="Display Categories" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="detail_tags" label="Display Tags" description="" default="1" type="radio" class="btn-group">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-            </fieldset>
-        </fields>
-    </fieldset> -->
+    <fieldset name="location_modal">
+        
+    </fieldset>
 
 </form>

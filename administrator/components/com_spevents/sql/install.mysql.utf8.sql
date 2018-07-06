@@ -305,6 +305,25 @@ CREATE TABLE IF NOT EXISTS `#__spevents_tags` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE IF NOT EXISTS `#__spevents_orders` (
+    `id` BIGINT(20) unsigned NOT NULL AUTO_INCREMENT,
+    `order_id` VARCHAR(255) NOT NULL,
+    `customer_id` BIGINT(20) unsigned NOT NULL,
+    `price` FLOAT(8,2) NOT NULL DEFAULT '0.0',
+    `quantity` INT(11) NOT NULL DEFAULT '1',
+    `status` VARCHAR(100),
+    `enabled` tinyint(3) NOT NULL DEFAULT '1',
+    `language` varchar(255) NOT NULL DEFAULT '*',
+    `access` int(5) NOT NULL DEFAULT '1',
+    `ordering` int(10) NOT NULL DEFAULT '0',
+    `created_by` bigint(20) NOT NULL DEFAULT '0',
+    `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `modified_by` bigint(20) NOT NULL DEFAULT '0',
+    `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `locked_by` bigint(20) NOT NULL DEFAULT '0',
+    `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    PRIMARY KEY(`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
 -- table structure for table `#__spevents_images`
@@ -316,4 +335,5 @@ CREATE TABLE IF NOT EXISTS `#__spevents_images` (
   `image` TEXT NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 

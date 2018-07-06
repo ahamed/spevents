@@ -2,7 +2,7 @@
 defined('_JEXEC') or die;
 
 
-class SpeventsControllerDashboards extends JControllerAdmin
+class SpeventsControllerDashboard extends JControllerAdmin
 {
 
 	public function getModel($name = 'Dashboard', $prefix = 'SpeventsModel', $config = array('ignore_request' => true))

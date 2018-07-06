@@ -2,7 +2,7 @@
 defined('_JEXEC') or die;
 
 
-class SpeventsModelDashboards extends JModelList
+class SpeventsModelDashboard extends JModelList
 {
 
 	public function __construct(array $config = array())
@@ -107,18 +107,56 @@ class SpeventsModelDashboards extends JModelList
 		return $result;
 	}
 
+	public function upcomingSessions()
+	{
+		$events = $this->upcomingEvents();
+		$eventId = [];
+
+		foreach ($events as $key => $event)
+		{
+			$eventId[] = $event->id;
+		}
+
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select("s.*")
+			->from($db->quoteName('#__spevents_sessions', 's'))
+			->where($db->quoteName('s.event_id') . ' IN(' . implode(',', $eventId) . ')')
+			->order('DATE(s.date) DESC, UNIX_TIMESTAMP(s.time_from) ASC');
+		$query->setLimit(5);
+
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		return $result;
+	}
+
 	public function getSpeakers()
 	{
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		$query->select("*")->from($db->quoteName('#__spevents_speakers'));
 		$query->order("UNIX_TIMESTAMP(created_on) DESC");
-		$query->setLimit(3);
+		$query->setLimit(5);
 		$db->setQuery($query);
 		
 		$result = $db->loadObjectList();
 		return $result;
 
+	}
+
+	public function getOrders()
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('*')
+			->from($db->quoteName('#__spevents_orders','o'))
+			->order($db->quoteName('o.created_on') . ' DESC');
+		$query->setLimit(5);
+
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		return $result;
 	}
 
 	public function calculateCategories()

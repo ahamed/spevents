@@ -67,6 +67,8 @@ JHtml::_('formbehavior.chosen','select',null,array('disable_search_threshold' =>
 		</div>
 	</div>
 
+	
+
 	<input type="hidden" name="task" value="event.edit" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>

@@ -20,7 +20,7 @@ td .spevents-times-wrap span:first-child {
 }
 
 .com_spevents.view-,
-.com_spevents.view-dashboards {
+.com_spevents.view-dashboard {
     background: #eee;
 }
 
@@ -264,6 +264,14 @@ td .spevents-times-wrap span:first-child {
     margin: 0;
 }
 
+.spevents-speakers-link {
+    background: rgba(143, 220, 128, 0.2)!important;
+    padding: 5px!important;
+    border-radius: 5px!important;
+    color: #000!important;
+    margin-bottom: 5px!important;
+    text-decoration: none!important;
+}
 
 
 @media (max-width: 767px) {

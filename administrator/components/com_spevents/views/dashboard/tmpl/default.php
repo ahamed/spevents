@@ -8,6 +8,11 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 
 $listDirn = $this->escape($this->state->get('list.direction'));
 
+$params = JComponentHelper::getParams('com_spevents');
+$currency = explode(':',$params->get('currency'));
+
+$currency = $currency[1];
+
 $canOrder = $user->authorise('core.edit.state','com_spevents.category');
 $saveOrder = $listOrder == 'a.ordering';
 
@@ -19,7 +24,7 @@ $doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/Chart.mi
 
 
 if($saveOrder) {
-	$saveOrderingUrl = 'index.php?option=com_spevents&task=dashboards.saveOrderAjax&tmpl=component';
+	$saveOrderingUrl = 'index.php?option=com_spevents&task=dashboard.saveOrderAjax&tmpl=component';
 	JHtml::_('sortablelist.sortable', 'eventList','adminForm', strtolower($listDirn),$saveOrderingUrl);
 }
 
@@ -94,9 +99,69 @@ JHtml::_('jquery.framework', false);
             </div><!-- end of counting row-->
 
             <div class="spevents-row">
-                <div class="spevents-col-lg-12">
-                    <div class="spevents-box">
-                        <canvas id="myChart" height="100"></canvas>
+                <div class="spevents-col-lg-8">
+                    <div class="infobox spevents-box">
+                        <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_UPCOMING_SESSIONS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=sessions'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><?php echo JText::_('JGLOBAL_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_EVENTS_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_SESSION_START_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_SESSION_END_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_HALL_TITLE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_SPEAKERS_TITLE'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($this->upcomingSessions as $key => $item){ ?>
+                                <tr>
+                                    <td><?php echo ($key+1); ?></td>
+                                    <td><a class="spevents-link" href="<?php echo JRoute::_('index.php?option=com_spevents&task=session.edit&id=' . $item->id); ?>"><?php echo $item->title; ?></a></td>
+                                    <td><?php echo SpeventsHelper::belongsTo('#__spevents_sessions', '#__spevents_events', 'id', 'event_id', $item->event_id)->title; ?></td>
+                                    <td><?php echo date('d F, Y', strtotime($item->date)) . date(' h:i A', strtotime($item->time_from)); ?></td>
+                                    <td><?php echo date('d F, Y', strtotime($item->date)) . date(' h:i A', strtotime($item->time_to)); ?></td>
+                                    <td><?php echo $item->hall; ?></td>
+                                    <td>
+                                        <?php foreach($speakers = $this->sessionsSpeakers(SpeventsHelper::stringToArray($item->speakers)) as $spk){ ?>
+                                            <a class="spevents-speakers-link" href="<?php echo JRoute::_('index.php?option=com_spevents&task=speaker.edit&id=' . $spk->id); ?>"><?php echo $spk->title; ?></a>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="spevents-col-lg-4">
+                    <div class="infobox spevents-box">
+                        <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_ORDER'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=orders'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <table class="spevents-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_ORDER'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_CUSTOMER'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_PRICE'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_QUANTITY'); ?></th>
+                                    <th><?php echo JText::_('COM_SPEVENTS_DASHBOARD_TOTAL'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach($this->ordersList as $key => $item){ ?>
+                                <tr>
+                                    <td><?php echo ($key+1); ?></td>
+                                    <td><?php echo $item->order_id; ?></td>
+                                    <td><?php echo SpeventsHelper::belongsTo('#__spevents_orders', '#__users', 'id', 'customer_id', $item->customer_id)->name; ?></td>
+                                    <td><?php echo $currency . '' . $item->price; ?></td>
+                                    <td><?php echo $item->quantity; ?></td>
+                                    <td><?php echo $currency . '' . $item->price * $item->quantity; ?></td>
+                                </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -104,7 +169,7 @@ JHtml::_('jquery.framework', false);
             <div class="spevents-row">
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
-                        <h6>Lastest Events <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_EVENTS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
                                 <tr>
@@ -130,7 +195,7 @@ JHtml::_('jquery.framework', false);
 
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
-                        <h6>Upcoming Events <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_UPCOMING_EVENTS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
                                 <tr>
@@ -156,7 +221,7 @@ JHtml::_('jquery.framework', false);
 
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
-                        <h6>Latest Speakers <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=speakers'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
+                        <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_SPEAKERS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=speakers'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
                                 <tr>

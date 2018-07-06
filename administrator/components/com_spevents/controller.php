@@ -6,7 +6,7 @@ class SpeventsController extends JControllerLegacy{
 
   public function display($cachable=false,$urlparams=false)
   {
-    $view   = $this->input->get('view','dashboards');
+    $view   = $this->input->get('view','dashboard');
     $layout = $this->input->get('layout','default');
     $id     = $this->input->getInt('id');
     $this->input->set('view',$view);

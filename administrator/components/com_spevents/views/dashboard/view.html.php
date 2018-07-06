@@ -3,7 +3,7 @@ defined('_JEXEC') or die;
 
 use SpeventsHelper as EH;
 
-class SpeventsViewDashboards extends JViewLegacy
+class SpeventsViewDashboard extends JViewLegacy
 {
 	protected $items;
 
@@ -15,20 +15,22 @@ class SpeventsViewDashboards extends JViewLegacy
     
 	protected $categories, $events, $speakers, $upcomingEventsCount; 
 	
-	protected $speakerList, $eventList, $upcomingEvents;
+	protected $speakerList, $eventList, $upcomingEvents, $ordersList;
 	
 	protected $google_map; 
+
+	protected $upcomingSessions;
 
 	public function display($tpl = null)
 	{
 		$this->items    = $this->get('Items');
 		$this->state    = $this->get('State');
 		$this->pagination = $this->get('Pagination');
-		$this->model = $this->getModel('dashboards');
+		$this->model = $this->getModel('dashboard');
 
 //		/SpeventsHelper::___($this->items);
 
-		SpeventsHelper::addSubmenu('dashboards');
+		SpeventsHelper::addSubmenu('dashboard');
 
 
 		if (count($errors = $this->get('Errors')))
@@ -37,7 +39,7 @@ class SpeventsViewDashboards extends JViewLegacy
 			return false;
 		}
 
-        JHtmlSidebar::setAction('index.php?option=com_spevents&view=dashboards');
+        JHtmlSidebar::setAction('index.php?option=com_spevents&view=dashboard');
         
         $this->sidebar = JHtmlSidebar::render();
         JToolbarHelper::title(JText::_("COM_SPEVENTS_SUBMENU_DASHBOARD"));
@@ -49,12 +51,29 @@ class SpeventsViewDashboards extends JViewLegacy
 		$this->eventList = $this->model->getEvents();
 		$this->upcomingEvents = $this->model->upcomingEvents();
 		$this->upcomingEventsCount = $this->model->calculateUpcomingEvents();
+		$this->upcomingSessions = $this->model->upcomingSessions();
+		$this->ordersList = $this->model->getOrders();
 
 		$this->google_map = $this->generateMapMarkers();
 
-		//EH::___($this->upcomingEventsCount);
-
 		return parent::display($tpl);
+	}
+
+	public function sessionsSpeakers($speakers)
+	{
+		$speakers = implode(',', $speakers);
+
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		$query->select('a.*')
+			->from($db->quoteName('#__spevents_speakers','a'))
+			->where($db->quoteName('id') . ' IN(' . $speakers . ')');
+
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+
+		return $result;
 	}
 
 	//generate events map location markers
@@ -93,34 +112,9 @@ class SpeventsViewDashboards extends JViewLegacy
 			$positions[] = $marker;
 		}
 		$maps .= implode("\n", $positions);
-
 		$maps .= "}\n";
 
-		//$maps .= "google.maps.event.addDomListener(window, 'load', initMap);";
-
 		return $maps;
-	}
-
-	public function getGraphData()
-	{
-
-		$lebels = [];
-		$data = [];
-
-		$graph = "data: {
-						labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-						datasets: [{
-							data: [12, 19, 3, 5, 2, 3],
-							backgroundColor: [
-								'rgba(255, 99, 132, 0.2)'
-							],
-							borderColor: [
-								'rgba(255,99,132,1)'
-							],
-							borderWidth: 1
-						}]
-					}";
-		return $graph;
 	}
 
 }

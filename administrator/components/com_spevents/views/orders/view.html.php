@@ -3,7 +3,7 @@ defined('_JEXEC') or die;
 
 use SpeventsHelper as EH;
 
-class SpeventsViewCoupons extends JViewLegacy
+class SpeventsViewOrders extends JViewLegacy
 {
 	protected $items;
 
@@ -18,9 +18,11 @@ class SpeventsViewCoupons extends JViewLegacy
 		$this->items    = $this->get('Items');
 		$this->state    = $this->get('State');
 		$this->pagination = $this->get('Pagination');
-		$this->model = $this->getModel('coupons');
+		$this->model = $this->getModel('orders');
 
-		SpeventsHelper::addSubmenu('coupons');
+//		/SpeventsHelper::___($this->items);
+
+		SpeventsHelper::addSubmenu('orders');
 
 
 		if (count($errors = $this->get('Errors')))
@@ -29,7 +31,8 @@ class SpeventsViewCoupons extends JViewLegacy
 			return false;
 		}
 
-		$this->addToolbar();
+        //$this->addToolbar();
+        JToolbarHelper::title(JText::_('COM_SPEVENTS_ORDERS_TITLE_LABEL'), 'cart');
 		$this->sidebar = JHtmlSidebar::render();
 
 		return parent::display($tpl);
@@ -46,29 +49,29 @@ class SpeventsViewCoupons extends JViewLegacy
 
 		if ($canDo->get('core.create'))
 		{
-			JToolbarHelper::addNew('coupon.add');
+			JToolbarHelper::addNew('location.add');
 		}
 
 		if ($canDo->get('core.edit'))
 		{
-			JToolbarHelper::editList('coupon.edit');
+			JToolbarHelper::editList('locations.edit');
 		}
 
 		if ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::publish('coupons.publish','JTOOLBAR_PUBLISH',true);
-			JToolbarHelper::unpublish('coupons.unpublish','JTOOLBAR_UNPUBLISH',true);
-			JToolbarHelper::archiveList('coupons.archive');
-			JToolbarHelper::checkin('coupons.checkin');
+			JToolbarHelper::publish('locations.publish','JTOOLBAR_PUBLISH',true);
+			JToolbarHelper::unpublish('locationss.unpublish','JTOOLBAR_UNPUBLISH',true);
+			JToolbarHelper::archiveList('locations.archive');
+			JToolbarHelper::checkin('locations.checkin');
 		}
 
 		if ($state->get('filter.enabled') == -2 && $canDo->get('core.delete'))
 		{
-			JToolbarHelper::deleteList('','coupons.delete','JTOOLBAR_EMPTY_TRASH');
+			JToolbarHelper::deleteList('','locations.delete','JTOOLBAR_EMPTY_TRASH');
 		}
 		elseif ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::trash('coupons.trash');
+			JToolbarHelper::trash('locations.trash');
 		}
 
 		if ($canDo->get('core.admin'))
@@ -76,13 +79,13 @@ class SpeventsViewCoupons extends JViewLegacy
 			JToolbarHelper::preferences('com_spevents');
 		}
 
-		JHtmlSidebar::setAction('index.php?option=com_spevents&view=coupons');
+		JHtmlSidebar::setAction('index.php?option=com_spevents&view=locations');
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_PUBLISHED'),'filter_enabled',
 			JHtml::_('select.options',JHtml::_('jgrid.publishedOptions'), 'value','text',$state->get('filter.enabled'), true)
 		);
 
-		JToolbarHelper::title(JText::_('COM_SPEVENTS_COUPONS_TITLE_LABEL'), 'stack');
+		
 	}
 
 	protected function getSortFields() {

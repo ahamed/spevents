@@ -21,8 +21,8 @@ class SpeventsHelper extends JHelperContent
 	public static function addSubmenu($vName){
 		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_DASHBOARD'),
-			'index.php?option=com_spevents&view=dashboards',
-			$vName == 'dashboards'
+			'index.php?option=com_spevents&view=dashboard',
+			$vName == 'dashboard'
 		);
 		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_CATEGORY'),
@@ -68,6 +68,16 @@ class SpeventsHelper extends JHelperContent
 			JText::_('COM_SPEVENTS_SUBMENU_SESSIONS'),
 			'index.php?option=com_spevents&view=sessions',
 			$vName == 'sessions'
+		);
+		JHtmlSidebar::addEntry(
+			JText::_('COM_SPEVENTS_SUBMENU_ORDERS'),
+			'index.php?option=com_spevents&view=orders',
+			$vName == 'orders'
+		);
+		JHtmlSidebar::addEntry(
+			JText::_('COM_SPEVENTS_SUBMENU_SUBSCRIBERS'),
+			'index.php?option=com_spevents&view=subscribers',
+			$vName == 'subscribers'
 		);
 
 		/*--EOS EndOfSection: Dont't remove for future submenus generation--*/
@@ -182,13 +192,13 @@ class SpeventsHelper extends JHelperContent
 	}
 
 	//get component version
-	public static function getVersion() {
+	public static function getVersion($component = 'com_spevents') {
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true)
 		->select('e.manifest_cache')
 		->select($db->quoteName('e.manifest_cache'))
 		->from($db->quoteName('#__extensions', 'e'))
-		->where($db->quoteName('e.element') . ' = ' . $db->quote('com_spevents'));
+		->where($db->quoteName('e.element') . ' = ' . $db->quote($component));
 		$db->setQuery($query);
 		$manifest_cache = json_decode($db->loadResult());
 		if(isset($manifest_cache->version) && $manifest_cache->version) {
@@ -197,14 +207,33 @@ class SpeventsHelper extends JHelperContent
 		return '1.0';
 	}
 
+	//convert object string to array
+	public static function stringToArray($obj)
+	{
+		$registry = new JRegistry();
+		$registry->loadString($obj);
+		$obj = $registry->toArray();
+
+		return $obj;
+	}
+
+	//convert array to object string
+	public static function arrayToString($arr)
+	{
+		$registry = new JRegistry();
+		$registry->loadArray($arr);
+		$arr = (string)$registry;
+		
+		return $arr;
+	}
+
 	//Debugging function
 	public static function ___($data, $die = true)
 	{
 		echo "<pre>";
 		print_r($data);
 		echo "</pre>";
-		if ($die)
-			die;
+		if ($die) die;
 	}
 
 }
