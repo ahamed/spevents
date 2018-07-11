@@ -90,6 +90,7 @@ class SpeventsTableEvent extends JTable
 		{
 			if ($src['all_day_event'])
 			{
+				$src['start_time'] = '';
 				$src['end_time'] = '';
 			}
 		}

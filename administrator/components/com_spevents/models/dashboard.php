@@ -77,13 +77,11 @@ class SpeventsModelDashboard extends JModelList
 		$query = $db->getQuery(true);
 		$query->select("a.*, b.venue_name as venue")->from($db->quoteName('#__spevents_events', 'a'));
 		$query->join('LEFT', $db->quoteName('#__spevents_locations', 'b') . ' ON(' . $db->quoteName('a.location') . '=' . $db->quoteName('b.id') . ')');
-		$query->order("UNIX_TIMESTAMP(a.start_time) DESC");
+		$query->order("DATE(a.start_date) DESC");
 		$query->setLimit(5);
 		$db->setQuery($query);
 		
-		
 		$result = $db->loadObjectList();
-		//SpeventsHelper::___($result);
 		return $result;
 	}
 
@@ -97,9 +95,9 @@ class SpeventsModelDashboard extends JModelList
 		$query = $db->getQuery(true);
 		$query->select('a.*, b.venue_name as venue')
 			->from($db->quoteName('#__spevents_events', 'a'))
-			->where('DATE(a.start_time) >= ' . $db->quote($now));
+			->where('DATE(a.start_date) >= ' . $db->quote($now));
 		$query->join('LEFT', $db->quoteName('#__spevents_locations', 'b') . ' ON(' . $db->quoteName('a.location') . '=' . $db->quoteName('b.id') . ')');
-		$query->order('UNIX_TIMESTAMP(a.start_time) DESC');
+		$query->order('DATE(a.start_date) DESC');
 		$query->setLimit(5);
 		$db->setQuery($query);
 
@@ -116,18 +114,26 @@ class SpeventsModelDashboard extends JModelList
 		{
 			$eventId[] = $event->id;
 		}
+		
+		if (!empty($eventId))
+		{
+			$db = JFactory::getDbo();
+			$query = $db->getQuery(true);
 
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
+			$query->select("s.*")
+				->from($db->quoteName('#__spevents_sessions', 's'))
+				->where($db->quoteName('s.event_id') . ' IN(' . implode(',', $eventId) . ')')
+				->order('DATE(s.date) DESC, UNIX_TIMESTAMP(s.time_from) ASC');
+			$query->setLimit(5);
 
-		$query->select("s.*")
-			->from($db->quoteName('#__spevents_sessions', 's'))
-			->where($db->quoteName('s.event_id') . ' IN(' . implode(',', $eventId) . ')')
-			->order('DATE(s.date) DESC, UNIX_TIMESTAMP(s.time_from) ASC');
-		$query->setLimit(5);
-
-		$db->setQuery($query);
-		$result = $db->loadObjectList();
+			$db->setQuery($query);
+			$result = $db->loadObjectList();
+		}
+		else 
+		{
+			$result = [];
+		}
+		
 		return $result;
 	}
 

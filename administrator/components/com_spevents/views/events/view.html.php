@@ -20,7 +20,7 @@ class SpeventsViewEvents extends JViewLegacy
 		$this->pagination = $this->get('Pagination');
 		$this->model = $this->getModel('events');
 
-//		/SpeventsHelper::___($this->items);
+		//SpeventsHelper::___($this->items);
 
 		SpeventsHelper::addSubmenu('events');
 

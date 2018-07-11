@@ -151,4 +151,74 @@ class SpeventsModelEvents extends JModelList
 			return $result;
 		}
 	}
+
+	/**
+	 * calculate recurring event's dates
+	 * 
+	 * Find out all the dates when a specific event will held
+	 * @return list of dates.
+	 */
+	public function calculateRecurringDate($id, $param='recurring', $tbl_name='#__spevents_events')
+	{
+		$begin = new DateTime();
+		$end = new DateTime();
+		$interval_string = "1 day";
+		$dates = [];
+		$repeat_also = [];
+		$repeat_not = [];
+
+		$recurring = SpeventsHelper::_get($param,$tbl_name,$id);
+
+		if (!empty($recurring->repeat_start))
+		{
+			$begin = new DateTime($recurring->repeat_start);
+		}
+
+		if (!empty($recurring->repeat_end))
+		{
+			$end = new DateTime($recurring->repeat_end);
+			$end = $end->modify( '+1 day' );
+		}
+
+		if (!empty($recurring->repeat_also))
+		{
+			$repeat_also = explode(',', $recurring->repeat_also);
+			foreach($repeat_also as $key => &$ra)
+			{
+				$ra = new DateTime($ra);
+			}
+		}
+
+		if (!empty($recurring->repeat_not))
+		{
+			$repeat_not = explode(',', $recurring->repeat_not);
+			foreach($repeat_not as $key => &$r)
+			{
+				$r = new DateTime($r);
+			}
+		}
+		
+		if (!empty($recurring->repeat_amount) && !empty($recurring->repeat_type))
+		{
+			$interval_string = $recurring->repeat_amount . ' ' . $recurring->repeat_type;
+		}
+
+		$interval = DateInterval::createFromDateString($interval_string);
+		$period = new DatePeriod($begin, $interval, $end);
+		
+		foreach ($period as $key => $p)
+		{
+			if (!in_array($p, $repeat_not))
+			{
+				$dates[] = $p;
+			}	
+		}
+
+		foreach ($repeat_also as $key => $also)
+		{
+			$dates[] = $also;
+		}
+
+		return $dates;
+	}
 }

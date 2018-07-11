@@ -247,6 +247,7 @@ td .spevents-times-wrap span:first-child {
     margin-bottom: 5px;
 }
 
+
 .com_spevents.view- #status,
 .com_spevents.spevents-view-dashboard #status {
     -webkit-box-shadow: none;
@@ -271,6 +272,10 @@ td .spevents-times-wrap span:first-child {
     color: #000!important;
     margin-bottom: 5px!important;
     text-decoration: none!important;
+}
+
+p.spevents-v-center {
+    margin-top: 200px;
 }
 
 

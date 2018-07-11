@@ -161,7 +161,7 @@ JHtml::_('jquery.framework', false);
 		            <?php echo JText::_('COM_SPEVENTS_ORGANIZERS_LABEL'); ?>
                 </th>
                 <th width="10%" class="nowrap hidden-phone">
-                    <?php echo JText::_('COM_SPEVENTS_START_TIME_LABEL'); ?>
+                    <?php echo JText::_('COM_SPEVENTS_TIMING_LABEL'); ?>
                 </th>
                 <th width="1%" class="nowrap center">
 		            <?php echo JHtml::_('grid.sort', 'JSTATUS', 'a.enabled', $listDirn, $listOrder); ?>
@@ -253,7 +253,9 @@ JHtml::_('jquery.framework', false);
                         </span>
                     </td>
                     <td>
-		                <?php echo $item->location_info->title; ?>
+                        <a href="<?php echo JRoute::_('index.php?option=com_spevents&task=location.edit&id=' . $item->location_info->id); ?>">
+                            <?php echo $item->location_info->title; ?>
+                        </a>
                     </td>
 
                     <td>
@@ -263,7 +265,7 @@ JHtml::_('jquery.framework', false);
                     </td>
 
                     <td>
-		                <?php echo $item->start_time; ?>
+		                <?php echo $item->all_day_event ? 'All day' : date('h:i A',strtotime($item->start_time)) . ' - ' . date('h:i A',strtotime($item->end_time)); ?>
                     </td>
                     <td class="center">
                         <div class="btn-group">
@@ -291,3 +293,9 @@ JHtml::_('jquery.framework', false);
 
     </div>
 </form>
+
+
+
+
+
+<!-- <!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>sp-events</title><link href=/static/css/app.30790115300ab27614ce176899523b62.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.690af568dc446079a841.js></script><script type=text/javascript src=/static/js/app.2f2e5edd9af2c59aa514.js></script></body></html> -->

@@ -38,8 +38,10 @@
         <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
     </fieldset>
     <fieldset name="date-time">
-        <field name="start_time" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" required="true" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_DATE_DESC"/>
-        <field name="end_time" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d %H:%M" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_START_DATE_DESC" showon="all_day_event:0" />
+        <field name="start_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_START_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC"/>
+        <field name="end_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_END_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC" />
+        <field name="start_time" type="jtimepicker" interval="1" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_TIME_DESC" showon="all_day_event:0"/>
+        <field name="end_time" type="jtimepicker" interval="1" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_END_TIME_DESC" showon="all_day_event:0" />
         <field name="all_day_event" type="radio" label="COM_SPEVENTS_ALL_DAY_EVENT_LABEL" description="COM_SPEVENTS_ALL_DAY_EVENT_DESC" default="0" class="btn-group">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
@@ -57,18 +59,9 @@
                 <option value="month">Month</option>
                 <option value="year">Year</option>
             </field>
-            <field name="end_repeat" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_END_REPEAT_LABEL" description="COM_SPEVENTS_END_REPEAT_DESC"/>
-            <field name="repeat_on" type="list" multiple="true" label="Repeat on">
-                <option value="1">Saturday</option>
-                <option value="2">Sunday</option>
-                <option value="3">Monday</option>
-                <option value="4">Tuesday</option>
-                <option value="5">Wednesday</option>
-                <option value="6">Thursday</option>
-                <option value="7">Friday</option>
-            </field>
+            <field name="repeat_start" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_START" description="COM_SPEVENTS_REPEAT_START_DESC"/>
+            <field name="repeat_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_END" description="COM_SPEVENTS_REPEAT_END_DESC"/>            
             <field name="repeat_also" type="cdatepicker" label="COM_SPEVENTS_REPEAT_ALSO_LABEL" description="COM_SPEVENTS_REPEAT_ALSO_DESC" />
-
             <field name="repeat_not" type="cdatepicker" label="COM_SPEVENTS_REPEAT_NOT_LABEL" description="COM_SPEVENTS_REPEAT_NOT_DESC" />
             
         </fields>

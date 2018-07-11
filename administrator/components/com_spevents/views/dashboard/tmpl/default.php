@@ -21,7 +21,7 @@ $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/spe
 $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/fontawesome.css');
 $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/spevents.css');
 $doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/Chart.min.js');
-
+$doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/vue/dist/static/css/app.de3d789e22eaafde09f75253df853f26.css');
 
 if($saveOrder) {
 	$saveOrderingUrl = 'index.php?option=com_spevents&task=dashboard.saveOrderAjax&tmpl=component';
@@ -97,10 +97,20 @@ JHtml::_('jquery.framework', false);
                     </div>
                 </div>
             </div><!-- end of counting row-->
+            <div class="spevents-row">
+                <div class="spevents-col-lg-12">
+                    <div class="infobox spevents-box">
+                        <div id="app"></div>
+                    </div>
+                </div>
+            </div>    
 
             <div class="spevents-row">
                 <div class="spevents-col-lg-8">
                     <div class="infobox spevents-box">
+                        <?php if (empty($this->upcomingSessions)){ ?>
+                        <p class="text-center spevents-v-center"><code>No Upcoming Session</code></p>
+                        <?php } else { ?>
                         <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_UPCOMING_SESSIONS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=sessions'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="table">
                             <thead>
@@ -132,11 +142,15 @@ JHtml::_('jquery.framework', false);
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
+                        <?php if (empty($this->ordersList)){ ?>
+                        <p class="text-center spevents-v-center"><code>No Order</code></p>
+                        <?php } else { ?>
                         <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_ORDER'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=orders'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
@@ -162,6 +176,7 @@ JHtml::_('jquery.framework', false);
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -169,6 +184,9 @@ JHtml::_('jquery.framework', false);
             <div class="spevents-row">
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
+                        <?php if (empty($this->eventList)){ ?>
+                        <p class="text-center spevents-v-center"><code>No Event</code></p>
+                        <?php } else { ?>
                         <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_EVENTS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
@@ -190,11 +208,15 @@ JHtml::_('jquery.framework', false);
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
+                        <?php if (empty($this->upcomingEvents)){ ?>
+                        <p class="text-center spevents-v-center"><code>No Upcoming Event</code></p>
+                        <?php } else { ?>
                         <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_UPCOMING_EVENTS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=events'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
@@ -216,11 +238,15 @@ JHtml::_('jquery.framework', false);
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <?php } ?>
                     </div>
                 </div>
 
                 <div class="spevents-col-lg-4">
                     <div class="infobox spevents-box">
+                        <?php if (empty($this->speakerList)){ ?>
+                        <p class="text-center spevents-v-center"><code>No Speaker</code></p>
+                        <?php } else { ?>
                         <h6><?php echo JText::_('COM_SPEVENTS_DASHBOARD_LATEST_SPEAKERS_TITLE'); ?> <a href="<?php echo JRoute::_('index.php?option=com_spevents&view=speakers'); ?>" class="pull-right btn btn-link" style="color: #000;">(see all)</a></h6>
                         <table class="spevents-table">
                             <thead>
@@ -240,6 +266,7 @@ JHtml::_('jquery.framework', false);
                                 <?php } ?>
                             </tbody>
                         </table>
+                        <?php } ?>
                     </div>
                 </div>
             </div> <!-- end of info row-->
@@ -300,6 +327,11 @@ JHtml::_('jquery.framework', false);
                 ');
 
             ?>
+
         </div>
     </div>
-                    
+            
+    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js"; ?>"></script>
+    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/vendor.2a32602fc14e2f4c6e67.js"; ?>"></script>
+    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/app.fa1c378cfcd8c60a8d6b.js"; ?>"></script>
+   
