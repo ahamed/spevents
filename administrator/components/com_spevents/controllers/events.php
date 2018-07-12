@@ -12,17 +12,5 @@ class SpeventsControllerEvents extends JControllerAdmin
 		$model = parent::getModel($name, $prefix, $config);
 		return $model;
 	}
-
-	public function taskTest()
-	{
-		$data = ["test" => "ok"];
-		$app = JFactory::getApplication();
-        $app->setHeader('Content-Type', 'application/json', true)
-            ->sendHeaders();
-        $data =  json_encode($data);
-		$app->close();
-		SpeventsHelper::___($data);
-		return $data;
-	}
 }
 

@@ -247,6 +247,13 @@ td .spevents-times-wrap span:first-child {
     margin-bottom: 5px;
 }
 
+#calendar span {
+    font-size: 12px!important;
+}
+
+.fc-widget-content {
+    height: 100px;
+}
 
 .com_spevents.view- #status,
 .com_spevents.spevents-view-dashboard #status {

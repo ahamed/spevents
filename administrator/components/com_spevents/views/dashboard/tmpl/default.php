@@ -21,12 +21,21 @@ $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/spe
 $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/fontawesome.css');
 $doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/css/spevents.css');
 $doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/Chart.min.js');
-$doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/vue/dist/static/css/app.de3d789e22eaafde09f75253df853f26.css');
+
+$doc->addStyleSheet( JURI::base(true) . '/components/com_spevents/assets/fullcalendar/fullcalendar.min.css');
+
+$doc->addScript(JURI::base(ture) . '/components/com_spevents/assets/fullcalendar/lib/moment.min.js');
+$doc->addScript(JURI::base(true) . '/components/com_spevents/assets/fullcalendar/fullcalendar.min.js');
+
+$doc->addScriptDeclaration('var events = ' . $this->calendar);
+
 
 if($saveOrder) {
 	$saveOrderingUrl = 'index.php?option=com_spevents&task=dashboard.saveOrderAjax&tmpl=component';
 	JHtml::_('sortablelist.sortable', 'eventList','adminForm', strtolower($listDirn),$saveOrderingUrl);
 }
+
+
 
 
 
@@ -51,6 +60,33 @@ JHtml::_('jquery.framework', false);
         Joomla.tableOrdering(order, dirn, '');
     }
 
+</script>
+
+<script type="text/javascript">
+    jQuery(function($){
+        $('#calendar').fullCalendar({
+            header: {left: 'month,agendaWeek', center : 'title', right: 'today prev,next'}, 
+            weekends: true,
+            events: events,
+            aspectRatio: 2,
+            nowIndicator: true,
+            themeSystem: 'bootstrap4',
+            navLinks: true,
+            eventLimit: true,
+            views: {
+                agenda: {
+                    eventLimit: 4
+                },
+                month: {
+                    eventLimit: 4
+                }
+            },
+            eventClick: function(event, jEvent, view){
+                alert('Title: ' + event.title + '\nStart: ' + new Date(event.start) + (event.end ? '\nEnd: ' + new Date(event.end) : '') );
+                console.log(event);
+            }
+        });
+    });
 </script>
 
 <div class="spevents spevents-view-dashboard">
@@ -100,7 +136,7 @@ JHtml::_('jquery.framework', false);
             <div class="spevents-row">
                 <div class="spevents-col-lg-12">
                     <div class="infobox spevents-box">
-                        <div id="app"></div>
+                        <div id="calendar"></div>
                     </div>
                 </div>
             </div>    
@@ -330,8 +366,4 @@ JHtml::_('jquery.framework', false);
 
         </div>
     </div>
-            
-    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/manifest.2ae2e69a05c33dfc65f8.js"; ?>"></script>
-    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/vendor.2a32602fc14e2f4c6e67.js"; ?>"></script>
-    <script src="<?php echo JURI::base(true) . "/components/com_spevents/assets/vue/dist/static/js/app.fa1c378cfcd8c60a8d6b.js"; ?>"></script>
-   
+        

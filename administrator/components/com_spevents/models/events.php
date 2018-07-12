@@ -1,6 +1,6 @@
 <?php
 defined('_JEXEC') or die;
-
+use SpeventsHelper as SP;
 
 class SpeventsModelEvents extends JModelList
 {
@@ -75,6 +75,13 @@ class SpeventsModelEvents extends JModelList
 		elseif ($published == '')
 		{
 			$query->where($db->quoteName('a.enabled') . ' IN (0, 1)');
+		}
+
+		$user = JFactory::getUser();
+		$user_id = $user->get('id','INT');
+		if ($user_id)
+		{
+			$query->where($db->quoteName('a.created_by') . '=' . $db->quote($user_id));
 		}
 
 		$search = $this->getState('filter.search');
@@ -152,13 +159,8 @@ class SpeventsModelEvents extends JModelList
 		}
 	}
 
-	/**
-	 * calculate recurring event's dates
-	 * 
-	 * Find out all the dates when a specific event will held
-	 * @return list of dates.
-	 */
-	public function calculateRecurringDate($id, $param='recurring', $tbl_name='#__spevents_events')
+	//generate iteratable period
+	public function generatePeriod($id, $param = 'recurring', $tbl_name = '#__spevents_events')
 	{
 		$begin = new DateTime();
 		$end = new DateTime();
@@ -167,7 +169,7 @@ class SpeventsModelEvents extends JModelList
 		$repeat_also = [];
 		$repeat_not = [];
 
-		$recurring = SpeventsHelper::_get($param,$tbl_name,$id);
+		$recurring = SP::_get($param,$tbl_name,$id);
 
 		if (!empty($recurring->repeat_start))
 		{
@@ -205,20 +207,81 @@ class SpeventsModelEvents extends JModelList
 
 		$interval = DateInterval::createFromDateString($interval_string);
 		$period = new DatePeriod($begin, $interval, $end);
+
+		$data['repeat_also'] = $repeat_also;
+		$data['repeat_not'] = $repeat_not;
+		$data['period'] = $period;
 		
-		foreach ($period as $key => $p)
-		{
-			if (!in_array($p, $repeat_not))
-			{
-				$dates[] = $p;
-			}	
-		}
-
-		foreach ($repeat_also as $key => $also)
-		{
-			$dates[] = $also;
-		}
-
-		return $dates;
+		return $data;
 	}
+
+	/**
+	 * calculate recurring event's dates
+	 * 
+	 * Find out all the dates when a specific event will held
+	 * @return list of dates.
+	 */
+	public function calculateRecurringDate()
+	{
+		$db = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('*')->from($db->quoteName('#__spevents_events'));
+		$query->where($db->quoteName('enabled') . '=' . $db->quote('1'));
+
+		$db->setQuery($query);
+		$results = $db->loadObjectList();
+
+		$dates = [];
+		foreach($results as $key => $result)
+		{
+			$tmp =[];
+			if (SP::isEmptyObject($result->recurring))
+			{
+				$tmp['id'] = $result->id;
+				$tmp['title'] = $result->title;
+				$tmp['start'] = $result->start_date . 'T' . $result->start_time;
+				$tmp['end'] = $result->end_date . 'T' . $result->start_time;
+				$tmp['color'] = '#740474';
+				$tmp['eventBorderColor'] = '#740474';
+				$tmp['textColor'] = '#ffffff';
+				
+				$dates[] = $tmp;
+			}
+			else
+			{
+				$period = $this->generatePeriod($result->id);
+				foreach ($period['period'] as $key => $p)
+				{
+					if (!in_array($p, $period['repeat_not']))
+					{
+						$tmp['id']		= $result->id;
+						$tmp['title'] 	= $result->title;
+						$tmp['start'] 	= $p->format('Y-m-d');
+						$tmp['color'] = '#007404';
+						$tmp['eventBorderColor'] = '#007404';
+						$tmp['textColor'] = '#ffffff';
+						
+						$dates[] = $tmp;
+						
+					}	
+				}
+
+				foreach ($period['repeat_also'] as $key => $also)
+				{
+					$tmp['id'] 	  = $result->id;
+					$tmp['title'] = $result->title;
+					$tmp['start'] = $also->format('Y-m-d');
+					$tmp['color'] = '#007404';
+					$tmp['eventBorderColor'] = '#007404';
+					$tmp['textColor'] = '#ffffff';
+					
+					$dates[] = $tmp;
+				}
+			}
+			
+		}
+
+		return json_encode($dates);
+	}
+
 }

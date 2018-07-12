@@ -35,11 +35,16 @@ export default {
       config: {
         defaultView: 'month',
         editable: false
-      }
+      },
+      base_url: 'http://localhost:8888/sisylana/events/administrator'
     }
   },
   mounted(){
-    
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
+    axios.get(this.base_url + '/index.php?option=com_spevents&task=events.getData')
+    .then(response=>{
+      console.log(response)
+    })
   }
 }
 </script>

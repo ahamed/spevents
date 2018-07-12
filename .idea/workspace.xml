@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df9dd241-f308-4c71-973d-20be2efd9b23" name="Default" comment="" />
+    <list default="true" id="df9dd241-f308-4c71-973d-20be2efd9b23" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/assets/css/spevents.css" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/assets/css/spevents.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/controllers/events.php" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/controllers/events.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/helpers/spevents.php" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/helpers/spevents.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/models/events.php" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/models/events.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/models/forms/event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/models/forms/event.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/views/dashboard/tmpl/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/views/dashboard/tmpl/default.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/administrator/components/com_spevents/views/dashboard/view.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/administrator/components/com_spevents/views/dashboard/view.html.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/administrator/components/com_folio/config.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -60,6 +70,9 @@
       <replace>required=&quot;false&quot;</replace>
       <replace>required=&quot;true&quot;</replace>
     </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -128,8 +141,12 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/node_modules" />
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
+      <path value="$PROJECT_DIR$/administrator/components/com_spevents/assets/vue/package.json" />
       <path value="$PROJECT_DIR$/administrator/components/com_spevents/package.json" />
       <path value="$PROJECT_DIR$/components/com_spevents/package.json" />
     </packageJsonPaths>
@@ -139,6 +156,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1014" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -232,22 +250,23 @@
       <workItem from="1528691605044" duration="11094000" />
       <workItem from="1528776635154" duration="10658000" />
       <workItem from="1528870627808" duration="671000" />
+      <workItem from="1531395064774" duration="117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106530000" />
+    <option name="totallyTimeSpent" value="106647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1014" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1400426" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14110756" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="9" />
@@ -255,6 +274,7 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Thumbnails" order="10" weight="0.3293348" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -265,24 +285,24 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Thumbnails" order="10" weight="0.3293348" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13897763" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13897763" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +658,7 @@
     <entry file="file://$PROJECT_DIR$/administrator/components/com_folio/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>

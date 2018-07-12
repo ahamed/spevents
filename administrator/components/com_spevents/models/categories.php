@@ -84,12 +84,19 @@ class SpeventsModelCategories extends JModelList
 			$query->where('a.title LIKE '. $search );
 		}
 
+		$user = JFactory::getUser();
+		$user_id = $user->get('id','INT');
+		
+		if ($user_id)
+		{
+			$query->where($db->quoteName('a.created_by') . '=' . $db->quote($user_id));
+		}
+
 		$orderCol = $this->getState('list.ordering','a.ordering');
 		$orderDirn = $this->getState('list.direction','asc');
 
 		$order = $db->escape($orderCol) . ' ' . $db->escape($orderDirn);
 		$query->order($order);
-
 
 		return $query;
 	}

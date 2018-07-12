@@ -54,6 +54,7 @@
         <fields name="recurring">
             <field name="repeat_amount" type="text" label="COM_SPEVENTS_REPEAT_EVERY_LABEL" description="COM_SPEVENTS_REPEAT_EVERY_DESC" />
             <field name="repeat_type" type="list" label="">
+                <option value="">--Select--</option>
                 <option value="day">Day</option>
                 <option value="week">Week</option>
                 <option value="month">Month</option>

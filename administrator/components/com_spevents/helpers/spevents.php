@@ -100,6 +100,20 @@ class SpeventsHelper extends JHelperContent
 		return $randomString;
 	}
 
+	//generate a random hex color code
+	public static function generateRandomColor()
+	{
+		$codes = "0123456789ABCDEF";
+		$codeLength = strlen($codes);
+		$color = '';
+
+		for( $i = 0; $i < 6; $i++)
+		{
+			$color .= $codes[rand(0, $codeLength - 1)];
+		}
+		return '#' . $color; 
+	}
+
 
 
 	/**
@@ -225,6 +239,23 @@ class SpeventsHelper extends JHelperContent
 		$arr = (string)$registry;
 		
 		return $arr;
+	}
+
+	public static function isEmptyObject($object)
+	{
+		$object = json_decode($object, true);
+		$count = 0;
+		foreach($object as $key => $obj)
+		{
+			if (empty($obj))
+			{
+				$count++;
+			}
+		}
+
+		if (count($object) === $count)
+			return true;
+		return false;
 	}
 
 	//Debugging function

@@ -78,6 +78,14 @@ class SpeventsModelCoupons extends JModelList
 			$query->where($db->quoteName('a.enabled') . ' IN (0, 1)');
 		}
 
+		$user = JFactory::getUser();
+		$user_id = $user->get('id','INT');
+		
+		if ($user_id)
+		{
+			$query->where($db->quoteName('a.created_by') . '=' . $db->quote($user_id));
+		}
+
 		$search = $this->getState('filter.search');
 		if (!empty($search))
 		{

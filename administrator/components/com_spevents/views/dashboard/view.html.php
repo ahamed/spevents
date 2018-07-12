@@ -21,6 +21,8 @@ class SpeventsViewDashboard extends JViewLegacy
 
 	protected $upcomingSessions;
 
+	protected $events_model, $calendar;
+
 	public function display($tpl = null)
 	{
 		$this->items    = $this->get('Items');
@@ -28,10 +30,9 @@ class SpeventsViewDashboard extends JViewLegacy
 		$this->pagination = $this->get('Pagination');
 		$this->model = $this->getModel('dashboard');
 
-//		/SpeventsHelper::___($this->items);
+		$this->events_model = JModelLegacy::getInstance('events','SpeventsModel');
 
 		SpeventsHelper::addSubmenu('dashboard');
-
 
 		if (count($errors = $this->get('Errors')))
 		{
@@ -55,6 +56,10 @@ class SpeventsViewDashboard extends JViewLegacy
 		$this->ordersList = $this->model->getOrders();
 
 		$this->google_map = $this->generateMapMarkers();
+
+		$this->calendar = $this->events_model->calculateRecurringDate();
+
+		//SpeventsHelper::___($this->calendar,false);
 
 		return parent::display($tpl);
 	}
@@ -115,6 +120,23 @@ class SpeventsViewDashboard extends JViewLegacy
 		$maps .= "}\n";
 
 		return $maps;
+	}
+
+	public function eventForCalendar()
+	{
+		$events = [];
+		foreach($this->eventList as $list)
+		{
+			if (!empty($cal = $this->events_model->calculateRecurringDate($list->id)))
+			{
+				foreach($cal as $c)
+				{
+					$events[] = $c;
+				}
+			}
+		}
+
+		return json_encode($events);
 	}
 
 }
