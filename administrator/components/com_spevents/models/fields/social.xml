@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
-    <field name="social_icon" type="text" label="COM_SPEVENTS_SOCIAL_ICON" description="COM_SPEVENTS_SOCIAL_ICON_DESC" />
-    <field name="social_key_field" type="text" label="COM_SPEVENTS_SOCIAL_KEY_FIELD" description="COM_SPEVENTS_SOCIAL_KEY_FIELD_DESC" />
-    <field name="social_value_field" type="textarea" rows="4" label="COM_SPEVENTS_SOCIAL_VALUE_FIELD" description="COM_SPEVENTS_SOCIAL_VALUE_FIELD_DESC" />
-</form>

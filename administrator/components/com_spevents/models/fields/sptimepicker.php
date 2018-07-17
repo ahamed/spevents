@@ -5,9 +5,9 @@ defined ('_JEXEC') or die('Resticted Aceess');
 
 jimport('joomla.application.component.helper');
 
-class JFormFieldJtimepicker extends JFormField
+class JFormFieldSptimepicker extends JFormField
 {
-	protected $type = 'Jtimepicker';
+	protected $type = 'Sptimepicker';
 
 	protected function getInput()
 	{

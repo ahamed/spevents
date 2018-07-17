@@ -4,49 +4,25 @@
         <field name="id" type="hidden" />
         <field name="title" type="text" class="inputbox" size="40" required="true" description="JFIELD_TITLE_DESC" lable="JGLOBAL_TITLE" />
         <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
-        <field name="categories"
-               type="sql"
-               label="COM_SPEVENTS_CATEGORY_LABEL"
-               description="COM_SPEVENTS_CATEGORY_DESC"
-               query="SELECT id, title from #__spevents_categories where enabled = 1"
-               key_field="id"
-               value_field="title"
-               multiple="multiple" required="true" />
+        <field name="categories" type="sql" label="COM_SPEVENTS_CATEGORY_LABEL" description="COM_SPEVENTS_CATEGORY_DESC" query="SELECT id, title from #__spevents_categories where enabled = 1" key_field="id" value_field="title" multiple="multiple" required="true" />
         <field name="physical_location" type="radio" class="btn-group" label="COM_SPEVENTS_PHYSICAL_LOCATION" description="COM_SPEVENTS_PHYSICAL_LOCATION_DESC" default="0">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
-        <field name="location"
-               label="COM_SPEVENTS_LOCATION_LABEL"
-               description="COM_SPEVENTS_LOCATION_DESC"
-               type="sql"
-               query="SELECT id, venue_name AS venue from #__spevents_locations where enabled = 1"
-               key_field="id"
-               value_field="venue"
-               showon="physical_location:1"
-               required="true" />
-        <field name="organizers"
-               label="COM_SPEVENTS_ORGANIZERS_LABEL"
-               description="COM_SPEVENTS_ORGANIZERS_DESC"
-               type="sql"
-               query="SELECT id, title from #__spevents_organizers where enabled = 1"
-               key_field="id"
-               value_field="title"
-               required="true"
-               multiple="multiple"
-        />
-        <field name="seats" type="number" label="COM_SPEVENTS_SEATS_LABEL" description="COM_SPEVENTS_SEATS_DESC"  required="true" />
+        <field name="location" type="sql" label="COM_SPEVENTS_LOCATION_LABEL" description="COM_SPEVENTS_LOCATION_DESC" query="SELECT id, venue_name AS venue from #__spevents_locations where enabled = 1" key_field="id" value_field="venue" showon="physical_location:1" required="true" />
+        <field name="organizers" type="sql" label="COM_SPEVENTS_ORGANIZERS_LABEL" description="COM_SPEVENTS_ORGANIZERS_DESC" query="SELECT id, title from #__spevents_organizers where enabled = 1" key_field="id" value_field="title" required="true" multiple="multiple" />
+        <field name="seats" type="number" label="COM_SPEVENTS_SEATS_LABEL" description="COM_SPEVENTS_SEATS_DESC" required="true" />
         <field name="tickets" type="sql" query="SELECT id, title FROM #__spevents_tickets AS a WHERE a.enabled = 1" key_field="id" value_field="title" multiple="true"/>
         <field name="logo" type="media" label="COM_SPEVENTS_LOGO" description="COM_SPEVENTS_LOGO_DESC" />
         <field name="banner" type="media" label="COM_SPEVENTS_BANNER_LABEL" description="COM_SPEVENTS_BANNER_DESC"/>
         <field name="url" type="url" label="COM_SPEVENTS_URL_LABEL" description="COM_SPEVENTS_URL_DESC" />
-        <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
+        <field name="description" type="editor" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC"/>
     </fieldset>
     <fieldset name="date-time">
         <field name="start_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_START_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC"/>
         <field name="end_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_END_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC" />
-        <field name="start_time" type="jtimepicker" interval="1" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_TIME_DESC" showon="all_day_event:0"/>
-        <field name="end_time" type="jtimepicker" interval="1" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_END_TIME_DESC" showon="all_day_event:0" />
+        <field name="start_time" type="sptimepicker" interval="1" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_TIME_DESC" showon="all_day_event:0"/>
+        <field name="end_time" type="sptimepicker" interval="1" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_END_TIME_DESC" showon="all_day_event:0" />
         <field name="all_day_event" type="radio" label="COM_SPEVENTS_ALL_DAY_EVENT_LABEL" description="COM_SPEVENTS_ALL_DAY_EVENT_DESC" default="0" class="btn-group">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
@@ -66,10 +42,10 @@
                 <option value="year">Year</option>
             </field>
             <field name="repeat_start" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_START" description="COM_SPEVENTS_REPEAT_START_DESC"/>
-            <field name="repeat_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_END" description="COM_SPEVENTS_REPEAT_END_DESC"/>            
-            <field name="repeat_also" type="cdatepicker" label="COM_SPEVENTS_REPEAT_ALSO_LABEL" description="COM_SPEVENTS_REPEAT_ALSO_DESC" />
-            <field name="repeat_not" type="cdatepicker" label="COM_SPEVENTS_REPEAT_NOT_LABEL" description="COM_SPEVENTS_REPEAT_NOT_DESC" />
-            
+            <field name="repeat_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_END" description="COM_SPEVENTS_REPEAT_END_DESC"/>
+            <field name="repeat_also" type="spdatepicker" label="COM_SPEVENTS_REPEAT_ALSO_LABEL" description="COM_SPEVENTS_REPEAT_ALSO_DESC" />
+            <field name="repeat_not" type="spdatepicker" label="COM_SPEVENTS_REPEAT_NOT_LABEL" description="COM_SPEVENTS_REPEAT_NOT_DESC" />
+
         </fields>
     </fieldset>
     <fieldset name="registration">
@@ -89,16 +65,23 @@
         </fields>
     </fieldset>
     <fieldset name="gallery">
-        <field name="gallery" type="subform" formsource="/administrator/components/com_spevents/models/fields/gallery.xml" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC" multiple="true"/>
+        <field name="gallery" type="sprepeat" id="events_gallery" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC">
+            <field name="image_link" type="media" label="COM_SPEVENTS_IMAGE_LINK" description="COM_SPEVENTS_IMAGE_LINK_DESC" />
+            <field name="image_alt" type="text" label="COM_SPEVENTS_IMAGE_ALT" description="COM_SPEVENTS_IMAGE_ALT_DESC"/>
+        </field>
     </fieldset>
     <fieldset name="social">
-        <field name="social_tags" type="subform" formsource="/administrator/components/com_spevents/models/fields/social.xml" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC" multiple="true" />
+        <field name="social_tags" type="sprepeat" id="events_social" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC">
+            <field name="social_icon" type="text" label="COM_SPEVENTS_SOCIAL_ICON" description="COM_SPEVENTS_SOCIAL_ICON_DESC" />
+            <field name="social_key_field" type="text" label="COM_SPEVENTS_SOCIAL_KEY_FIELD" description="COM_SPEVENTS_SOCIAL_KEY_FIELD_DESC" />
+            <field name="social_value_field" type="textarea" rows="4" label="COM_SPEVENTS_SOCIAL_VALUE_FIELD" description="COM_SPEVENTS_SOCIAL_VALUE_FIELD_DESC" />
+        </field>
     </fieldset>
     <fieldset name="options">
         <field name="featured" type="radio" label="COM_SPEVENTS_FEATURED_LABEL" description="COM_SPEVENTS_FEATURED_DESC" default="0" class="btn-group">
-        	<option value="1">JYES</option>
-        	<option value="0">JNO</option>
-        </field>	
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
         <field name="tags" type="sql" query="SELECT id, title FROM #__spevents_tags where enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_TAGS_LABEL" description="COM_SPEVENTS_TAGS_DESC" multiple="multiple" />
 
         <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
@@ -112,7 +95,7 @@
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
     <fieldset name="location_modal">
-        
+
     </fieldset>
 
 </form>

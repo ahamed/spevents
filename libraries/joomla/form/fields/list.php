@@ -7,6 +7,8 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
+ use SpeventsHelper as SP;
+
 defined('JPATH_PLATFORM') or die;
 
 /**
@@ -35,6 +37,12 @@ class JFormFieldList extends JFormField
 	 */
 	protected function getInput()
 	{
+		// echo "<pre>";
+		// print_r($this->getOptions());
+		// echo "</pre>";
+		// die; 
+
+		//SP::___($this->element);
 		$html = array();
 		$attr = '';
 

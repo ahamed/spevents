@@ -5,9 +5,9 @@ defined ('_JEXEC') or die('Resticted Aceess');
 
 jimport('joomla.application.component.helper');
 
-class JFormFieldCdatepicker extends JFormField
+class JFormFieldSpdatepicker extends JFormField
 {
-	protected $type = 'Cdatepicker';
+	protected $type = 'Spdatepicker';
 
 	protected function getInput()
 	{

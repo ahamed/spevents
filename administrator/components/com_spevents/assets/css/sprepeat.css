@@ -8,17 +8,10 @@
     width: 200px;
     height: 40px;
 }
-.btnc:active, 
-.btnc:target {
-    border: none!important;
-}
-.btnc::before,
-.btnc::after {
-    box-sizing: inherit;
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
+
+.spevents-btn-metarial:hover {
+    color: #60daaa!important;
+    font-size: 16px;
 }
 
 .draw {

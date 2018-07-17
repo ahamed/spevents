@@ -1,5 +1,5 @@
 <?php
-use SpeventsHelper as H;
+use SpeventsHelper as SP;
 defined('_JEXEC') or die;
 
 $user = JFactory::getUser();
@@ -10,7 +10,7 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 
 $params = JComponentHelper::getParams('com_spevents');
 $currency = explode(':',$params->get('currency'));
-
+$curr_pos = $params->get('currency_position', 'left');
 $currency = $currency[1];
 
 $canOrder = $user->authorise('core.edit.state','com_spevents.category');
@@ -218,9 +218,9 @@ JHtml::_('jquery.framework', false);
                                     <td><?php echo ($key+1); ?></td>
                                     <td><?php echo $item->order_id; ?></td>
                                     <td><?php echo SpeventsHelper::belongsTo('#__spevents_orders', '#__users', 'id', 'customer_id', $item->customer_id)->name; ?></td>
-                                    <td><?php echo $currency . '' . $item->price; ?></td>
+                                    <td><?php echo ($curr_pos == 'left' ?  $currency  : '') . $item->price . ($curr_pos == 'right' ?  $currency : ''); ?></td>
                                     <td><?php echo $item->quantity; ?></td>
-                                    <td><?php echo $currency . '' . $item->price * $item->quantity; ?></td>
+                                    <td><?php echo ($curr_pos == 'left' ?  $currency  : '') . $item->price * $item->quantity . ($curr_pos == 'right' ?  $currency : ''); ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>

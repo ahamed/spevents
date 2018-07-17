@@ -29,6 +29,10 @@
             <option value="THB:฿">Thai Baht(฿)</option>
             <option value="TRY:TRY">Turkish Lira(TRY)</option>
         </field>
+        <field name="currency_position" type="list" label="COM_SPEVENTS_CURRENCY_POSITION" description="COM_SPEVENTS_CURRENCY_POSITION_DESC" default="left">
+            <option value="left">Left</option>
+            <option value="right">Right</option>
+        </field>
 	</fieldset>
 
 	<fieldset

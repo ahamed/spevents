@@ -5,9 +5,9 @@ defined ('_JEXEC') or die('Resticted Aceess');
 
 jimport('joomla.application.component.helper');
 
-class JFormFieldGenerator extends JFormField{
+class JFormFieldSpgenerator extends JFormField{
 
-	protected $type = 'Generator';
+	protected $type = 'Spgenerator';
 
 	protected function getInput()
 	{

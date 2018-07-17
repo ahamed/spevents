@@ -2,18 +2,18 @@
 <form>
     <fieldset name="basic">
         <field name="id" type="hidden" />
-        <field name="venue_name" label="COM_SPEVENTS_VENUE_LABEL" type="text" class="inputbox" required="true" />
+        <field name="venue_name" type="text" label="COM_SPEVENTS_VENUE_LABEL" class="inputbox" required="true" />
         <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
-        <field name="address" label="COM_SPEVENTS_ADDRESS_LABEL" description="COM_SPEVENTS_ADDRESS_DESC" type="textarea" required="true" />
-        <field name="country" label="COM_SPEVENTS_COUNTRY_LABEL" description="COM_SPEVENTS_COUNTRY_DESC" type="spcountries" required="true" />
-        <field name="city" label="COM_SPEVENTS_CITY_LABEL" description="COM_SPEVENTS_CITY_DESC" type="text" required="true" />
-        <field name="state" label="COM_SPEVENTS_STATE_LABEL" description="COM_SPEVENTS_STATE_DESC" type="text"/>
-        <field name="postal_code" label="COM_SPEVENTS_POSTAL_CODE_LABEL" description="COM_SPEVENTS_POSTAL_CODE_DESC" type="text" />
-        <field name="phone" label="COM_SPEVENTS_PHONE_LABEL" description="COM_SPEVENTS_PHONE_DESC" type="text" required="true" />
-        <field name="website" label="COM_SPEVENTS_WEBSITE_LABEL" description="COM_SPEVENTS_WEBSITE_DESC" type="url"/>
+        <field name="address" type="textarea" label="COM_SPEVENTS_ADDRESS_LABEL" description="COM_SPEVENTS_ADDRESS_DESC" required="true" />
+        <field name="country" type="spcountries" label="COM_SPEVENTS_COUNTRY_LABEL" description="COM_SPEVENTS_COUNTRY_DESC" required="true" />
+        <field name="city" type="text" label="COM_SPEVENTS_CITY_LABEL" description="COM_SPEVENTS_CITY_DESC" required="true" />
+        <field name="state" type="text" label="COM_SPEVENTS_STATE_LABEL" description="COM_SPEVENTS_STATE_DESC" />
+        <field name="postal_code" type="text" label="COM_SPEVENTS_POSTAL_CODE_LABEL" description="COM_SPEVENTS_POSTAL_CODE_DESC" />
+        <field name="phone" type="text" label="COM_SPEVENTS_PHONE_LABEL" description="COM_SPEVENTS_PHONE_DESC" required="true" />
+        <field name="website" type="url" label="COM_SPEVENTS_WEBSITE_LABEL" description="COM_SPEVENTS_WEBSITE_DESC"/>
         <field name="image" type="media" label="COM_SPEVENTS_IMAGE_LABEL" description="COM_SPEVENTS_IMAGE_DESC"/>
-        <field name="lat_lng" label="COM_SPEVENTS_MAP_LABEL" description="COM_SPEVENTS_MAP_DESC" type="cmap" required="true"/>
-        <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="editor"/>
+        <field name="lat_lng" type="spmap" label="COM_SPEVENTS_MAP_LABEL" description="COM_SPEVENTS_MAP_DESC" required="true"/>
+        <field name="description" type="editor" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC"/>
     </fieldset>
 
     <fieldset name="options">

@@ -25,8 +25,6 @@ class SpeventsTableOrganizer extends JTable
 
 	public function store($updateNulls = false)
 	{
-	
-		//SP::___($this);
 		$user = JFactory::getUser();
 		$app  = JFactory::getApplication();
 		$date = new JDate('now', $app->getCfg('offset'));

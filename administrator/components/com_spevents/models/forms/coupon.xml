@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <fieldset name="basic">
-        <field name="id" type="hidden" />
-        <field name="title" label="COM_SPEVENTS_COUPON_LABEL" type="text" class="inputbox" required="true" />
+        <field name="id"    type="hidden" />
+        <field name="title" type="text" label="COM_SPEVENTS_COUPON_LABEL"  class="inputbox" required="true" />
         <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
-        <field name="code" label="COM_SPEVENTS_COUPON_CODE_LABEL" description="COM_SPEVENTS_COUPON_CODE_DESC" id="coupon" type="text" class="inputbox" required="true"/>
-        <field type="generator" name="generator" label=""/>
-        <field name="from" label="COM_SPEVENTS_COUPON_FROM_LABEL" type="calendar" format="%Y-%m-%d" description="COM_SPEVENTS_COUPON_FROM_DESC"/>
-        <field name="to" label="COM_SPEVENTS_COUPON_TO_LABEL" type="calendar" format="%Y-%m-%d" description="COM_SPEVENTS_COUPON_TO_DESC"/>
-        <field name="max_usage" label="COM_SPEVENTS_COUPON_MAX_USAGE_LABEL" description="COM_SPEVENTS_COUPON_MAX_USAGE_DESC" type="text" />
-        <field name="amount" label="COM_SPEVENTS_COUPON_AMOUNT_LABEL" description="COM_SPEVENTS_COUPON_AMOUNT_DESC" type="text" required="true"/>
-        <field name="type" label="COM_SPEVENTS_COUPON_TYPE_LABEL" description="COM_SPEVENTS_COUPON_TYPE_DESC" type="list" required="true">
+        <field name="code"  type="text" label="COM_SPEVENTS_COUPON_CODE_LABEL" description="COM_SPEVENTS_COUPON_CODE_DESC" id="coupon"  class="inputbox" required="true"/>
+        <field name="generator" type="spgenerator" label=""/>
+        <field name="from"      type="calendar" label="COM_SPEVENTS_COUPON_FROM_LABEL" format="%Y-%m-%d" description="COM_SPEVENTS_COUPON_FROM_DESC"/>
+        <field name="to"        type="calendar" label="COM_SPEVENTS_COUPON_TO_LABEL" format="%Y-%m-%d" description="COM_SPEVENTS_COUPON_TO_DESC"/>
+        <field name="max_usage" type="text" label="COM_SPEVENTS_COUPON_MAX_USAGE_LABEL" description="COM_SPEVENTS_COUPON_MAX_USAGE_DESC" />
+        <field name="amount"    type="text" label="COM_SPEVENTS_COUPON_AMOUNT_LABEL" description="COM_SPEVENTS_COUPON_AMOUNT_DESC" required="true"/>
+        <field name="type"      type="list" label="COM_SPEVENTS_COUPON_TYPE_LABEL" description="COM_SPEVENTS_COUPON_TYPE_DESC" required="true">
             <option value="value">Value</option>
             <option value="percent">Percentage (%)</option>
         </field>
-        <field name="description" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" type="textarea" cols="30" rows="6"/>
+        <field name="description" type="textarea" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC" cols="30" rows="6"/>
     </fieldset>
 
     <fieldset name="options">
-        <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
+        <field name="enabled"   type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
             <option value="1">JPUBLISHED</option>
             <option value="0">JUNPUBLISHED</option>
         </field>
-        <field name="language" type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
+        <field name="language"  type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
             <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
         </field>
-        <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+        <field name="access"    type="accesslevel" label="JFIELD_ACCESS_LABEL" />
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
 

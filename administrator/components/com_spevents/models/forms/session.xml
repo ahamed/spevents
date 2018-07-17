@@ -6,8 +6,8 @@
         <field name="alias" type="text" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
         <field name="event_id" type="sql" query="SELECT id, title FROM #__spevents_events AS a WHERE a.enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_SESSION_EVENT" description="COM_SPEVENTS_SESSION_EVENT_DESC" required="true" />
         <field name="date" type="calendar" format="%y-%m-%d" label="COM_SPEVENTS_SESSION_DATE" description="COM_SPEVENTS_SESSION_DATE_DESC" required="true" />
-        <field name="time_from" type="jtimepicker" label="COM_SPEVENTS_SESSION_FROM" description="COM_SPEVENTS_SESSION_FROM_DESC" hint="10:00 AM" required="true" />
-        <field name="time_to" type="jtimepicker" label="COM_SPEVENTS_SESSION_TO" description="COM_SPEVENTS_SESSION_TO_DESC" hint="10:00 AM" required="true" />
+        <field name="time_from" type="sptimepicker" label="COM_SPEVENTS_SESSION_FROM" description="COM_SPEVENTS_SESSION_FROM_DESC" hint="10:00 AM" required="true" />
+        <field name="time_to" type="sptimepicker" label="COM_SPEVENTS_SESSION_TO" description="COM_SPEVENTS_SESSION_TO_DESC" hint="10:00 AM" required="true" />
         <field name="hall" type="text" label="COM_SPEVENTS_SESSION_HALL" description="COM_SPEVENTS_SESSION_HALL_DESC" hint="Hall-A"/>
         <field name="speakers" type="sql" query="SELECT id, title FROM #__spevents_speakers AS b where b.enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_SESSION_SPEAKER" description="COM_SPEVENTS_SESSION_SPEAKER_DESC" multiple="true" />
         <field name="description" type="editor" label="COM_SPEVENTS_SESSION_DESCRIPTION" description="COM_SPEVENTS_SESSION_DESCRIPTION_DESC" />

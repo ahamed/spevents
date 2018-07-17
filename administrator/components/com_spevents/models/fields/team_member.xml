@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<form>
-    <field name="member_name" type="text" label="COM_SPEVENTS_MEMBER_NAME" description="COM_SPEVENTS_MEMBER_NAME_DESC" />
-    <field name="member_image" type="media" label="COM_SPEVENTS_MEMBER_IMAGE" description="COM_SPEVENTS_MEMBER_IMAGE_DESC" />
-    <field name="member_designation" type="text" label="COM_SPEVENTS_MEMBER_DESIGNATION" description="COM_SPEVENTS_MEMBER_DESIGNATION_DESC" />
-    <field name="member_description" type="textarea" rows="4" label="COM_SPEVENTS_MEMBER_DESCRIPTION" description="COM_SPEVENTS_MEMBER_DESCRIPTION_DESC" />
-</form>

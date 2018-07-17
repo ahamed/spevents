@@ -405,6 +405,27 @@
   })
 
   /* ========================================================================
+  * Insert Media with double click
+  * ======================================================================== */
+
+  $(document).on('dblclick', '.sp-media > li.sp-media-item', function(event) {
+      event.preventDefault();
+      if ($(this).data('target') == 'editor') {
+        var $target = $('#' + $(".btn-insert-media").data('target'))
+        var img = $(this).data('path')
+        jInsertEditorText('<img src="' + img + '" alt="">', editor);
+      } else {
+        var $target = $('#' + $(".btn-insert-media").data('target'))
+        $target.prev('.sp-media-preview').removeClass('no-image').attr('src', $(this).data('src'))
+        $target.val($(this).data('path'))
+      }
+      $('.sp-media-modal-overlay').fadeOut(200, function () {
+        $('.sp-media-modal-overlay').remove()
+        $('body').removeClass('sp-media-modal-open')
+      })
+  });
+
+  /* ========================================================================
   * Insert Media
   * ======================================================================== */
   $(document).on('click', '#sp-media-modal .btn-insert-media', function(event) {

@@ -5,9 +5,9 @@ defined ('_JEXEC') or die('Resticted Aceess');
 
 jimport('joomla.application.component.helper');
 
-class JFormFieldCmap extends JFormField{
+class JFormFieldSpmap extends JFormField{
 
-	protected $type = 'Cmap';
+	protected $type = 'Spmap';
 
 	protected function getInput()
 	{
