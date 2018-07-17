@@ -1,0 +1,208 @@
+/**
+ * @package     SP Movie Database
+ * @subpackage  mod_sp_moviedb_trailers
+ *
+ * @copyright   Copyright (C) 2010 - 2016 JoomShaper. All rights reserved.
+ * @license     GNU General Public License version 2 or later.
+ */
+
+.sppb-trailers-modal-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.spmoviedb-trailer-item .play-icon {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all .3s;
+  z-index: 10;
+}
+.spmoviedb-trailer-item.leading {
+  width: 100%;
+  position: relative;
+}
+.spmoviedb-trailer-item.leading .spmoviedb-trailer {
+  position: relative;
+}
+.spmoviedb-trailer-item.leading .spmoviedb-trailer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.spmoviedb-trailer-item.leading .sp-spmoviedb-trailers-info {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 20px 30px;
+  z-index: 999;
+}
+.spmoviedb-trailer-item.leading .sp-spmoviedb-trailers-info {
+  z-index: 10;
+}
+.spmoviedb-trailer-item.leading .play-icon {
+  font-size: 130px;
+}
+.spmoviedb-trailer-item.leading .thumb-img {
+  display: block;
+}
+.spmoviedb-trailer-item.leading .sppb-modal-rating {
+  display: block !important;
+}
+.spmoviedb-trailer-item.leading h4.movie-title {
+  margin: 0;
+}
+.spmoviedb-trailer-item.leading p.spmoviedb-genry {
+  color: #fff !important;
+}
+.spmoviedb-trailer-item.leading .spmoviedb-trailer-info-block {
+  margin-top: 5px;
+}
+.spmoviedb-trailer-item.subleading {
+  margin-top: 30px;
+  margin-bottom: 0 !important;
+}
+.spmoviedb-trailer-item.subleading .trailer-image-wrap {
+  position: relative;
+}
+.spmoviedb-trailer-item.subleading .trailer-image-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.spmoviedb-trailer-item.subleading .count-rating {
+  display: none;
+}
+.trailers-sub-item {
+  margin: -15px;
+}
+.trailers-sub-item .spmoviedb-trailer-item {
+  padding: 15px;
+}
+.trailers-sub-item .spmoviedb-trailer-item .sppb-modal-title {
+  font-size: 18px;
+}
+.spmoviedb-trailer-item {
+  width: 25%;
+  float: left;
+  position: relative;
+}
+.spmoviedb-trailer-item img {
+  width: 100%;
+}
+.spmoviedb-trailer-item .trailer-image-wrap,
+.spmoviedb-trailer-item .img-wrap {
+  position: relative;
+}
+.spmoviedb-trailer-item .play-icon {
+  font-size: 50px;
+  top: 50%;
+  color: #fff;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+.spmoviedb-trailer-item .play-icon:hover {
+  cursor: pointer;
+  -webkit-transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+.spmoviedb-trailer-item .thumb-img {
+  display: none;
+}
+.spmoviedb-trailer-item .sppb-modal-rating {
+  display: none !important;
+}
+.spmoviedb-trailer-item .movie-title {
+  margin: 0 0 5px;
+}
+.spmoviedb-trailer-item .count-rating {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  line-height: 64px;
+  text-align: center;
+}
+.spmoviedb-trailer-item .count-rating:before {
+  content: '\e913';
+  font-family: 'spmoviedb';
+  color: #ffc000;
+  position: absolute;
+  left: 0;
+  font-size: 60px;
+}
+.spmoviedb-trailer-item .count-rating span {
+  display: block;
+  color: #fff;
+  font-size: 20px;
+  line-height: 72px;
+}
+.sp-spmoviedb-trailers-info {
+  overflow: hidden;
+  margin-top: 10px;
+}
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block {
+  display: inline-block;
+  float: left;
+  width: 80%;
+  text-align: left;
+}
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block a {
+  display: inline-block;
+  margin-top: 10px;
+}
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block .spmoviedb-genry a {
+  color: #fff;
+  margin: 0;
+}
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block .spmoviedb-genry a:hover {
+  color: rgba(255,255,255,.6);
+}
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block .sppb-modal-title,
+.sp-spmoviedb-trailers-info .spmoviedb-trailer-info-block .spmoviedb-genry {
+  margin: 0;
+}
+.sp-spmoviedb-trailers-info .thumb-img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.sp-spmoviedb-trailers-info .sppb-modal-rating {
+  display: inline-block;
+  float: right;
+  position: relative;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+}
+.sp-spmoviedb-trailers-info .sppb-modal-rating:before {
+  content: '\e913';
+  font-family: 'sp-moview';
+  color: #ffc000;
+  position: absolute;
+  left: 5px;
+  font-size: 50px;
+  top: -3px;
+}
+.spmoviedb-trailer-item .subleading .spmoviedb-trailer-info-block h3,
+.spmoviedb-trailer-item .subleading .spmoviedb-trailer-info-block p{
+  color: #000;
+}

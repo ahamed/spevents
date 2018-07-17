@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form type="browse" show_header="1" show_filters="1" show_pagination="1" norows_placeholder="COM_SPMOVIEDB_COMMON_NORECORDS">
+	<headerset>
+		<header name="spmoviedb_movie_id" type="rowselect" tdwidth="20" />
+		<header name="enabled" type="published" sortable="true" tdwidth="5%" label="COM_SPMOVIEDB_LABEL_STATUS"/>
+		<header name="title" type="fieldsearchable" label="COM_SPMOVIEDB_FIELD_MOVIE_NAME" sortable="true" buttons="yes" buttonclass="btn" />
+		<header name="directors" type="field" label="COM_SPMOVIEDB_FIELD_DIRECTOR" sortable="true" tdwidth="10%"/>
+		<header name="actors" type="field" label="COM_SPMOVIEDB_FIELD_ACTORS" sortable="true" tdwidth="30%"/>
+		<header name="genres" type="field" label="COM_SPMOVIEDB_FIELD_GENRES" sortable="true" tdwidth="20%"/>
+		<header name="profile_image" type="image" label="COM_SPMOVIEDB_FIELD_PROFILE_IMAGE" sortable="false" tdwidth="8%"/>
+		<header name="release_date" type="date" label="COM_SPMOVIEDB_FIELD_RELEASE_DATE" sortable="true" tdwidth="8%"/>
+		<header name="ordering" type="ordering" sortable="true" tdwidth="15" />
+	</headerset>
+
+	<fieldset name="items">
+		<field name="spmoviedb_movie_id" type="selectrow" />
+		<field name="actions" type="actions" />
+		<field name="title" type="text" show_link="true" url="index.php?option=com_spmoviedb&amp;view=movie&amp;id=[ITEM:ID]" />
+		<field name="directors" type="spcelebrities" />
+		<field name="actors" type="spcelebrities" />
+		<field name="genres" type="spgenries" />
+		<field name="profile_image" type="spmedia" width="50"/>
+		<field name="release_date" type="date" />
+		<field name="ordering" type="ordering" labelclass="order" />
+	</fieldset>
+</form>

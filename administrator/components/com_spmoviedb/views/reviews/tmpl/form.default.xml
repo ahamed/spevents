@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form type="browse" show_header="1" show_filters="1" show_pagination="1" norows_placeholder="COM_SPMOVIEDB_COMMON_NORECORDS" addfieldpath="/administrator/components/com_comspmoviedb/fields">
+	<headerset>
+		<header name="spmoviedb_review_id" type="rowselect" tdwidth="1%" />
+		<header name="enabled" type="published" sortable="true" label="COM_SPMOVIEDB_LABEL_STATUS" tdwidth="1%" />
+		<header name="review" type="fieldsearchable" label="COM_SPMOVIEDB_FIELD_REVIEW" sortable="false" tdwidth="50%" />
+		<header name="movieid" type="field" label="COM_SPMOVIEDB_FIELD_REVIEW_MOVIE" sortable="false" tdwidth="5%" />
+		<header name="created_by" type="field" label="COM_SPMOVIEDB_FIELD_USER" sortable="false" tdwidth="5%" />
+		<header name="created_on" type="field" label="COM_SPMOVIEDB_FIELD_REVIEW_CREATED_ON" sortable="true" tdwidth="10%" />
+	</headerset>
+
+	<fieldset name="items">
+		<field name="spmoviedb_review_id" type="selectrow"/>
+		<field name="enabled" type="actions" />
+		<field name="review" type="spreview" review_id="[ITEM:ID]" />
+		<field name="movieid" type="spmovie" value_field="url" />
+		<field name="created_by" type="user" show_email="false" show_name="false" show_avatar="false" show_id="false" show_link="true" />
+		<field name="created_on" type="calendar" format="%d-%m-%Y" labelclass="order" />
+	</fieldset>
+</form>

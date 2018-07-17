@@ -12,6 +12,7 @@ defined('JPATH_BASE') or die;
 /**
  * Layout variables
  * -----------------
+ * /Applications/MAMP/htdocs/sisylana/events/layouts/joomla/form/field/media.php
  * @var   string   $autocomplete    Autocomplete attribute for the field.
  * @var   boolean  $autofocus       Is autofocus enabled?
  * @var   string   $class           Classes for the input.
@@ -48,6 +49,7 @@ defined('JPATH_BASE') or die;
  * @var   string   $link            The link text
  */
 extract($displayData);
+
 
 // Load the modal behavior script.
 JHtml::_('behavior.modal');

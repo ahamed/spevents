@@ -1,0 +1,160 @@
+/**
+* @package     SP Movie Databse
+*
+* @copyright   Copyright (C) 2010 - 2016 JoomShaper. All rights reserved.
+* @license     GNU General Public License version 2 or later.
+*/
+
+@font-face {
+    font-family: 'spmoviedb';
+    src:    url('../fonts/spmoviedb.eot?4gk1te');
+    src:    url('../fonts/spmoviedb.eot?4gk1te#iefix') format('embedded-opentype'),
+    url('../fonts/spmoviedb.ttf?4gk1te') format('truetype'),
+    url('../fonts/spmoviedb.woff?4gk1te') format('woff'),
+    url('../fonts/spmoviedb.svg?4gk1te#spmoviedb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="spmoviedb-icon-"], [class*=" spmoviedb-icon-"] {
+    font-family: 'spmoviedb' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.spmoviedb-icon-angle-left:before {
+    content: "\e900";
+}
+.spmoviedb-icon-angle-right:before {
+    content: "\e901";
+}
+.spmoviedb-icon-up:before {
+    content: "\e902";
+}
+.spmoviedb-icon-down:before {
+    content: "\e903";
+}
+.spmoviedb-icon-angle-double-left:before {
+    content: "\e904";
+}
+.spmoviedb-icon-angle-double-right:before {
+    content: "\e905";
+}
+.spmoviedb-icon-celebrities:before {
+    content: "\e906";
+}
+.spmoviedb-icon-clock:before {
+    content: "\e907";
+}
+.spmoviedb-icon-enter:before {
+    content: "\e908";
+}
+.spmoviedb-icon-film:before {
+    content: "\e909";
+}
+.spmoviedb-icon-glass:before {
+    content: "\e90a";
+}
+.spmoviedb-icon-history:before {
+    content: "\e90b";
+}
+.spmoviedb-icon-know:before {
+    content: "\e90c";
+}
+.spmoviedb-icon-like:before {
+    content: "\e90d";
+}
+.spmoviedb-icon-megaphone:before {
+    content: "\e90e";
+}
+.spmoviedb-icon-movie:before {
+    content: "\e90f";
+}
+.spmoviedb-icon-news:before {
+    content: "\e910";
+}
+.spmoviedb-icon-newsletter:before {
+    content: "\e911";
+}
+.spmoviedb-icon-play:before {
+    content: "\e912";
+}
+.spmoviedb-icon-rating:before {
+    content: "\e913";
+}
+.spmoviedb-icon-search:before {
+    content: "\e914";
+}
+.spmoviedb-icon-showtime:before {
+    content: "\e915";
+}
+.spmoviedb-icon-story:before {
+    content: "\e916";
+}
+.spmoviedb-icon-ticket:before {
+    content: "\e917";
+}
+.spmoviedb-icon-top-list:before {
+    content: "\e918";
+}
+.spmoviedb-icon-user:before {
+    content: "\e919";
+}
+.spmoviedb-icon-write:before {
+    content: "\e91a";
+}
+.spmoviedb-icon-user-review:before {
+    content: "\e91b";
+}
+.spmoviedb-icon-trailer:before {
+    content: "\e91c";
+}
+.spmoviedb-icon-web:before {
+    content: "\e924";
+}
+.spmoviedb-icon-facebook:before {
+    content: "\e91d";
+}
+.spmoviedb-icon-twitter:before {
+    content: "\e91e";
+}
+.spmoviedb-icon-instagram:before {
+    content: "\e91f";
+}
+.spmoviedb-icon-google-plus:before {
+    content: "\e920";
+}
+.spmoviedb-icon-vimeo:before {
+    content: "\e921";
+}
+.spmoviedb-icon-youtube:before {
+    content: "\e922";
+}
+.spmoviedb-icon-pinterest:before {
+    content: "\e923";
+}
+.spmoviedb-icon-link:before {
+    content: "\e925";
+}
+.spmoviedb-icon-spinner:before {
+    content: "\e926";
+}
+
+.spmoviedb-icon-star:before {
+    content: "\e927";
+}
+.spmoviedb-icon-star-blank:before {
+    content: "\e928";
+}
+
+.spmoviedb-icon-close:before {
+    content: "\e929";
+}

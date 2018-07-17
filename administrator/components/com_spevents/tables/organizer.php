@@ -1,6 +1,7 @@
 <?php
 defined('_JEXEC') or die;
 
+use SpeventsHelper as SP;
 
 class SpeventsTableOrganizer extends JTable
 {
@@ -17,11 +18,15 @@ class SpeventsTableOrganizer extends JTable
 			$registry->loadArray($src['team_members']);
 			$src['team_members'] = (string)$registry;
 		}
+
+		
 		return parent::bind($src, $ignore);
 	}
 
 	public function store($updateNulls = false)
 	{
+	
+		//SP::___($this);
 		$user = JFactory::getUser();
 		$app  = JFactory::getApplication();
 		$date = new JDate('now', $app->getCfg('offset'));

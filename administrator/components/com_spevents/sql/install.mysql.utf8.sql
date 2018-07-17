@@ -16,11 +16,13 @@ CREATE TABLE IF NOT EXISTS `#__spevents_events` (
     `banner` TEXT,
     `organizers` VARCHAR(255) NOT NULL,
     `seats` INT(11) NOT NULL DEFAULT '0',
+    `physical_location` TINYINT(3) NOT NULL DEFAULT '0',
     `location` INT(11) NOT NULL,
     `categories` VARCHAR(255) NOT NULL,
     `social_tags` TEXT,
     `url` VARCHAR(255) DEFAULT '',
     `tags` VARCHAR(255) DEFAULT NULL,
+    `repeatable` TINYINT(3) DEFAULT '0',
     `recurring` TEXT,
     `registration` TEXT,
     `settings` TEXT,
@@ -263,6 +265,10 @@ CREATE TABLE IF NOT EXISTS `#__spevents_categories` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+--
+--  table structure for table `#__spevents_coupons`
+--
+
 
 CREATE TABLE IF NOT EXISTS `#__spevents_coupons` (
     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -288,6 +294,12 @@ CREATE TABLE IF NOT EXISTS `#__spevents_coupons` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
+
+
+-- 
+--  table structure for table `#__spevents_tags`
+--
+
 CREATE TABLE IF NOT EXISTS `#__spevents_tags` (
     `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(255) NOT NULL,
@@ -305,6 +317,35 @@ CREATE TABLE IF NOT EXISTS `#__spevents_tags` (
     `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
+
+--
+--  table structure for table `#__spevents_subscriptions`
+--
+
+
+CREATE TABLE IF NOT EXISTS `#__spevents_subscriptions` (
+    `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `email` VARCHAR(255) NOT NULL,
+    `enabled` tinyint(3) NOT NULL DEFAULT '1',
+    `language` varchar(255) NOT NULL DEFAULT '*',
+    `access` int(5) NOT NULL DEFAULT '1',
+    `ordering` int(10) NOT NULL DEFAULT '0',
+    `created_by` bigint(20) NOT NULL DEFAULT '0',
+    `created_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `modified_by` bigint(20) NOT NULL DEFAULT '0',
+    `modified_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    `locked_by` bigint(20) NOT NULL DEFAULT '0',
+    `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+--
+--  table structure for table `#__spevents_orders`
+--
 
 
 CREATE TABLE IF NOT EXISTS `#__spevents_orders` (
@@ -326,6 +367,9 @@ CREATE TABLE IF NOT EXISTS `#__spevents_orders` (
     `locked_on` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
     PRIMARY KEY(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+
+
 
 --
 -- table structure for table `#__spevents_images`

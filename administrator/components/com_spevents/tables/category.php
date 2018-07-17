@@ -16,6 +16,8 @@ class SpeventsTableCategory extends JTable
 
 	public function store($updateNulls = false)
 	{
+
+		SpeventsHelper::___($this);
 		$user = JFactory::getUser();
 		$app  = JFactory::getApplication();
 		$date = new JDate('now', $app->getCfg('offset'));

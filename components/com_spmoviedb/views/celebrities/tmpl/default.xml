@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<fields name="params">
+		<fieldset name="basic" label="COM_SPMOVIEDB_FIELDSET_CELEBRITIES">
+			<field name="celebrities_type" type="list" default="" label="COM_SPMOVIDB_FIELD_CELEBRITIES_TYPE" description="COM_SPMOVIDB_FIELD_CELEBRITIES_TYPE_DESC">
+				<option value="">COM_SPMOVIEDB_FIELD_ALL</option>	
+				<option value="actors">COM_SPMOVIEDB_FIELD_ACTORS_ACTRESS</option>
+				<option value="directors">COM_SPMOVIEDB_FIELD_ACTORS_DIRECTORS</option>	
+			</field>
+
+			<field name="gender" type="list" default="" label="COM_SPMOVIDB_FIELD_GENDER" description="COM_SPMOVIDB_FIELD_GENDER_DESC">
+				<option value="">COM_SPMOVIEDB_FIELD_ALL</option>	
+				<option value="male">COM_SPMOVIEDB_FIELD_OPTION_MALE</option>	
+				<option value="female">COM_SPMOVIEDB_FIELD_OPTION_FEMALE</option>
+				<option value="others">COM_SPMOVIEDB_FIELD_OPTION_OTHERS</option>	
+			</field>
+
+			<field name="order_by" type="list" default="" label="COM_SPMOVIDB_FIELD_ORDER_BY" description="COM_SPMOVIDB_FIELD_ORDER_BY_DESC">
+				<option value="">COM_SPMOVIEDB_FIELD_DEFAULT</option>	
+				<option value="desc">COM_SPMOVIEDB_FIELD_DESC</option>	
+				<option value="asc">COM_SPMOVIEDB_FIELD_ASC</option>	
+				<option value="featured">COM_SPMOVIEDB_FIELD_FEATURED</option>	
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

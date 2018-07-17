@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form type="browse" show_header="1" show_filters="1" show_pagination="1" norows_placeholder="COM_SPMOVIEDB_COMMON_NORECORDS">
+	<headerset>
+		<header name="spmoviedb_celebrity_id" type="rowselect" tdwidth="20" />
+		<header name="enabled" type="published" sortable="true" tdwidth="5%" label="COM_SPMOVIEDB_LABEL_STATUS"/>
+		<header name="title" type="fieldsearchable" label="COM_SPMOVIEDB_FIELD_CELEBRITY_NAME" sortable="true" buttons="yes" buttonclass="btn" />
+		<header name="celebrity_type" type="field" label="COM_SPMOVIEDB_FIELD_CELEBRITY_TYPE" sortable="true" tdwidth="10%"/>
+		<header name="designation" type="field" label="COM_SPMOVIEDB_FIELD_DESIGNATION" sortable="true" tdwidth="30%"/>
+		<header name="residence" type="field" label="COM_SPMOVIEDB_FIELD_RESIDENCE" sortable="true" tdwidth="20%"/>
+		<header name="profile_image" type="image" label="COM_SPMOVIEDB_FIELD_PROFILE_IMAGE" tdwidth="8%"/>
+		<header name="ordering" type="ordering" sortable="true" tdwidth="15" />
+	</headerset>
+
+	<fieldset name="items">
+		<field name="spmoviedb_celebrity_id" type="selectrow" />
+		<field name="actions" type="actions" />
+		<field name="title" type="text" show_link="true" url="index.php?option=com_spmoviedb&amp;view=celebrity&amp;id=[ITEM:ID]" />
+		<field name="celebrity_type" type="text" class="text-capitalize"/>
+		<field name="designation" type="text" />
+		<field name="residence" type="text" />
+		<field name="profile_image" type="spmedia" width="50"/>
+		<field name="ordering" type="ordering" labelclass="order" />
+	</fieldset>
+</form>

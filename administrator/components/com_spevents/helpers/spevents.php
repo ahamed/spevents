@@ -76,8 +76,8 @@ class SpeventsHelper extends JHelperContent
 		);
 		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_SUBSCRIBERS'),
-			'index.php?option=com_spevents&view=subscribers',
-			$vName == 'subscribers'
+			'index.php?option=com_spevents&view=subscriptions',
+			$vName == 'subscriptions'
 		);
 
 		/*--EOS EndOfSection: Dont't remove for future submenus generation--*/

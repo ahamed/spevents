@@ -1,0 +1,11 @@
+.view-login {
+    background: url("../images/login_banner.jpg") no-repeat fixed 50% 50% / cover #eff0f4 !important;
+}
+
+.login.well {
+    background: none repeat scroll 0 0 rgba(245, 245, 245, 0.79);
+}
+
+.view-login .well hr {
+    border-color: transparent;
+}

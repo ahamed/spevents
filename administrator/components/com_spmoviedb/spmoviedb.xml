@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="component" method="upgrade">
+	<name>COM_SPMOVIEDB</name>
+	<creationDate>Jan 2016</creationDate>
+	<author>Joomshaper</author>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>http://www.joomshaper.com</authorUrl>
+	<copyright>Copyright (c) 2010- 2016 JoomShaper. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>1.4</version>
+	<description>A complete movie database component for Joomla 3+</description>
+	<scriptfile>installer.script.php</scriptfile>
+
+	<updateservers> 
+        <server type="extension" priority="1" name="SP Movie Database">https://www.joomshaper.com/updates/com-spmoviedb.xml</server>
+    </updateservers>
+
+    <install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/install.sql</file>
+			<file driver="mysql">sql/install/mysql/install.sql</file>
+
+			<file driver="mysqli" charset="utf8">sql/install/mysql/install.sql</file>
+			<file driver="mysqli">sql/install/mysql/install.sql</file>
+		</sql>
+	</install>
+
+	<files folder="site">
+		<folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>fields</folder>
+		<folder>helpers</folder>
+		<folder>layouts</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>dispatcher.php</filename>
+		<filename>router.php</filename>
+		<filename>spmoviedb.php</filename>
+	</files>
+
+	<languages folder="language/site">
+			<language tag="en-GB">en-GB/en-GB.com_spmoviedb.ini</language>
+		</languages>
+
+	<administration>
+		<menu>COM_SPMOVIEDB</menu>
+
+		<files folder="admin">
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>fields</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>fof.xml</filename>
+			<filename>toolbar.php</filename>
+			<filename>spmoviedb.php</filename>
+		</files>
+
+		<languages folder="language/admin">
+			<language tag="en-GB">en-GB/en-GB.com_spmoviedb.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_spmoviedb.sys.ini</language>
+		</languages>
+	</administration>
+</extension>

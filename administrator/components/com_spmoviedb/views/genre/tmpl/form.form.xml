@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form validate="true">
+	<fieldset name="basic" class="span8">
+		<field name="title" type="text" required="true" />
+		<field name="slug" type="text" label="COM_SPMOVIEDB_FIELD_ALIAS" description="COM_SPMOVIEDB_FIELD_ALIAS_DESC" />
+		<field name="language" type="language" label="COM_SPMOVIEDB_MOVIES_LANGUAGE_LABEL">
+			<option value="*">COM_SPMOVIEDB_MOVIES_LANGUAGE_ALL</option>
+		</field>
+		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" default="1" />
+		<field name="enabled" type="list" label="JSTATUS" filter="intval" default="1" class="inputbox">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+	</fieldset>
+</form>

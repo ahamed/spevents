@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.4" client="site" method="upgrade">
+	<name>SP Movie Database Search</name>
+	<author>JoomShaper.com</author>
+	<creationDate>Jan 2016</creationDate>
+	<copyright>Copyright (C) 2010 - 2016 JoomShaper. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later;</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.2</version>
+	<description>Ajax movie search module for SP Movie Database component.</description>
+	
+	<languages>
+		<language tag="en-GB">language/en-GB.mod_spmoviedb_search.ini</language>
+	</languages>
+
+	<files>
+		<filename module="mod_spmoviedb_search">mod_spmoviedb_search.php</filename>
+		<filename>helper.php</filename>
+		<folder>assets</folder>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<folder>layouts</folder>
+	</files>
+	<config>
+		<fields name="params">
+
+			<fieldset name="basic">
+				<field name="limit"
+					type="number"
+					default="10"
+					label="MOD_SPMOVIEDB_FIELD_LIMIT"
+					description="MOD_SPMOVIEDB_FIELD_LIMIT_DESC"
+				/>
+				<field name="show_thumb" type="radio" default="1" class="btn-group" label="MOD_SPMOVIEDB_FIELD_SHOW_THUMB" description="MOD_SPMOVIEDB_FIELD_SHOW_THUMB_DESC">
+				    <option value="1">JYES</option>
+				    <option value="0">JNO</option>
+				</field>
+			</fieldset>
+
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+				<field
+					name="cachemode"
+					type="hidden"
+					default="static">
+					<option
+						value="static"></option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

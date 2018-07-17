@@ -12,6 +12,10 @@
                key_field="id"
                value_field="title"
                multiple="multiple" required="true" />
+        <field name="physical_location" type="radio" class="btn-group" label="COM_SPEVENTS_PHYSICAL_LOCATION" description="COM_SPEVENTS_PHYSICAL_LOCATION_DESC" default="0">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
         <field name="location"
                label="COM_SPEVENTS_LOCATION_LABEL"
                description="COM_SPEVENTS_LOCATION_DESC"
@@ -19,6 +23,7 @@
                query="SELECT id, venue_name AS venue from #__spevents_locations where enabled = 1"
                key_field="id"
                value_field="venue"
+               showon="physical_location:1"
                required="true" />
         <field name="organizers"
                label="COM_SPEVENTS_ORGANIZERS_LABEL"

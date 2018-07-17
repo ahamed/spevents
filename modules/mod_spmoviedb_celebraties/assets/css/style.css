@@ -1,0 +1,38 @@
+/**
+* @package     SP Movie Database
+* @subpackage  mod_spmoviedb_celebraties
+*
+* @copyright   Copyright (C) 2010 - 2016 JoomShaper. All rights reserved.
+* @license     GNU General Public License version 2 or later.
+*/
+
+.mod-spmoviedb-celebrities .spmoviedb-celebrity {
+  margin-bottom: 20px;
+}
+
+.mod-spmoviedb-celebrities .spmoviedb-celebrity:last-child {
+  margin-bottom: 0;
+}
+
+.mod-spmoviedb-celebrities .spmoviedb-celebrity-thumb {
+  margin-right: 20px;
+  width: 64px;
+  height: 64px;
+  background-size: cover;
+}
+
+.mod-spmoviedb-celebrities .moviedb-celebrity-info {
+  margin-top: 5px;
+}
+
+.mod-spmoviedb-celebrities .moviedb-celebrity-info .moviedb-celebrity-name a {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mod-spmoviedb-celebrities .moviedb-celebrity-info .moviedb-celebrity-name small {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  font-weight: 400;
+}

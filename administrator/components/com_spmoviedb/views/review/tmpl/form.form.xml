@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form validate="true">
+	<fieldset name="basic" class="span12">
+
+		<field
+        	name="movieid"
+		 	type="sql"
+        	translate="false" 
+        	query="SELECT spmoviedb_movie_id, title FROM #__spmoviedb_movies WHERE enabled = 1" 
+        	key_field="spmoviedb_movie_id"
+        	value_field="title"
+        	label="COM_SPMOVIEDB_FIELD_MOVIE_NAME"
+        	required="true"
+        />
+
+        <field name="created_by"
+		 	label="COM_SPMOVIEDB_FIELD_USER" 
+		 	description="COM_SPMOVIEDB_FIELD_USER_DESC" 
+        	type="user"
+        />
+
+        <field name="rating"
+			type="list"
+			class="inputbox"
+			default="1"
+			label="COM_SPMOVIEDB_FIELD_RATING"
+			description="COM_SPMOVIEDB_FIELD_RATING_DESC"
+			required="true"
+		>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>raw
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+
+		</field>
+
+		<field name="review" 
+			type="textarea"
+			class="inputbox span8"
+			label="COM_SPMOVIEDB_FIELD_MOVIE_REVIEW"
+			description="COM_SPMOVIEDB_FIELD_MOVIE_REVIEW_DESC"
+			rows="15"
+			cols="100"
+		 />
+
+		<field name="enabled" type="list" label="JSTATUS" filter="intval" default="1" class="inputbox">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+	</fieldset>
+</form>

@@ -83,9 +83,18 @@ JHtml::_('jquery.framework', false);
             },
             eventClick: function(event, jEvent, view){
                 alert('Title: ' + event.title + '\nStart: ' + new Date(event.start) + (event.end ? '\nEnd: ' + new Date(event.end) : '') );
-                console.log(event);
+                //$('.popuptext').text(event.title);
+                //$(this).toggleClass("popup");
+                //$(this).find('.fc-content').toggleClass("popuptext show");
+                
+                console.log(jEvent);
             }
         });
+
+        $(".popup").click(function(){
+            $('.popuptext').toggleClass("show");
+        });
+
     });
 </script>
 
@@ -139,7 +148,11 @@ JHtml::_('jquery.framework', false);
                         <div id="calendar"></div>
                     </div>
                 </div>
-            </div>    
+            </div> 
+            
+            <!-- <div class="popup">Click me!
+                <div class="popuptext" id="myPopup"></div>
+            </div> -->
 
             <div class="spevents-row">
                 <div class="spevents-col-lg-8">

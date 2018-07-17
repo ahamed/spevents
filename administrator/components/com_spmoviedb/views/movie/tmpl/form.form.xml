@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form validate="true"  serverside_validate="true" tabbed="1" >
+	<fieldset name="basic_configuration" label="COM_SPMOVIEDB_FIELDSET_BASIC_INFO" class="tab-pane active spmoview-view-form-class" addfieldpath="/administrator/components/com_spmoviedb/fields">
+
+		<field name="title" type="text"
+			class="inputbox"
+			label="COM_SPMOVIEDB_FIELD_MOVIE_TITLE"
+			required="true"
+		/>
+
+		<field name="slug" type="text"
+			class="inputbox"
+			label="COM_SPMOVIEDB_FIELD_ALIAS"
+			description="COM_SPMOVIEDB_FIELD_ALIAS_DESC"
+		/>
+
+		<field name="release_date" 
+			type="calendar" 
+			label="COM_SPMOVIEDB_FIELD_RELEASE_DATE" 
+		/>
+
+		<field name="featured"
+			type="radio"
+			class="btn-group"
+			default="0"
+			label="COM_SPMOVIEDB_FIELD_FEATURED"
+			description="COM_SPMOVIEDB_FIELD_FEATURED_DESC">
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="movie_story" 
+			type="editor"
+			class="inputbox"
+			label="COM_SPMOVIEDB_FIELD_MOVIE_STORY"
+			required="true"
+			width="300"
+			filter="JComponentHelper::filterText"
+		 />
+
+		<field name="profile_image"
+		 	type="spmedia"
+		 	thumbsize="400x650"
+			label="COM_SPMOVIEDB_FIELD_PROFILE_IMAGE"
+			description="COM_SPMOVIEDB_FIELD_PROFILE_IMAGE_DESC"
+			required="true"
+		/>
+
+		<field name="cover_image"
+		 	type="spmedia"
+			label="COM_SPMOVIEDB_FIELD_COVER_IMAGE"
+			description="COM_SPMOVIEDB_FIELD_COVER_IMAGE_DESC"
+			thumbsize="2000x597"
+			required="true"
+		/>
+
+		<field
+        	name="directors"
+		 	type="spcelebrities"
+        	multiple="multiple"
+        	label="COM_SPMOVIEDB_FIELD_DIRECTOR"
+        	description="COM_SPMOVIEDB_FIELD_DIRECTOR_DESC"
+        />
+
+		<field
+        	name="actors"
+		 	type="spcelebrities"
+        	value_field="title"
+        	label="COM_SPMOVIEDB_FIELD_ACTORS"
+        	description="COM_SPMOVIEDB_FIELD_ACTORS_DESC"
+        	multiple="multiple"
+        />
+
+        <field
+        	name="genres"
+		 	type="sql"
+        	translate="false" 
+        	query="SELECT spmoviedb_genre_id, title FROM #__spmoviedb_genres WHERE enabled = 1" 
+        	key_field="spmoviedb_genre_id" 
+        	value_field="title"
+        	multiple="multiple"
+        	label="COM_SPMOVIEDB_FIELD_GENRES"
+        	description="COM_SPMOVIEDB_FIELD_GENRES_DESC"
+        />
+
+		<field name="duration" 
+			type="text"
+			label="COM_SPMOVIEDB_FIELD_DURATION"
+			description="COM_SPMOVIEDB_FIELD_DURATION_DESC"
+		/>
+
+		 <field name="country" 
+        	type="spcountries"
+        	label="COM_SPMOVIEDB_FIELD_COUNTRY" 
+        	description="COM_SPMOVIEDB_FIELD_COUNTRY_DESC"
+        />
+
+		<field name="m_language" 
+			type="text"
+			label="COM_SPMOVIEDB_FIELD_LANGUAGE"
+			description="COM_SPMOVIEDB_FIELD_LANGUAGE_DESC"
+		/>
+
+		<field name="dvdlink" 
+			type="text"
+			label="COM_SPMOVIEDB_FIELD_BUY_DVD"
+			description="COM_SPMOVIEDB_FIELD_BUY_DVD_DESC"
+		/>
+
+		<field name="language" type="language">
+			<option value="*">COM_SPMOVIEDB_MOVIES_LANGUAGE_ALL</option>
+		</field>
+
+		<field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" default="1" />
+
+		<field name="enabled" type="list" label="JSTATUS" filter="intval" default="1">
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+		</field>
+
+	</fieldset>
+
+	<fieldset name="movie_links" label="COM_SPMOVIEDB_FIELDSET_MOVIE_LINKS" class="tab-pane">
+
+		<field name="show_time" type="repeatable" icon="list" label="COM_SPMOVIEDB_FIELDSET_MOVIE_SHOW_TIMES" description="">
+        	<fields name="params">
+				<fieldset hidden="true" name="honours" repeat="true">
+					<field name="theatre_name" 
+						type="text"
+						label="COM_SPMOVIEDB_FIELD_THEATRE_NAME"
+						description="COM_SPMOVIEDB_FIELD_THEATRE_NAME_DESC"
+						hint="California Theatre"
+					/>
+
+					<field name="theatre_location" 
+						type="text"
+						label="COM_SPMOVIEDB_FIELD_THEATRE_LOCATION"
+						description="COM_SPMOVIEDB_FIELD_THEATRE_LOCATION_DESC"
+						hint="CA 94704, USA"
+					/>
+
+					<field name="time" 
+						type="text"
+						label="COM_SPMOVIEDB_FIELD_THEATRE_TIME"
+						description="COM_SPMOVIEDB_FIELD_THEATRE_TIME_DESC"
+						hint="9:30 | 11:30 | 13:45 | 17:30 | 19:30"
+					/>
+
+					<field name="ticket_url" 
+						type="url"
+						label="COM_SPMOVIEDB_FIELD_TICKET_URL"
+						description="COM_SPMOVIEDB_FIELD_TICKET_URL_DESC"
+						hint="http://joomshaper.com/movie/buy-ticket"
+					/>
+
+				</fieldset>
+			</fields>
+		</field>
+		
+		<field name="website"
+			type="url"
+			hint="https://www.thismovie.com"
+			label="COM_SPMOVIEDB_FIELD_WEBSITE"
+			size="10"
+		/>
+
+		<field name="facebook"
+			type="url"
+			class="inputbox"
+			hint="https://www.facebook.com/joomshaper"
+			label="COM_SPMOVIEDB_FIELD_FACEBOOK"
+			size="10"
+		/>
+
+		<field name="twitter"
+			type="url"
+			class="inputbox"
+			hint="https://twitter.com/joomshaper"
+			label="COM_SPMOVIEDB_FIELD_TWITTER"
+			size="10"
+		/>
+
+		<field name="gplus"
+			type="url"
+			hint="https://plus.google.com/+Joomshapers"
+			label="COM_SPMOVIEDB_FIELD_GOOGLE_PLUS"
+			size="10"
+		/>
+
+		<field name="youtube"
+			type="url"
+			hint="https://www.youtube.com/user/joomshaper"
+			label="COM_SPMOVIEDB_FIELD_YOUTUBE"
+			size="10"
+		/>
+
+		<field name="vimeo"
+			type="url"
+			class="inputbox"
+			hint="https://vimeo.com/user12615648"
+			label="COM_SPMOVIEDB_FIELD_VIMEO"
+			size="10"
+		/>
+
+	</fieldset>
+
+	<fieldset name="movie_trailers" label="COM_SPMOVIEDB_FIELDSET_MOVIE_TRAILER_URLS" class="tab-pane">
+
+		<field type="spacer" name="t_1" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_ONE" />
+		
+		<field name="trailer_one_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_one"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+
+		<field name="t_thumb_one"
+		 	type="spmedia"
+			thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+		
+		<field type="spacer" name="mt_2" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_TWO" />
+
+		<field name="trailer_two_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_two"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_two"
+		 	type="spmedia"
+			thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_3" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_THREE" />
+
+		<field name="trailer_three_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_three"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_three"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_4" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_FOUR" />
+
+		<field name="trailer_four_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_four"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_four"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_5" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_FIVE" />
+
+		<field name="trailer_five_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_five"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_five"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_6" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_SIX" />
+		
+		<field name="trailer_six_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_six"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_six"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_7" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_SEVEN" />
+
+		<field name="trailer_seven_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_seven"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_seven"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_8" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_EIGHT" />
+
+		<field name="trailer_eight_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_eight"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_eight"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_9" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_NINE" />
+
+		<field name="trailer_nine_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_nine"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_nine"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+
+		<field type="spacer" name="mt_10" groupclass="spmoviedb-spacer" label="COM_SPMOVIEDB_FIELD_MOVIE_TRAILER_TEN" />
+
+		<field name="trailer_ten_title"
+			type="url"
+			class="inputbox"
+			hint="COM_SPMOVIEDB_FIELD_TRAILER_TITLE_HINT"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_TITLE"
+			size="10"
+		/>
+
+		<field name="trailer_ten"
+			type="url"
+			class="inputbox"
+			hint="https://www.youtube.com/watch?v=rUIVA-rTbOI"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_URL"
+			size="10"
+		/>
+		<field name="t_thumb_ten"
+		 	type="spmedia"
+		 	thumbsize="265x165"
+			label="COM_SPMOVIEDB_FIELD_TRAILER_THUMB"
+			description="COM_SPMOVIEDB_FIELD_TRAILER_THUMB_DESC"
+		/>
+	</fieldset>
+</form>		
