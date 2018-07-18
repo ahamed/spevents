@@ -13,14 +13,17 @@ class SpeventsViewTickets extends JViewLegacy
 
 	protected $model;
 
+	public $filterForm, $activeFilters;
+
 	public function display($tpl = null)
 	{
 		$this->items    = $this->get('Items');
 		$this->state    = $this->get('State');
 		$this->pagination = $this->get('Pagination');
 		$this->model = $this->getModel('tickets');
+		$this->filterForm = $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
 
-//		/SpeventsHelper::___($this->items);
 
 		SpeventsHelper::addSubmenu('tickets');
 

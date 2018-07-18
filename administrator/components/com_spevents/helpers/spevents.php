@@ -25,6 +25,11 @@ class SpeventsHelper extends JHelperContent
 			$vName == 'dashboard'
 		);
 		JHtmlSidebar::addEntry(
+			JText::_('COM_SPEVENTS_SUBMENU_EVENTS'),
+			'index.php?option=com_spevents&view=events',
+			$vName == 'events'
+		);
+		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_CATEGORY'),
 			'index.php?option=com_spevents&view=categories',
 			$vName == 'categories'
@@ -53,11 +58,6 @@ class SpeventsHelper extends JHelperContent
 			JText::_('COM_SPEVENTS_SUBMENU_TAGS'),
 			'index.php?option=com_spevents&view=tags',
 			$vName == 'tags'
-		);
-		JHtmlSidebar::addEntry(
-			JText::_('COM_SPEVENTS_SUBMENU_EVENTS'),
-			'index.php?option=com_spevents&view=events',
-			$vName == 'events'
 		);
 		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_SPEAKERS'),

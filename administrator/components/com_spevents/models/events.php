@@ -77,6 +77,11 @@ class SpeventsModelEvents extends JModelList
 			$query->where($db->quoteName('a.enabled') . ' IN (0, 1)');
 		}
 
+		if ($access = $this->getState('filter.access'))
+		{
+			$query->where($db->quoteName('a.access') . ' = ' . $db->quote($access));
+		}
+
 		$user = JFactory::getUser();
 		$user_id = $user->get('id','INT');
 		if ($user_id)

@@ -13,14 +13,18 @@ class SpeventsViewCategories extends JViewLegacy
 
 	protected $model;
 
+	public $filterForm;
+
+	public $activeFilters;
+
 	public function display($tpl = null)
 	{
 		$this->items    = $this->get('Items');
 		$this->state    = $this->get('State');
 		$this->pagination = $this->get('Pagination');
 		$this->model = $this->getModel('categories');
-
-//		/SpeventsHelper::___($this->items);
+		$this->filterForm = $this->get('FilterForm');
+		$this->activeFilters = $this->get('ActiveFilters');
 
 		SpeventsHelper::addSubmenu('categories');
 

@@ -78,6 +78,11 @@ class ContactViewContacts extends JViewLegacy
 		$this->filterForm    = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
+		// echo "<pre>";
+		// print_r($this->filterForm);
+		// echo "</pre>";
+		// die;
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
 		{

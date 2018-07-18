@@ -1,0 +1,602 @@
+[
+	{
+		"layout": "agency",
+		"template": "agency/about",
+		"page_title": "Agency",
+		"title": "Agency - About",
+		"sub_title": "About",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "agency",
+		"template": "agency/contact",
+		"page_title": "Agency",
+		"title": "Agency - Contact",
+		"sub_title": "Contact",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "agency",
+		"template": "agency/faqs",
+		"page_title": "Agency",
+		"title": "Agency - Faqs",
+		"sub_title": "Faqs",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "agency",
+		"template": "agency/home",
+		"page_title": "Agency",
+		"title": "Agency - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "agency",
+		"template": "agency/services",
+		"page_title": "Agency",
+		"title": "Agency - Services",
+		"sub_title": "Services",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "agency_minimal",
+		"template": "agency_minimal/home",
+		"page_title": "Agency Minimal",
+		"title": "Agency Minimal - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "agency_two",
+		"template": "agency_two/home",
+		"page_title": "Agency Two",
+		"title": "Agency Two - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "business",
+		"template": "business/home",
+		"page_title": "Business",
+		"title": "Business - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "business_clean",
+		"template": "business_clean/home",
+		"page_title": "Business Clean",
+		"title": "Business Clean - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "construction",
+		"template": "construction/home",
+		"page_title": "Construction",
+		"title": "Construction - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "corporate",
+		"template": "corporate/home",
+		"page_title": "Corporate",
+		"title": "Corporate - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "creative_design",
+		"template": "creative_design/home",
+		"page_title": "Creative Design",
+		"title": "Creative Design - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "design_agency",
+		"template": "design_agency/home",
+		"page_title": "Design Agency",
+		"title": "Design Agency - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "design_school",
+		"template": "design_school/home",
+		"page_title": "Design School",
+		"title": "Design School - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/about",
+		"page_title": "Hosting",
+		"title": "Hosting - About",
+		"sub_title": "About",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/contact",
+		"page_title": "Hosting",
+		"title": "Hosting - Contact",
+		"sub_title": "Contact",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/domain",
+		"page_title": "Hosting",
+		"title": "Hosting - Domain",
+		"sub_title": "Domain",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/home",
+		"page_title": "Hosting",
+		"title": "Hosting - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/list",
+		"page_title": "Hosting",
+		"title": "Hosting - List",
+		"sub_title": "List",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "hosting",
+		"template": "hosting/services",
+		"page_title": "Hosting",
+		"title": "Hosting - Services",
+		"sub_title": "Services",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "interior_architect",
+		"template": "interior_architect/home",
+		"page_title": "Interior Architect",
+		"title": "Interior Architect - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "interior_design",
+		"template": "interior_design/home",
+		"page_title": "Interior Design",
+		"title": "Interior Design - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "law",
+		"template": "law/home",
+		"page_title": "Law",
+		"title": "Law - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "seo",
+		"template": "seo/about",
+		"page_title": "Seo",
+		"title": "Seo - About",
+		"sub_title": "About",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "seo",
+		"template": "seo/contact",
+		"page_title": "Seo",
+		"title": "Seo - Contact",
+		"sub_title": "Contact",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "seo",
+		"template": "seo/home",
+		"page_title": "Seo",
+		"title": "Seo - Home",
+		"sub_title": "Home",
+		"category": "business",
+		"category_title": "Business",
+		"home": "true"
+	},
+	{
+		"layout": "seo",
+		"template": "seo/services",
+		"page_title": "Seo",
+		"title": "Seo - Services",
+		"sub_title": "Services",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "seo",
+		"template": "seo/services_details",
+		"page_title": "Seo",
+		"title": "Seo - Services Details",
+		"sub_title": "Services Details",
+		"category": "business",
+		"category_title": "Business",
+		"home": "false"
+	},
+	{
+		"layout": "event",
+		"template": "event/home",
+		"page_title": "Event",
+		"title": "Event - Home",
+		"sub_title": "Home",
+		"category": "entertainment_media",
+		"category_title": "Entertainment Media",
+		"home": "true"
+	},
+	{
+		"layout": "event_bold",
+		"template": "event_bold/home",
+		"page_title": "Event Bold",
+		"title": "Event Bold - Home",
+		"sub_title": "Home",
+		"category": "entertainment_media",
+		"category_title": "Entertainment Media",
+		"home": "true"
+	},
+	{
+		"layout": "music_event",
+		"template": "music_event/home",
+		"page_title": "Music Event",
+		"title": "Music Event - Home",
+		"sub_title": "Home",
+		"category": "entertainment_media",
+		"category_title": "Entertainment Media",
+		"home": "true"
+	},
+	{
+		"layout": "music_trendy",
+		"template": "music_trendy/home",
+		"page_title": "Music Trendy",
+		"title": "Music Trendy - Home",
+		"sub_title": "Home",
+		"category": "entertainment_media",
+		"category_title": "Entertainment Media",
+		"home": "true"
+	},
+	{
+		"layout": "fitness",
+		"template": "fitness/home",
+		"page_title": "Fitness",
+		"title": "Fitness - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "fitness_clean",
+		"template": "fitness_clean/home",
+		"page_title": "Fitness Clean",
+		"title": "Fitness Clean - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "gym",
+		"template": "gym/home",
+		"page_title": "Gym",
+		"title": "Gym - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "healthy_food",
+		"template": "healthy_food/home",
+		"page_title": "Healthy Food",
+		"title": "Healthy Food - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "spa",
+		"template": "spa/home",
+		"page_title": "Spa",
+		"title": "Spa - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "trainer",
+		"template": "trainer/home",
+		"page_title": "Trainer",
+		"title": "Trainer - Home",
+		"sub_title": "Home",
+		"category": "health_fitness",
+		"category_title": "Health Fitness",
+		"home": "true"
+	},
+	{
+		"layout": "app_landing",
+		"template": "app_landing/home",
+		"page_title": "App Landing",
+		"title": "App Landing - Home",
+		"sub_title": "Home",
+		"category": "landing_pages",
+		"category_title": "Landing Pages",
+		"home": "true"
+	},
+	{
+		"layout": "app_landing",
+		"template": "app_landing/home_2",
+		"page_title": "App Landing",
+		"title": "App Landing - Home 2",
+		"sub_title": "Home 2",
+		"category": "landing_pages",
+		"category_title": "Landing Pages",
+		"home": "false"
+	},
+	{
+		"layout": "app_landing",
+		"template": "app_landing/home_minimal",
+		"page_title": "App Landing",
+		"title": "App Landing - Home Minimal",
+		"sub_title": "Home Minimal",
+		"category": "landing_pages",
+		"category_title": "Landing Pages",
+		"home": "false"
+	},
+	{
+		"layout": "product",
+		"template": "product/home",
+		"page_title": "Product",
+		"title": "Product - Home",
+		"sub_title": "Home",
+		"category": "landing_pages",
+		"category_title": "Landing Pages",
+		"home": "true"
+	},
+	{
+		"layout": "accountant",
+		"template": "accountant/home",
+		"page_title": "Accountant",
+		"title": "Accountant - Home",
+		"sub_title": "Home",
+		"category": "personal",
+		"category_title": "Personal",
+		"home": "true"
+	},
+	{
+		"layout": "photographer",
+		"template": "photographer/home",
+		"page_title": "Photographer",
+		"title": "Photographer - Home",
+		"sub_title": "Home",
+		"category": "personal",
+		"category_title": "Personal",
+		"home": "true"
+	},
+	{
+		"layout": "portfolio_resume_cv",
+		"template": "portfolio_resume_cv/home",
+		"page_title": "Portfolio Resume Cv",
+		"title": "Portfolio Resume Cv - Home",
+		"sub_title": "Home",
+		"category": "personal",
+		"category_title": "Personal",
+		"home": "true"
+	},
+	{
+		"layout": "resume",
+		"template": "resume/home",
+		"page_title": "Resume",
+		"title": "Resume - Home",
+		"sub_title": "Home",
+		"category": "personal",
+		"category_title": "Personal",
+		"home": "true"
+	},
+	{
+		"layout": "barber",
+		"template": "barber/home",
+		"page_title": "Barber",
+		"title": "Barber - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "fashion_shop",
+		"template": "fashion_shop/home",
+		"page_title": "Fashion Shop",
+		"title": "Fashion Shop - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "resort",
+		"template": "resort/home",
+		"page_title": "Resort",
+		"title": "Resort - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "restaurant",
+		"template": "restaurant/home",
+		"page_title": "Restaurant",
+		"title": "Restaurant - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "restaurant",
+		"template": "restaurant/home_trendy",
+		"page_title": "Restaurant",
+		"title": "Restaurant - Home Trendy",
+		"sub_title": "Home Trendy",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "false"
+	},
+	{
+		"layout": "saloon",
+		"template": "saloon/home",
+		"page_title": "Saloon",
+		"title": "Saloon - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "travel",
+		"template": "travel/home",
+		"page_title": "Travel",
+		"title": "Travel - Home",
+		"sub_title": "Home",
+		"category": "travel_lifestyle",
+		"category_title": "Travel Lifestyle",
+		"home": "true"
+	},
+	{
+		"layout": "wedding",
+		"template": "wedding/home",
+		"page_title": "Wedding",
+		"title": "Wedding - Home",
+		"sub_title": "Home",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "true"
+	},
+	{
+		"layout": "wedding",
+		"template": "wedding/home_2",
+		"page_title": "Wedding",
+		"title": "Wedding - Home 2",
+		"sub_title": "Home 2",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "false"
+	},
+	{
+		"layout": "wedding_planner",
+		"template": "wedding_planner/about",
+		"page_title": "Wedding Planner",
+		"title": "Wedding Planner - About",
+		"sub_title": "About",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "false"
+	},
+	{
+		"layout": "wedding_planner",
+		"template": "wedding_planner/contact",
+		"page_title": "Wedding Planner",
+		"title": "Wedding Planner - Contact",
+		"sub_title": "Contact",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "false"
+	},
+	{
+		"layout": "wedding_planner",
+		"template": "wedding_planner/home",
+		"page_title": "Wedding Planner",
+		"title": "Wedding Planner - Home",
+		"sub_title": "Home",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "true"
+	},
+	{
+		"layout": "wedding_planner",
+		"template": "wedding_planner/photos",
+		"page_title": "Wedding Planner",
+		"title": "Wedding Planner - Photos",
+		"sub_title": "Photos",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "false"
+	},
+	{
+		"layout": "wedding_planner",
+		"template": "wedding_planner/services",
+		"page_title": "Wedding Planner",
+		"title": "Wedding Planner - Services",
+		"sub_title": "Services",
+		"category": "wedding",
+		"category_title": "Wedding",
+		"home": "false"
+	}
+]

@@ -39,7 +39,7 @@ class JFormFieldSprepeat extends JFormField{
 		if($holder['value']) {
 			$html = '<img class="sp-media-preview" src="' . JURI::root(true) . '/' . $holder['value'] . '" alt="" />';
 		} else {
-			$html  = '<img class="sp-media-preview no-image" alt="">';
+			$html  = '<img class="sp-media-preview" alt="" src="' . JUri::root() . "/images/no-preview.jpg" .'">';
 		}
         $gr = $this->getRepeatable();
 
@@ -53,7 +53,7 @@ class JFormFieldSprepeat extends JFormField{
         $html     = "<div class='repeat' id='sprepeat-" . $this->id .  "'>";
         $button     = "<div class='spevents-row'><button class='btnc spevents-btn-metarial pull-right' title='Add new' id='spevents-add-new-section-" . $this->id . "'><span class='fa fa-plus'></span></button></div><br><br>";
         $html     .= $button;
-        $html     .= "<div class='spevents-row spevents-section-container'>";
+        $html     .= "<div class='spevents-row spevents-section-container' id='sortable-" . $this->id . "'>";
         return $html;
     }
 
@@ -144,9 +144,11 @@ class JFormFieldSprepeat extends JFormField{
         $doc->addStyleSheet(JURI::base(true) . '/components/com_spevents/assets/css/fontawesome.css');
         $doc->addStyleSheet(JURI::base(true) . '/components/com_spevents/assets/css/spevents.css');
         $doc->addStyleSheet(JURI::base(true) . '/components/com_spevents/assets/css/sprepeat.css');
-
-		$doc->addStylesheet( JURI::base(true) . '/components/com_spevents/assets/css/spmedia.css' );
-		$doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/spmedia.js' );
+        $doc->addStylesheet( JURI::base(true) . '/components/com_spevents/assets/css/spmedia.css' );
+        
+        $doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/spmedia.js' );
+        $doc->addScript( JURI::base(true) . '/components/com_spevents/assets/js/jquery-ui.js' );
+        
         
         $fields     = json_decode(json_encode($this->element))->field;
         $name       = (string)$this->element['name'];
@@ -172,6 +174,7 @@ class JFormFieldSprepeat extends JFormField{
             $add_close      .= "<a href='javascript:' class='btn btn-success spevents-add'><span class='fa fa-plus-circle'></span></a>";
             $add_close      .= "</div>";
             $return         .= $add_close;
+
 
             foreach($fields as $key => $field)
             {
@@ -199,8 +202,7 @@ class JFormFieldSprepeat extends JFormField{
                     case 'media':
                         $holder = [];
                         $holder['value']    = $field_value;
-                        $holder['name']     = "jform[" . $name ."][" . $i ."][". $field->{'@attributes'}->name ."]";
-                        $holder['id']       = "jform_" . $field->{'@attributes'}->name . "_". $i;
+                        $holder['name']     = "jform[" . $name ."][" . $name . "0" ."][". $field->{'@attributes'}->name ."]";
                         $holder['id']       = "jform-" . $name . "-" . $name . "0-" . $field->{'@attributes'}->name; 
                         $inputs             .= $this->renderMediaFields($this, $holder);
                         break;
@@ -229,10 +231,10 @@ class JFormFieldSprepeat extends JFormField{
         }
         else 
         {
-
+            $index = 0;
             foreach ($this->value as $i => $value)
             {
-                $return         .= "<div class='spevents-clonable'>";
+                $return         .= "<div class='spevents-clonable sortable'>";
                 $add_close      = "<div class='btn-group pull-right' role='group' aria-label='add close buttons'>";
                 $add_close      .= "<a href='javascript:' class='spevents-close btn btn-danger'><span class='fa fa-minus-circle'></span></a>";
                 $add_close      .= "<a href='javascript:' class='btn btn-success spevents-add'><span class='fa fa-plus-circle'></span></a>";
@@ -241,10 +243,8 @@ class JFormFieldSprepeat extends JFormField{
 
                 foreach($fields as $key => $field)
                 {
-
                     $field_value = $value[$field->{'@attributes'}->name];
                     
-
                     $label      = isset($field->{'@attributes'}->label) ? JText::_($field->{'@attributes'}->label) : $field->{'@attributes'}->name;
                     $star       = (isset($field->{'@attributes'}->required) && $field->{'@attributes'}->required == 'true') ? 
                                   "<span class='star'>&nbsp;*</span>" : "";
@@ -258,9 +258,8 @@ class JFormFieldSprepeat extends JFormField{
                     
                     $type       = $field->{'@attributes'}->type;
                     $attr       = [];
-                    $attr[]     = "name='jform[" . $name ."][" . $i ."][". $field->{'@attributes'}->name ."]'";
-                    $attr[]     = "id='jform_" . $field->{'@attributes'}->name . "_" . $i . "'";
-                    $attr[]     = "id='jform-" . $name . "-" . $i . "-" . $field->{'@attributes'}->name . "'"; 
+                    $attr[]     = "name='jform[" . $name ."][" . $name. $index ."][". $field->{'@attributes'}->name ."]'";
+                    $attr[]     = "id='jform-" . $name . "-" . $name . $index . "-" . $field->{'@attributes'}->name . "'"; 
                     $attr[]     = "class='inputbox'";
                     $attr[]     = isset($field->{'@attributes'}->required) ? "required='required'" : "";
                     
@@ -269,8 +268,8 @@ class JFormFieldSprepeat extends JFormField{
                         case 'media':
                             $holder = [];
                             $holder['value']    = $field_value;
-                            $holder['name']     = "jform[" . $name ."][" . $i ."][". $field->{'@attributes'}->name ."]";
-                            $holder['id']       = "jform-" . $name . "-" . $i . "-" . $field->{'@attributes'}->name; 
+                            $holder['name']     = "jform[" . $name ."][" . $name . $index ."][". $field->{'@attributes'}->name ."]";
+                            $holder['id']       = "jform-" . $name . "-" . $name . $index . "-" . $field->{'@attributes'}->name; 
                             $inputs .= $this->renderMediaFields($this, $holder);
                             break;
                         case 'textarea': 
@@ -294,6 +293,7 @@ class JFormFieldSprepeat extends JFormField{
                     $inputs     .= "</div>";
                     $return     .= $inputs;    
                 }
+                $index++;
                 $return         .= "</div>";
             }
         }
@@ -308,7 +308,23 @@ class JFormFieldSprepeat extends JFormField{
                 margin-top: 12px;
                 background: #f9f9f9;
                 padding: 20px;
-                cursor: pointer;
+                cursor: move;
+            }
+
+            .ui-sortable-helper {
+                -ms-transform: rotate(3deg); /* IE 9 */
+                -webkit-transform: rotate(3deg); /* Safari */
+                transform: rotate(3deg);
+
+                -webkit-box-shadow: 2px 2px 10px 0px rgba(92,92,92,0.59);
+                -moz-box-shadow: 2px 2px 10px 0px rgba(92,92,92,0.59);
+                box-shadow: 2px 2px 10px 0px rgba(92,92,92,0.59);
+            }
+
+            .ui-sortable-placeholder {
+                background: #07575B;
+                border: 3px dashed #C4DFE6;
+                visibility: visible!important;
             }
 
             .spevents-preview {
@@ -330,6 +346,13 @@ class JFormFieldSprepeat extends JFormField{
                 base_url: '" . JUri::root() . "',
                 common_name: '" . $name . "',
                 id: '" . $this->id . "'
+            });
+
+            jQuery(document).spsortable({
+                id: '#sprepeat-" . $this->id . "', 
+                items: '.spevents-clonable',
+                common_id: '#sprepeat-" . $this->id . "',
+                common_name: '" . $name . "'
             });
         ");
         
