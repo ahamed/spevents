@@ -23,4 +23,10 @@ class SpeventsControllerEvent extends JControllerForm
 		}
 		return parent::allowEdit($data, $key);
 	}
+
+	public function tagSave($key = null, $urlVar = null)
+	{
+		echo "Hello from tag save";
+		exit;
+	}
 }

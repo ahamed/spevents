@@ -162,6 +162,7 @@ JFactory::getDocument()->addScriptDeclaration(implode("\n", $script));
 						</td>
 						<td class="center">
 							<?php if (isset($this->modules[$item->menutype])) : ?>
+							<?php $link = JRoute::_('index.php?option=com_modules&task=module.add&eid=' . $modMenuId . '&params[menutype]=' . $item->menutype . '&tmpl=component&layout=modal'); ?>
 								<div class="btn-group">
 									<a href="#" class="btn btn-small dropdown-toggle" data-toggle="dropdown">
 										<?php echo JText::_('COM_MENUS_MODULES'); ?>

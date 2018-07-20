@@ -2,38 +2,62 @@
 <form>
     <fieldset name="basic">
         <field name="id" type="hidden" />
+
         <field name="title" type="text" class="inputbox" size="40" required="true" description="JFIELD_TITLE_DESC" lable="JGLOBAL_TITLE" />
+        
         <field name="alias" type="text" id="alias" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" hint="JFIELD_ALIAS_PLACEHOLDER" size="40" />
+        
         <field name="categories" type="sql" label="COM_SPEVENTS_CATEGORY_LABEL" description="COM_SPEVENTS_CATEGORY_DESC" query="SELECT id, title from #__spevents_categories where enabled = 1" key_field="id" value_field="title" multiple="multiple" required="true" />
+
+        <field name='add_category' type="spmodal" label="" button_text="Add New Category" modal_id="addNewCategory1" modal_title="Add new category" url="index.php?option=com_spevents:view=category:tmpl=component:layout=modal" element="categories" btn_style="btn-warning" />
+        
         <field name="physical_location" type="radio" class="btn-group" label="COM_SPEVENTS_PHYSICAL_LOCATION" description="COM_SPEVENTS_PHYSICAL_LOCATION_DESC" default="0">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        
         <field name="location" type="sql" label="COM_SPEVENTS_LOCATION_LABEL" description="COM_SPEVENTS_LOCATION_DESC" query="SELECT id, venue_name AS venue from #__spevents_locations where enabled = 1" key_field="id" value_field="venue" showon="physical_location:1" required="true" />
+
+        <field name='add_new_location' type="spmodal" label="" button_text="Add New Location" modal_id="addNewLocation" modal_title="Add new location" url="index.php?option=com_spevents:view=location:tmpl=component:layout=modal" showon="physical_location:1" element="location" btn_style="btn-warning" />
+
         <field name="organizers" type="sql" label="COM_SPEVENTS_ORGANIZERS_LABEL" description="COM_SPEVENTS_ORGANIZERS_DESC" query="SELECT id, title from #__spevents_organizers where enabled = 1" key_field="id" value_field="title" required="true" multiple="multiple" />
+        
+        <field name='add_new_organizer' type="spmodal" label="" button_text="Add New Organizer" modal_id="addNewOrganizer" modal_title="Add new organizer" url="index.php?option=com_spevents:view=organizer:tmpl=component:layout=modal" element="organizers" btn_style="btn-warning" />
+        
         <field name="seats" type="number" label="COM_SPEVENTS_SEATS_LABEL" description="COM_SPEVENTS_SEATS_DESC" required="true" />
+        
         <field name="tickets" type="sql" query="SELECT id, title FROM #__spevents_tickets AS a WHERE a.enabled = 1" key_field="id" value_field="title" multiple="true"/>
+
+        <field name='add_new_ticket' type="spmodal" label="" button_text="Add New Ticket" modal_id="addNewTicket" modal_title="Add new ticket" url="index.php?option=com_spevents:view=ticket:tmpl=component:layout=modal" element="tickets" btn_style="btn-warning" />
+        
         <field name="logo" type="media" label="COM_SPEVENTS_LOGO" description="COM_SPEVENTS_LOGO_DESC" />
+        
         <field name="banner" type="media" label="COM_SPEVENTS_BANNER_LABEL" description="COM_SPEVENTS_BANNER_DESC"/>
+        
         <field name="url" type="url" label="COM_SPEVENTS_URL_LABEL" description="COM_SPEVENTS_URL_DESC" />
+        
         <field name="description" type="editor" label="COM_SPEVENTS_DESCRIPTION_LABEL" description="COM_SPEVENTS_DESCRIPTION_DESC"/>
     </fieldset>
     <fieldset name="date-time">
         <field name="start_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_START_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC"/>
+        
         <field name="end_date" type="calendar" showtime="true" timeformat="24" format="%Y-%m-%d" required="true" label="COM_SPEVENTS_END_DATE_LABEL" description="COM_SPEVENTS_START_DATE_DESC" />
+        
         <field name="start_time" type="sptimepicker" interval="1" label="COM_SPEVENTS_START_TIME_LABEL" description="COM_SPEVENTS_START_TIME_DESC" showon="all_day_event:0"/>
+        
         <field name="end_time" type="sptimepicker" interval="1" label="COM_SPEVENTS_END_TIME_LABEL" description="COM_SPEVENTS_END_TIME_DESC" showon="all_day_event:0" />
+        
         <field name="all_day_event" type="radio" label="COM_SPEVENTS_ALL_DAY_EVENT_LABEL" description="COM_SPEVENTS_ALL_DAY_EVENT_DESC" default="0" class="btn-group">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        
         <field name="timezone" type="timezone" default="Asia/Dhaka" label="COM_SPEVENTS_TIMEZONE_LABEL" description="COM_SPEVENTS_TIMEZONE_DESC" required="true" />
-
-
     </fieldset>
     <fieldset name="repeat">
         <fields name="recurring">
             <field name="repeat_amount" type="text" label="COM_SPEVENTS_REPEAT_EVERY_LABEL" description="COM_SPEVENTS_REPEAT_EVERY_DESC" />
+            
             <field name="repeat_type" type="list" label="">
                 <option value="">--Select--</option>
                 <option value="day">Day</option>
@@ -41,9 +65,13 @@
                 <option value="month">Month</option>
                 <option value="year">Year</option>
             </field>
+            
             <field name="repeat_start" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_START" description="COM_SPEVENTS_REPEAT_START_DESC"/>
+            
             <field name="repeat_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REPEAT_END" description="COM_SPEVENTS_REPEAT_END_DESC"/>
+            
             <field name="repeat_also" type="spdatepicker" label="COM_SPEVENTS_REPEAT_ALSO_LABEL" description="COM_SPEVENTS_REPEAT_ALSO_DESC" />
+            
             <field name="repeat_not" type="spdatepicker" label="COM_SPEVENTS_REPEAT_NOT_LABEL" description="COM_SPEVENTS_REPEAT_NOT_DESC" />
 
         </fields>
@@ -51,29 +79,35 @@
     <fieldset name="registration">
         <fields name="registration">
             <field name="reg_start" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_START_LABEL" description="COM_SPEVENTS_REG_START_DESC"/>
+            
             <field name="reg_end" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_END_LABEL" description="COM_SPEVENTS_REG_END_DESC"/>
+            
             <field name="reg_cancel" type="calendar" format="%Y-%m-%d" label="COM_SPEVENTS_REG_CANCEL_LABEL" description="COM_SPEVENTS_REG_CANCEL_DESC"/>
+            
             <field name="reg_payment" type="list" label="COM_SPEVENTS_PAYMENT_LABEL" description="COM_SPEVENTS_PAYMENT_DESC" multiple="multiple">
                 <option value="COD">Cash On Delivery</option>
                 <option value="paypal">Paypal</option>
             </field>
+            
             <field name="reg_allow_overflow" type="radio" label="COM_SPEVENTS_ALLOW_OVERFLOW_LABEL" description="COM_SPEVENTS_ALLOW_OVERFLOW_DESC" default="0" class="btn-group">
                 <option value="1">JYES</option>
                 <option value="0">JNO</option>
             </field>
-
         </fields>
     </fieldset>
     <fieldset name="gallery">
         <field name="gallery" type="sprepeat" id="events_gallery" label="COM_SPEVENTS_GALLERY" description="COM_SPEVENTS_GALLERY_DESC">
             <field name="image_link" type="media" label="COM_SPEVENTS_IMAGE_LINK" description="COM_SPEVENTS_IMAGE_LINK_DESC" />
+            
             <field name="image_alt" type="text" label="COM_SPEVENTS_IMAGE_ALT" description="COM_SPEVENTS_IMAGE_ALT_DESC"/>
         </field>
     </fieldset>
     <fieldset name="social">
         <field name="social_tags" type="sprepeat" id="events_social" label="COM_SPEVENTS_SOCIAL_LILNKS" description="COM_SPEVENTS_SOCIAL_LILNKS_DESC">
             <field name="social_icon" type="text" label="COM_SPEVENTS_SOCIAL_ICON" description="COM_SPEVENTS_SOCIAL_ICON_DESC" />
+            
             <field name="social_key_field" type="text" label="COM_SPEVENTS_SOCIAL_KEY_FIELD" description="COM_SPEVENTS_SOCIAL_KEY_FIELD_DESC" />
+            
             <field name="social_value_field" type="textarea" rows="4" label="COM_SPEVENTS_SOCIAL_VALUE_FIELD" description="COM_SPEVENTS_SOCIAL_VALUE_FIELD_DESC" />
         </field>
     </fieldset>
@@ -82,16 +116,22 @@
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
+        
         <field name="tags" type="sql" query="SELECT id, title FROM #__spevents_tags where enabled = 1" key_field="id" value_field="title" label="COM_SPEVENTS_TAGS_LABEL" description="COM_SPEVENTS_TAGS_DESC" multiple="multiple" />
+        
+        <field name='add_new_tag' type="spmodal" label="" button_text="Add new tag" modal_id="addNewTag" modal_title="Add new tag" url="index.php?option=com_spevents:view=tag:tmpl=component:layout=modal" element="tags" />
 
         <field name="enabled" type="list" label="JSTATUS" labelclass="hello-label" class="chzn-color-state" filter="intval" size="1" default="1">
             <option value="1">JPUBLISHED</option>
             <option value="0">JUNPUBLISHED</option>
         </field>
+        
         <field name="language" type="language" label="COM_SPEVENTS_FIELD_LANGUAGE">
             <option value="*">COM_SPEVENTS_ALL_LANGUAGES</option>
         </field>
+        
         <field name="access" type="accesslevel" label="JFIELD_ACCESS_LABEL" />
+        
         <field name="created_by" type="user" label="JGLOBAL_FIELD_CREATED_BY_LABEL"/>
     </fieldset>
     <fieldset name="location_modal">

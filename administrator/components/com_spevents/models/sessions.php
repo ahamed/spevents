@@ -89,6 +89,7 @@ class SpeventsModelSessions extends JModelList
 			$query->where($db->quoteName('a.created_by') . '=' . $db->quote($user_id));
 		}
 
+		//filter by keyword
 		$search = $this->getState('filter.search');
 		if (!empty($search))
 		{
@@ -97,11 +98,26 @@ class SpeventsModelSessions extends JModelList
 		}
 
 		//get filtered data by events
-		$filter_events = $this->getState('filter.events');
+		$filter_events = $this->getState('filter.event');
 		if (!empty($filter_events))
 		{
 			$query->where($db->quoteName('a.event_id') . '=' . $db->quote($filter_events));
 		}
+
+		//filter by speaker
+		if ($speaker = $this->getState('filter.speaker'))
+		{
+			$speakers = SpeventsHelper::findInObject('speakers', '#__spevents_sessions', $speaker);
+			if (count($speakers))
+			{
+				$query->where($db->quoteName('a.id') . ' IN ( '. implode(',', $speakers) . ' )');
+			}
+			else
+			{
+				$quere->where($db->quoteName('a.id') . ' < 0');
+			}
+		}
+
 
 		$orderCol = $this->getState('list.ordering','a.ordering');
 		$orderDirn = $this->getState('list.direction','asc');

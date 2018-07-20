@@ -81,11 +81,6 @@ class SpeventsViewSpeakers extends JViewLegacy
 		}
 
 		JHtmlSidebar::setAction('index.php?option=com_spevents&view=speakers');
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_PUBLISHED'),'filter_enabled',
-			JHtml::_('select.options',JHtml::_('jgrid.publishedOptions'), 'value','text',$state->get('filter.enabled'), true)
-		);
-
 		JToolbarHelper::title(JText::_('COM_SPEVENTS_SPEAKERS_TITLE_LABEL'), 'users');
 	}
 

@@ -52,6 +52,10 @@ class MenusViewMenus extends JViewLegacy
 		$this->pagination = $this->get('Pagination');
 		$this->state      = $this->get('State');
 
+		// echo "<pre>";
+		// print_r($this->modules);
+		// echo "</pre>";
+
 		if ($this->getLayout() == 'default')
 		{
 			$this->filterForm    = $this->get('FilterForm');

@@ -181,8 +181,8 @@ JHtml::_('jquery.framework', false);
                     </td>
 
                     <td>
-		                <?php foreach($item->ogranizer_info as $organizer): ?>
-                        <span style="background:#46a546;color:white; border-radius: 5px; padding: 5px;"><?php echo $organizer->title; ?></span>
+		                <?php foreach($item->ogranizer_info as $key => $organizer): ?>
+                        <span style=""><?php echo $organizer->title; ?><?php echo ($key < count($item->ogranizer_info)-1) ? ',': ''; ?></span>
                         <?php endforeach; ?>
                     </td>
 
@@ -215,9 +215,3 @@ JHtml::_('jquery.framework', false);
 
     </div>
 </form>
-
-
-
-
-
-<!-- <!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>sp-events</title><link href=/static/css/app.30790115300ab27614ce176899523b62.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.690af568dc446079a841.js></script><script type=text/javascript src=/static/js/app.2f2e5edd9af2c59aa514.js></script></body></html> -->

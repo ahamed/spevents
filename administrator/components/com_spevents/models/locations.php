@@ -86,7 +86,7 @@ class SpeventsModelLocations extends JModelList
 		if (!empty($search))
 		{
 			$search = $db->quote('%' . $db->escape($search,true) . '%');
-			$query->where('a.title LIKE '. $search );
+			$query->where('a.venue_name LIKE '. $search );
 		}
 
 		$orderCol = $this->getState('list.ordering','a.ordering');

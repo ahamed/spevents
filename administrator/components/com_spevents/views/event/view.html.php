@@ -14,23 +14,23 @@ class SpeventsViewEvent extends JViewLegacy
 		$this->item = $this->get('Item');
 		$this->form = $this->get('Form');
 
-		
-
 		if (count($errors = $this->get('Errors')))
 		{
 			JError::raiseError(500, implode('<br>',$errors));
 			return false;
 		}
 		
-
 		$this->addToolbar();
-
 		return parent::display($tpl);
 	}
 
 
 	protected function addToolbar()
 	{
+
+		$toolbar = JToolbar::getInstance('toolbar');
+		$layout  = new JLayoutFile('joomla.toolbar.popup');
+
 		$input = JFactory::getApplication()->input;
 		$input->set('hidemainmenu',true);
 

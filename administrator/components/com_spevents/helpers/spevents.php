@@ -55,11 +55,6 @@ class SpeventsHelper extends JHelperContent
 			$vName == 'tickets'
 		);
 		JHtmlSidebar::addEntry(
-			JText::_('COM_SPEVENTS_SUBMENU_TAGS'),
-			'index.php?option=com_spevents&view=tags',
-			$vName == 'tags'
-		);
-		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_SPEAKERS'),
 			'index.php?option=com_spevents&view=speakers',
 			$vName == 'speakers'
@@ -68,6 +63,11 @@ class SpeventsHelper extends JHelperContent
 			JText::_('COM_SPEVENTS_SUBMENU_SESSIONS'),
 			'index.php?option=com_spevents&view=sessions',
 			$vName == 'sessions'
+		);
+		JHtmlSidebar::addEntry(
+			JText::_('COM_SPEVENTS_SUBMENU_TAGS'),
+			'index.php?option=com_spevents&view=tags',
+			$vName == 'tags'
 		);
 		JHtmlSidebar::addEntry(
 			JText::_('COM_SPEVENTS_SUBMENU_ORDERS'),
@@ -189,6 +189,31 @@ class SpeventsHelper extends JHelperContent
 		$result = $db->loadObject();
 		return $result;
 
+	}
+
+	//find an id in an object string
+	public static function findInObject($param, $table, $id)
+	{
+		$db 	= JFactory::getDbo();
+		$query 	= $db->getQuery(true);
+
+		$query->select('*')->from($db->quoteName($table));
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+		
+
+		$data = [];
+		foreach($result as $r)
+		{
+			$parameter = [];
+			$parameter = self::stringToArray($r->$param);
+			if (in_array((string) $id, $parameter))
+			{
+				$data[] = $r->id;
+			}
+		}
+
+		return $data;
 	}
 
 	//get object data of a specific parameter

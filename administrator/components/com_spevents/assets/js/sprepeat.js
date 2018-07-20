@@ -67,6 +67,11 @@
                     });
                     count++;
                 });
+
+                //scroll to the newly created portion
+                $('html, body').animate({
+                    scrollTop: $("#sprepeat-" + id + " .spevents-clonable:last-child").offset().top
+                }, 1000);
             });
             /* ========================================================================
              * Append a clonable div after next of the clicked div's add button
@@ -117,6 +122,10 @@
                     count++;
                 });
 
+                //scroll to the newly created portion
+                $('html, body').animate({
+                    scrollTop: $("#sprepeat-" + id + " .spevents-clonable:last-child").offset().top
+                }, 1000);
              });
 
             /* ========================================================================

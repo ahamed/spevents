@@ -26,8 +26,6 @@ class SpeventsViewEvents extends JViewLegacy
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
-		//SpeventsHelper::___($this->items);
-
 		SpeventsHelper::addSubmenu('events');
 
 
@@ -85,10 +83,6 @@ class SpeventsViewEvents extends JViewLegacy
 		}
 
 		JHtmlSidebar::setAction('index.php?option=com_spevents&view=events');
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_PUBLISHED'),'filter_enabled',
-			JHtml::_('select.options',JHtml::_('jgrid.publishedOptions'), 'value','text',$state->get('filter.enabled'), true)
-		);
 		JToolbarHelper::title(JText::_('COM_SPEVENTS_EVENTS_TITLE_LABEL'), 'calendar');
 	}
 

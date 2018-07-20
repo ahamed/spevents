@@ -81,16 +81,6 @@ class SpeventsViewSessions extends JViewLegacy
 		}
 
 		JHtmlSidebar::setAction('index.php?option=com_spevents&view=sessions');
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_PUBLISHED'),'filter_enabled',
-			JHtml::_('select.options',JHtml::_('jgrid.publishedOptions'), 'value','text',$state->get('filter.enabled'), true)
-		);
-
-		JHtmlSidebar::addFilter(
-			JText::_("COM_SPEVENTS_FILTER_EVENTS"), 'filter_events',
-			JHtml::_('select.options',$this->model->eventFilterOptions(), 'id', 'title', $state->get('filter.events'), true)
-		);
-
 		JToolbarHelper::title(JText::_('COM_SPEVENTS_SESSIONS_TITLE_LABEL'), 'palette');
 	}
 

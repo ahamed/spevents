@@ -27,19 +27,19 @@ class SpeventsModelEvents extends JModelList
 
 	protected function populateState($ordering = 'a.ordering', $direction = 'asc')
 	{
-		$app = JFactory::getApplication();
-		$context = $this->context;
+		$app 		= JFactory::getApplication();
+		$context 	= $this->context;
 
-		$search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
+		$search 	= $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
 		$this->setState('filter.search', $search);
 
-		$access = $this->getUserStateFromRequest($this->context . '.filter.access', 'filter_access');
+		$access 	= $this->getUserStateFromRequest($this->context . '.filter.access', 'filter_access');
 		$this->setState('filter.access', $access);
 
-		$published = $this->getUserStateFromRequest($this->context . '.filter.enabled', 'filter_enabled', '');
+		$published 	= $this->getUserStateFromRequest($this->context . '.filter.enabled', 'filter_enabled', '');
 		$this->setState('filter.enabled', $published);
 
-		$language = $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '');
+		$language 	= $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '');
 		$this->setState('filter.language', $language);
 
 		parent::populateState($ordering, $direction);
@@ -55,18 +55,18 @@ class SpeventsModelEvents extends JModelList
 		return parent::getStoreId($id);
 	}
 
+
 	protected function getListQuery()
 	{
-		$app = JFactory::getApplication();
-		$state = $this->get('State');
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
-
+		$app 	= JFactory::getApplication();
+		$state 	= $this->get('State');
+		$db 	= JFactory::getDbo();
+		$query 	= $db->getQuery(true);
 		$query->select(
 			$this->getState('list.select','a.*')
 		);
 		$query->from('#__spevents_events as a');
-		$published = $this->getState('filter.enabled',false);
+		$published 	= $this->getState('filter.enabled',false);
 
 		if (is_numeric($published))
 		{
@@ -82,6 +82,53 @@ class SpeventsModelEvents extends JModelList
 			$query->where($db->quoteName('a.access') . ' = ' . $db->quote($access));
 		}
 
+		if ($location = $this->getState('filter.location'))
+		{
+			$query->where($db->quoteName('a.location') . ' = ' . $db->quote($location));
+		}
+
+		//filter by tags
+		if ($tag = $this->getState('filter.tag'))
+		{
+			$tags = SpeventsHelper::findInObject("tags", "#__spevents_events", $tag);
+			if (count($tags))
+			{
+				$query->where($db->quoteName('a.id') . " IN( ". implode(',',$tags) . " )");
+			}
+			else
+			{
+				$query->where($db->quoteName('a.id') . ' < 0');
+			}
+		}
+
+		//filter by categories
+		if ($category 	= $this->getState('filter.category'))
+		{
+			$categories = SpeventsHelper::findInObject("categories", "#__spevents_events", $category);
+			if (count($categories))
+			{
+				$query->where($db->quoteName('a.id') . " IN( " . implode(',', $categories) . " )");
+			}
+			else
+			{
+				$query->where($db->quoteName('a.id') . ' < 0');
+			}
+		}
+
+		//filter by organizers
+		if ($organizer 	= $this->getState('filter.organizer'))
+		{
+			$organizers = SpeventsHelper::findInObject("organizers", "#__spevents_events", $organizer);
+			if (count($organizers))
+			{
+				$query->where($db->quoteName('a.id') . " IN( " . implode(',', $organizers) . " )");
+			}
+			else
+			{
+				$query->where($db->quoteName('a.id') . ' < 0');
+			}
+		}
+
 		$user = JFactory::getUser();
 		$user_id = $user->get('id','INT');
 		if ($user_id)
@@ -89,6 +136,7 @@ class SpeventsModelEvents extends JModelList
 			$query->where($db->quoteName('a.created_by') . '=' . $db->quote($user_id));
 		}
 
+		//filter by keyword
 		$search = $this->getState('filter.search');
 		if (!empty($search))
 		{
@@ -102,7 +150,6 @@ class SpeventsModelEvents extends JModelList
 		$order = $db->escape($orderCol) . ' ' . $db->escape($orderDirn);
 		$query->order($order);
 
-
 		return $query;
 	}
 
@@ -111,8 +158,8 @@ class SpeventsModelEvents extends JModelList
 		$items = parent::getItems();
 		foreach($items as $key => $item)
 		{
-			$item->ogranizer_info = $this->getOrganizers($item->organizers);
-			$item->location_info = $this->getLocation($item->location);
+			$item->ogranizer_info 	= $this->getOrganizers($item->organizers);
+			$item->location_info 	= $this->getLocation($item->location);
 		}
 
 		return $items;
@@ -120,8 +167,8 @@ class SpeventsModelEvents extends JModelList
 
 	public function getOrganizers($id)
 	{
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
+		$db 	= JFactory::getDbo();
+		$query 	= $db->getQuery(true);
 
 		if (!is_array($id))
 		{
@@ -133,8 +180,8 @@ class SpeventsModelEvents extends JModelList
 		$query->select('o.id, o.title');
 		$query->from($db->quoteName('#__spevents_organizers','o'));
 		$query->where($db->quoteName('id') . ' IN (' . $id . ')');
+		
 		$db->setQuery($query);
-
 		$items = $db->loadObjectList();
 
 		return $items;
@@ -152,13 +199,14 @@ class SpeventsModelEvents extends JModelList
 		}
 		else
 		{
-			$db = JFactory::getDbo();
-			$query = $db->getQuery(true);
+			$db 	= JFactory::getDbo();
+			$query 	= $db->getQuery(true);
 
 			$query->select('lc.id, lc.venue_name as title')
 				->from($db->quoteName('#__spevents_locations', 'lc'))
 				->where($db->quoteName('lc.id') . ' = '. (int)$location_id);
 			$db->setQuery($query);
+			
 			$result = $db->loadObject();
 			return $result;
 		}
@@ -167,14 +215,16 @@ class SpeventsModelEvents extends JModelList
 	//generate iteratable period
 	public function generatePeriod($id, $param = 'recurring', $tbl_name = '#__spevents_events')
 	{
-		$begin = new DateTime();
-		$end = new DateTime();
-		$interval_string = "1 day";
-		$dates = [];
-		$repeat_also = [];
-		$repeat_not = [];
+		$begin 	= new DateTime();
+		$end 	= new DateTime();
 
-		$recurring = SP::_get($param,$tbl_name,$id);
+		$interval_string = "1 day";
+		
+		$dates 			= [];
+		$repeat_also 	= [];
+		$repeat_not 	= [];
+
+		$recurring = SpeventsHelper::_get($param,$tbl_name,$id);
 
 		if (!empty($recurring->repeat_start))
 		{
@@ -210,12 +260,12 @@ class SpeventsModelEvents extends JModelList
 			$interval_string = $recurring->repeat_amount . ' ' . $recurring->repeat_type;
 		}
 
-		$interval = DateInterval::createFromDateString($interval_string);
-		$period = new DatePeriod($begin, $interval, $end);
+		$interval 	= DateInterval::createFromDateString($interval_string);
+		$period 	= new DatePeriod($begin, $interval, $end);
 
-		$data['repeat_also'] = $repeat_also;
-		$data['repeat_not'] = $repeat_not;
-		$data['period'] = $period;
+		$data['repeat_also'] 	= $repeat_also;
+		$data['repeat_not'] 	= $repeat_not;
+		$data['period'] 		= $period;
 		
 		return $data;
 	}
@@ -228,8 +278,9 @@ class SpeventsModelEvents extends JModelList
 	 */
 	public function calculateRecurringDate()
 	{
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
+		$db 	= JFactory::getDbo();
+		$query 	= $db->getQuery(true);
+
 		$query->select('*')->from($db->quoteName('#__spevents_events'));
 		$query->where($db->quoteName('enabled') . '=' . $db->quote('1'));
 
@@ -240,15 +291,16 @@ class SpeventsModelEvents extends JModelList
 		foreach($results as $key => $result)
 		{
 			$tmp =[];
-			if (SP::isEmptyObject($result->recurring))
+			if (SpeventsHelper::isEmptyObject($result->recurring))
 			{
-				$tmp['id'] = $result->id;
-				$tmp['title'] = $result->title;
-				$tmp['start'] = $result->start_date . 'T' . $result->start_time;
-				$tmp['end'] = $result->end_date . 'T' . $result->start_time;
-				$tmp['color'] = '#740474';
-				$tmp['eventBorderColor'] = '#740474';
-				$tmp['textColor'] = '#ffffff';
+				$tmp['id'] 		= $result->id;
+				$tmp['title'] 	= $result->title;
+				$tmp['start'] 	= $result->start_date . 'T' . $result->start_time;
+				$tmp['end'] 	= $result->end_date . 'T' . $result->start_time;
+				$tmp['color'] 	= '#740474';
+
+				$tmp['eventBorderColor'] 	= '#740474';
+				$tmp['textColor'] 			= '#ffffff';
 				
 				$dates[] = $tmp;
 			}
@@ -262,9 +314,10 @@ class SpeventsModelEvents extends JModelList
 						$tmp['id']		= $result->id;
 						$tmp['title'] 	= $result->title;
 						$tmp['start'] 	= $p->format('Y-m-d');
-						$tmp['color'] = '#007404';
-						$tmp['eventBorderColor'] = '#007404';
-						$tmp['textColor'] = '#ffffff';
+						$tmp['color'] 	= '#007404';
+
+						$tmp['eventBorderColor'] 	= '#007404';
+						$tmp['textColor'] 			= '#ffffff';
 						
 						$dates[] = $tmp;
 						
@@ -277,8 +330,9 @@ class SpeventsModelEvents extends JModelList
 					$tmp['title'] = $result->title;
 					$tmp['start'] = $also->format('Y-m-d');
 					$tmp['color'] = '#007404';
-					$tmp['eventBorderColor'] = '#007404';
-					$tmp['textColor'] = '#ffffff';
+
+					$tmp['eventBorderColor'] 	= '#007404';
+					$tmp['textColor'] 			= '#ffffff';
 					
 					$dates[] = $tmp;
 				}

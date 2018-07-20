@@ -23,4 +23,10 @@ class SpeventsControllerTag extends JControllerForm
 		}
 		return parent::allowEdit($data, $key);
 	}
+
+	public function tagSave()
+	{
+		echo "Hello mello";
+		exit;
+	}
 }

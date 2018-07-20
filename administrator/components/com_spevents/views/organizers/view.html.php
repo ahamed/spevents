@@ -24,8 +24,6 @@ class SpeventsViewOrganizers extends JViewLegacy
 		$this->filterForm = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
-//		/SpeventsHelper::___($this->items);
-
 		SpeventsHelper::addSubmenu('organizers');
 
 
@@ -83,11 +81,6 @@ class SpeventsViewOrganizers extends JViewLegacy
 		}
 
 		JHtmlSidebar::setAction('index.php?option=com_spevents&view=organizers');
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_PUBLISHED'),'filter_enabled',
-			JHtml::_('select.options',JHtml::_('jgrid.publishedOptions'), 'value','text',$state->get('filter.enabled'), true)
-		);
-
 		JToolbarHelper::title(JText::_('COM_SPEVENTS_ORGANIZERS_TITLE_LABEL'), 'wand');
 	}
 
